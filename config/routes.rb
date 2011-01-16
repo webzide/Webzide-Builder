@@ -1,4 +1,10 @@
 Webzide11::Application.routes.draw do
+  
+
+  get "users/profile"
+
+  resources :users
+  resources :sessions, :only => [:create, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,4 +63,12 @@ Webzide11::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   root :to => "pages#index"
   match '/', :to => "pages#index"
+  match '/media', :to => "pages#media"
+  match '/about', :to => "pages#about"
+  match '/contact', :to => "pages#contact"
+  
+  match '/register', :to=> "users#new"
+  match '/login', :to=>"sessions#new"
+  match '/logout', :to=>"sessions#destroy"
+
 end

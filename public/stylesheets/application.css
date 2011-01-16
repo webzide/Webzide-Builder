@@ -1,0 +1,268 @@
+a:link, a:hover, a:active, a:visited{
+text-decoration: none;
+color: black;
+}
+
+body{
+margin: 0;
+width: 100%;
+height: 100%;
+}
+
+#webzide_page{
+width: 100%;
+height: 630px;
+background: none;
+left: 0px;
+top: 0px;
+}
+
+#top{
+
+height: 100px;
+width: 100%;
+background: black;
+}
+
+#logo{
+position:absolute;
+left: 150px;
+top: 23px;
+}
+
+#logo-span{
+color: white;
+font-size: 40px;
+font-weight: bold;
+font-family: tahoma;
+}
+
+#logo-span a:link, #logo-span a:visited{
+    color: white
+}
+
+#nav{
+position: absolute;
+left: 525px;
+
+top: 35px;
+background:#FFFFFF;
+text-align: center;
+border: 2px solid rgb(200,200,200);
+font-size: 11pt
+
+}
+
+.nav-subdiv{
+    float: left;
+    margin: 0;
+    width: 80px;
+    height: 22px;
+    background: rgb(230,230,230);
+    border-left: 1px solid rgb(200,200,200);
+     padding: 6px;
+}
+
+
+.nav-subdiv:hover{
+    background: #666666;
+    color: #FFFFFF;
+
+}
+
+.current{
+    margin: 0;
+    padding: 6px;
+    width: 80px;
+    height: 22px;
+    float: left;
+    background: rgb(200,200,200);
+
+}
+
+
+#nav a{
+    font-weight: bold;
+}
+
+
+#authen{
+
+border: solid 1px black;
+width: 100%;
+height: 33px;
+background: #E6E6E6;
+
+}
+
+#authen-span{
+    text-align: left;
+    padding-left: 150px;
+    font-size: 14px;
+    margin-top: 4px;
+    vertical-align: bottom;
+}
+
+#logout-text{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#content{
+    text-align: left;
+    background:white;
+    padding: 25px 150px;
+    
+}
+
+#p1{
+
+text-indent: 3em;
+font-size: 15px;
+}
+
+#p1:first-letter{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#hotbuttons{
+    padding: 10px 50px;
+
+}
+
+#signup{
+width: 330px;
+height: 70px;
+float: left;
+background: #666666;
+font-weight: bold;
+text-align: center;
+}
+
+#hotbuttons a:link, #hotbuttons a:visited{
+    color: white;
+}
+
+.top-span{
+    font-family: arial;
+    font-size: 25px;
+}
+
+.bottom-span{
+    font-size: 13px;
+}
+
+#demo{
+    width: 330px;
+    height: 70px;
+    float: right;
+
+}
+
+.button{
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#footer{
+text-align: left;
+width: 100%;
+height: 180px;
+background: #666666;
+color: #FFFFFF;
+clear: both;
+
+}
+
+#foot{
+    padding-top: 40px;
+    width: 100%;
+    
+}
+
+.footerdiv{
+    float: left;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#copyright{
+    background: black;
+    width: 100%;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    font-size: 12px;
+    padding: 6px 0px;
+}
+
+#controller{
+    margin: 50px auto;
+
+    width: 700px;
+    height: 45px;
+    background: black;
+    color: white;
+    font-size: 15px;
+    
+}
+
+#controller td{
+    border-collapse: collapse;
+    border: 1px solid white;;
+    font-weight: bold;
+
+}
+
+#controller a:link, #controller a:hover, #controller a:visited{
+    color: white;
+}
+
+.form_row{
+    margin: 10px;
+}
+
+.authen_field{
+    float: left;
+    padding: 0px 4px;
+}
+
+.authen_elements{
+    float: left;
+    padding: 3px 4px;
+}
+
+.authen_user{
+    padding: 5px;
+}
+
+.register_button{
+    font-weight: bold;
+}
+
+.register_button a:hover{
+    text-decoration: underline;
+}
+
+.user_name{
+    font-style: italic
+}
+
+.user_name a:hover{
+    text-decoration: underline;
+    
+}
+
+input[type=submit]{
+			 background:black !important;
+			 color: white !important;
+			 border-width: thin !important;
+			 }
+
+div#spec_div{
+             width: 400px;
+             margin: 30px auto;
+}

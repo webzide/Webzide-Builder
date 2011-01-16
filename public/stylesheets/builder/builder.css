@@ -1,0 +1,58 @@
+body{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+
+}
+
+button{
+	background: rgb(221,221,221);
+	color: black;
+	width: 45px;
+	font-size: 11px;
+	border-width: 1px;
+}
+
+input[type="submit"]{
+	background: rgb(0,0,0);
+	color: white;
+	width: 45px;
+	font-size: 11px;
+	border-width: 1px;
+}
+
+
+//Modal dialog box
+ 
+ #topbar{
+ width: 100%;
+ height: 30px;
+ background: #000000;
+ color: white;
+  }
+  
+  #modal-main{
+  
+   }
+   
+   #element-top-div{
+   float: right;
+    }
+	
+	#element-width-div{
+	   margin-top:8px;
+	   float: left;
+	 }
+	 
+	 #modal-main fieldset{
+	 margin: 8px 16px;
+	  }
+	  
+	  #element-height-div{
+	  margin-top:8px;
+	  float: right;
+	   }
+	   
+	   #element-bordersize-div{
+	   		
+	    }

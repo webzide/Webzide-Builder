@@ -1,0 +1,38 @@
+
+    <%= link_to_unless_current('<div class="nav-subdiv">Home</div>', root_path) do
+       '<div class="current">Home</div>'
+
+
+      end
+    %>
+
+    <%= link_to_unless_current('<div class="nav-subdiv">Media</div>', 'pages#media') do
+       '<div class="current">Media</div>'
+      end
+    %>
+
+    <%= link_to_unless_current('<div class="nav-subdiv">About</div>', 'pages#about') do
+       '<div class="current">About</div>'
+      end
+    %>
+
+    <%= link_to_unless_current('<div class="nav-subdiv">Contact</div>', 'pages#contact') do
+       '<div class="current">Contact</div>'
+      end
+    %>
+
+
+<% if session[:user_id] %>
+
+    <%= link_to_unless_current('<div class="nav-subdiv">Profile</div>', profile_path) do
+       '<div class="current">Profile</div>'
+      end
+    %>
+
+    <%= link_to_unless_current('<div class="nav-subdiv">Dashboard</div>', dashboard_path) do
+       '<div class="current">Dashboard</div>'
+      end
+    %>
+
+<% end %>
+

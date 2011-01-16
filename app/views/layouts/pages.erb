@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+    </title>
+
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <%= render 'layouts/stylesheets' %>
+
+  </head>
+  <body>
+    <div id="webzide_page">
+      <div id="top">
+         <div id="logo">
+            <span id="logo-span">
+              <%= link_to "Webzide", root_path %>
+            </span>
+         </div>
+
+         <div id="nav">
+            <%= render 'layouts/nav' %>
+         </div>
+
+      </div>
+
+      <div id="authen">
+        <%= render 'layouts/authen' %>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+
+
+
+      <div id="copyright">
+        Copyright &copy; 2010 Webzide.com. All rights reserved.
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<div id="authen-span">
+
+  <% if !current_user.nil? %>
+    <div class="authen_user">
+        <%= 'Welcome' %>
+        <span class="user_name">
+          <%= current_user.name %>
+        </span>
+            !
+        <span id="logout-text">
+          <%= link_to 'Logout', logout_path %>
+        </span>
+    </div>
+
+  <% else %>
+     <%= form_for(:session, :url => sessions_path) do |form| %>
+      <div class="authen_field">
+        <label for="email">User Name:</label>
+        <%= form.text_field(:email, { :size=> 15, :maxlength=> 20 }) %>
+      </div>
+
+      <div class="authen_field">
+        <label for="password">Password:</label>
+        <%= form.password_field(:password, {:size=> 15, :maxlength=> 30}) %>
+      </div>
+
+      <div class="authen_elements">
+        <%= submit_tag("Login") %>
+      </div>
+
+      <div class="authen_elements">
+        <%= 'New User?  ' %>
+      </div>
+
+      <div class="authen_elements">
+        <span class="register_button"
+          <%= link_to 'Register Here', register_path %>
+        </span>
+      </div>
+
+     <% end %>
+  <% end %>
+
+</div>
