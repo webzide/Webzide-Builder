@@ -1,0 +1,36 @@
+<style type="text/css">
+  #settingsDiv{
+
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 150px;
+ }
+</style>
+
+<div id="settingsDiv">
+<% form_for :zide do |form| %>
+  <% field_set_tag 'Page Settings', :margin => '33' do %>
+
+
+    <%= label_tag 'background_color' %>:
+    <%= text_field_tag "background_color" %>
+    <br/>
+    <br/>
+    <%= label_tag 'Width' %>:
+    <%= text_field_tag "width" %>
+    <br/>
+    <br/>
+    <%= label_tag 'Height' %>:
+    <%= text_field_tag "height" %>
+
+
+    <%= submit_tag "Save" %>
+  <% end %>
+
+<% end %>
+</div>
+  <script type="text/javascript">
+
+    
+  </script>

@@ -35,37 +35,31 @@ $(document).bind('ready', function(){
 	handTool=new tools('div', 'handTool', 'toolBox', ['tools'], 'bread/handTool.png', {height: '25px', width: '25px'}, {row: 0, col: 0})
 	handTool.init();
 	
-	divisionDelete=new tools('div', 'divisionDelete', 'toolBox', ['tools'], 'bread/divisionDelete.gif', {height: '25px', width: '25px'}, {row: 0, col:1})
+        divisionDelete=new tools('div', 'divisionDelete', 'toolBox', ['tools'], 'bread/divisionDelete.gif', {height: '25px', width: '25px'}, {row: 0, col:1})
 	divisionDelete.init();
-	
-	elementSelect=new tools('div', 'elementSelect', 'toolBox', ['tools'], 'bread/elementSelect.gif', {height: '25px', width: '25px'}, {row: 1, col:0})
+
+        elementSelect=new tools('div', 'elementSelect', 'toolBox', ['tools'], 'bread/elementSelect.gif', {height: '25px', width: '25px'}, {row: 1, col:0})
 	elementSelect.init();
-	
-	textSelect=new tools('div', 'textSelect', 'toolBox', ['tools'], 'bread/textSelect.gif', {height: '25px', width: '25px'}, {row: 1, col:1})
+
+        textSelect=new tools('div', 'textSelect', 'toolBox', ['tools'], 'bread/textSelect.gif', {height: '25px', width: '25px'}, {row: 1, col:1})
 	textSelect.init();
 
 	drawDiv=new tools('div', 'drawDiv', 'toolBox', ['tools'], 'bread/drawDiv.gif', null, {row: 2, col: 0})
 	drawDiv.init();
-	
+
 	drawText=new tools('div', 'drawText', 'toolBox',['tools'], 'bread/drawText.png', {height: '25px', width: '25px'}, {row: 2, col: 1})
 	drawText.init();
-	
-	curtainH=new tools('div', 'curtainH', 'toolBox', ['tools'], 'bread/curtainH.gif', {height: '25px', width: '25px'}, {row: 3, col: 0})
+
+        curtainH=new tools('div', 'curtainH', 'toolBox', ['tools'], 'bread/curtainH.gif', {height: '25px', width: '25px'}, {row: 3, col: 0})
 	curtainH.init();
-	
-	curtainV=new tools('div', 'curtainV', 'toolBox', ['tools'], 'bread/curtainV.gif', {height: '25px', width: '25px'}, {row: 3, col: 1})
+
+        curtainV=new tools('div', 'curtainV', 'toolBox', ['tools'], 'bread/curtainV.gif', {height: '25px', width: '25px'}, {row: 3, col: 1})
 	curtainV.init();
-	
-	dividerX=new tools('div', 'dividerX', 'toolBox', ['tools'], 'bread/dividerX.gif', {height: '25px', width: '25px'}, {row: 4, col: 0})
-	dividerX.init();
-	
-	dividerY=new tools('div', 'dividerY', 'toolBox', ['tools'], 'bread/dividerY.gif', {height: '25px', width: '25px'}, {row: 4, col: 1})
-	dividerY.init();
-	
-	divisionDrag=new tools('div', 'divisionDrag', 'toolBox', ['tools'], 'bread/divisionDrag.gif', {height: '25px', width: '25px'}, {row: 5, col: 0})
+
+        divisionDrag=new tools('div', 'divisionDrag', 'toolBox', ['tools'], 'bread/divisionDrag.gif', {height: '25px', width: '25px'}, {row: 4, col: 0})
 	divisionDrag.init();
-   
-	divisionResize=new tools('div', 'divisionResize', 'toolBox', ['tools'], 'bread/divisionResize.png', {height: '25px', width: '25px'}, {row: 5, col: 1})
+
+        divisionResize=new tools('div', 'divisionResize', 'toolBox', ['tools'], 'bread/divisionResize.png', {height: '25px', width: '25px'}, {row: 4, col: 1})
 	divisionResize.init();
 });	
 

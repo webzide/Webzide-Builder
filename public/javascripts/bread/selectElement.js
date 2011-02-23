@@ -1,10 +1,10 @@
 $(document).bind('ready', function(){
   $('#elementSelect').bind('click', function(){	
-	
-	$('.div').not('.tools').unbind();
-	$('span').unbind()
+	    $('.sel').remove();
+            $('.div').unbind();
+            $('span').unbind();
 
-		   $('.div, span').css('cursor', 'pointer');
+        $('.div, span').css('cursor', 'pointer');
 
 		
 		$('.div').not('.sel, .tools').bind('mouseenter', function(event){
@@ -29,7 +29,7 @@ $(document).bind('ready', function(){
   				   	     position: 'absolute',
         				 width: width,
         				 height: height,
-        				 background: 'rgb(187, 218, 253)',
+        				 background: '#D1E1FA',
   				 		 opacity:'0.4',
   					 	 filter: 'alpha(opacity=40)'
   					 
@@ -46,11 +46,11 @@ $(document).bind('ready', function(){
 				
 					$(this).css({
 						background: 'none',
-					    border: '5px solid yellow',
-					    opacity:'0.2',
+					    border: '5px solid #D1E1FA',
+					    opacity:'0.8',
 						width: (parseInt($(this).width()) - 10),
 						height: (parseInt($(this).height()) - 10),
-  					 	filter: 'alpha(opacity=40)'
+  					 	filter: 'alpha(opacity=20)'
 					   
 					});
 					

@@ -1,5 +1,5 @@
   var divisionSpanDraw=function (){
-
+boundariesCSS.disabled=false;
     $('.div, span').css('cursor', 'crosshair');
 	
 	borderwidth=1;

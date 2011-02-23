@@ -1,13 +1,11 @@
 	$(document).bind('ready', function(){	
 	  $('#textSelect').bind('click', function(){
 			
-		$('.sel').remove();
-		$('.div').unbind()
 		
 		$('span').bind('click', function(event){
 			$(event.target).addClass('edit');
 			
-			$(event.target).parents('.div').each(function(){
+			$(event.target).parents('.div').not("#page").each(function(){
 				this.contentEditable=true;
 			});
 

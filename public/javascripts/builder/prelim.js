@@ -12,7 +12,7 @@ var prelim=function(event){
 	
 	//Precaching Images
 	imageReplacement=new Image();
-	imageReplacement.src="http://img227.imageshack.us/img227/7902/insertimage.png"
+	imageReplacement.src="../images/builder/imageReplacement.png"
 	
 	//Set page height
 	$('#page').height("1400px")

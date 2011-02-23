@@ -26,7 +26,5 @@ boundaries=function(){
 
 
 $(document).bind('ready', function(){
-
-	
 	$('#showBoundaries').bind('click', boundaries)
 });

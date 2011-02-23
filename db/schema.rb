@@ -21,4 +21,12 @@ ActiveRecord::Schema.define(:version => 20110103182022) do
     t.string   "salt"
   end
 
+  create_table "zides", :force => true do |t|
+    t.integer "user_id"
+    t.string  "code",          :default => ""
+    t.string  "page_settings"
+  end
+
+  add_index "zides", ["user_id"], :name => "index_zides_on_user_id"
+
 end

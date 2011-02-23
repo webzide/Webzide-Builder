@@ -1,109 +1,99 @@
-  $(document).bind('ready', function(){
+$(document).bind('ready', function(){
+    curtainwidth=0;
+    clickSwitch=0;
 
-    height=299;
-
-    var curtainPull=function(event){
+    var curtainPull2=function(event){
         endX=event.clientX;
         endY=event.clientY;
-
         $(div).css({
-            'border': '1px groove black',
             width: endX - startX
         });
-
-        $(curr).append(div)
+        $('.div').css(
+            'cursor', 'e-resize'
+        )
+        event.stopPropagation();
     }
-
-    var curtainEnter = function(event){
-        followDiv=document.createElement('div');
-
-        curr=event.target;
-
-        $(event.target).append(followDiv);
-
-        var curtainFollow=function(event){
-
-            $(followDiv).css({
+    var curtainFollow2=function(event){
+        curtainHeight=document.getElementById('curtainSize').value;
+        if($("#followDiv").length==0){
+            var followDiv=document.createElement('div');
+            $(followDiv).attr('id', 'followDiv');
+            $("#page").append(followDiv);
+        }
+        $("#followDiv").css({
                 'position': 'absolute',
                 'border-left': '1px dotted #666666',
-                'height': height + 'px',
-                'top': ((event.clientY - (height/2)) + + document.body.parentNode.scrollTop) + 'px',
-                'left': event.clientX
-            })
-
-
-
-            $(followDiv).attr('id', 'followDiv');
-
-            $(this).unbind('click')
-            $(this).bind('click', function(event){
-                if(clickSwitch==0){
-                    clickSwitch=1;
-
-
-
-                    $(this).bind('mousemove', curtainPull)
-                    $('.div').unbind('mouseenter', curtainEnter)
-                    $('#followDiv').css('display', 'none')
-
-
-                    $(document.body).css(
-                        'cursor', 'e-resize'
-                    )
-
-
-                    div=document.createElement('div');
-                    height=299;
-
-                    startX=event.clientX;
-                    startY=event.clientY;
-
-                    $(div).css({
-                        position: 'absolute',
-                        top: (startY - (height/2) + + document.body.parentNode.scrollTop) + 'px',
-                        left: (startX + document.body.parentNode.scrollLeft) + 'px',
-                        height: height + 'px',
-                        'border-top': '1px groove black',
-                        'border-right': '1px groove black',
-                        'border-left': '1px groove black'
-                    });
-
-                    $(this).append(div)
-                }
-                else{
-                    clickSwitch=0;
-                    $('.div').unbind('mousemove', curtainPull).bind('mousemove', curtainFollow)
-                    $(document.body).css(
-                        'cursor', 'default'
-                    )
-
-                    $('#followDiv').css('display', 'block')
-                    $('.div').bind('mouseenter', curtainEnter)
-                    $(this).bind('mousemove', curtainFollow)
-                }
-            })
-        }
-
-        $(curr).bind('mousemove', curtainFollow)
-
+                'height': curtainHeight + 'px',
+                left: event.pageX,
+                top: event.pageY - (curtainHeight/2)
+        })
         event.stopPropagation();
     }
 
-    clickSwitch=0;
-
-    $('#curtainV').bind('click', function(){
-        $('.div').unbind()	
-		$('span').unbind()
-        $('.div').bind('mouseenter', curtainEnter)
-        $('.div').bind('mouseleave', curtainLeave)
-    })
+    var curtainClick2=function(event){
+	if(event.target.nodeName == 'DIV' && $(event.target).hasClass('div')){
+            current = event.target;
+	} else {
+            current = $(event.target).parents().filter('.div').get(0);
+        }
 
 
+        if(clickSwitch==0){
+            clickSwitch=1;
+            startX=event.clientX;
+            startY=event.clientY;
+            $('#followDiv').css('display', 'none')
+            $('.div').css(
+                'cursor', 'e-resize'
+            )
+            div=document.createElement('div');
 
-    var curtainLeave=function(){
-          $('#followDiv').remove()
+            $(div).addClass('div');
+
+            $(div).css({
+                position: 'absolute',
+                left: (startX - determine(current, 'left') +  document.body.parentNode.scrollLeft) + 'px',
+                top: (startY - determine(current, 'top') - (curtainHeight/2) +  document.body.parentNode.scrollTop) + 'px',
+                height: curtainHeight + 'px'
+            });
+
+            $(current).append(div)
+
+            $("#page").bind("mousemove", curtainPull2)
+
+
+        }
+        else{
+            clickSwitch=0;
+            $("#page").unbind("mousemove", curtainPull2)
+            $('.div, .span').css(
+                'cursor', 'default'
+            )
+            $('#followDiv').css('display', 'block')
+        }
     }
 
+    $('#curtainV').bind('click', function(){
+        clickSwitch=0;
+        $('.div').unbind('mousemove', curtainFollow2);
 
+
+        $("#page").unbind();
+
+        $('#page').bind('mousemove', curtainFollow2);
+        $('#page').bind('click', curtainClick2);
+
+        boundariesCSS.disabled=false;
+
+        curtainSize=document.createElement('div');
+        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainHeight=this.value;" size="5" value="0">';
+
+        $('#toaster').append(curtainSize)
+
+        var followDiv=document.createElement('div');
+        $(followDiv).attr('id', 'followDiv');
+
+        $("#page").append(followDiv);
+    })
 
 });

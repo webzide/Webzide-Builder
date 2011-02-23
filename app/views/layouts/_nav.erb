@@ -1,24 +1,15 @@
 
-    <%= link_to_unless_current('<div class="nav-subdiv">Home</div>', root_path) do
-       '<div class="current">Home</div>'
-
-
-      end
+    <%= link_to('Home', root_path) 
+      
     %>
 
-    <%= link_to_unless_current('<div class="nav-subdiv">Media</div>', 'pages#media') do
-       '<div class="current">Media</div>'
-      end
+    <%= link_to('Media', 'pages#media')
     %>
 
-    <%= link_to_unless_current('<div class="nav-subdiv">About</div>', 'pages#about') do
-       '<div class="current">About</div>'
-      end
+    <%= link_to('About', 'pages#about')
     %>
 
-    <%= link_to_unless_current('<div class="nav-subdiv">Contact</div>', 'pages#contact') do
-       '<div class="current">Contact</div>'
-      end
+    <%= link_to('Contact', 'pages#contact')
     %>
 
 

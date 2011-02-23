@@ -1,4 +1,5 @@
   	legendSwitch=0;
+
 	
 	drawDiv_mousedown=function (event){
 		event.preventDefault ? event.preventDefault() : event.returnValue = false;
@@ -94,6 +95,8 @@
     }
   
   var divisionDraw=function (){
+
+
 	$('.div').addClass('wz-draw_division')
 
     $('.div, span').css('cursor', 'crosshair');
@@ -179,5 +182,5 @@
 }
   
 $(document).bind('ready', function(){
-	$('#drawDiv').bind('click', divisionDraw);
+    $('#drawDiv').bind('click', divisionDraw);
 });

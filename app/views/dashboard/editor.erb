@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render 'layouts/meta' %>
+    <title>Webzide Page Editor - Webzide Builder Version 0</title>
+
+    <%= render 'dashboard/stylesheets' %>
+
+    <%= render 'dashboard/scripts'  %>
+
+    <%= javascript_include_tag 'update_script' %>
+
+    <style type="text/css">
+      <%= @settings %>
+    </style>
+
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='div' id="page" style="position: absolute;left: 0px;top: 0px;">
+      <%= @zide[:code].html_safe %>
+    </div>
+
+    <div id="update_form" style="position: fixed; left: 6px; bottom: 6px">
+      <div>
+        <button onclick="window.location.href='dashboard'">Back</button>
+
+      </div>
+      <div>
+        <button href="">Settings</button>
+      </div>
+
+      <div>
+        <button href="">Preview</button>
+      </div>
+      <div>
+
+     <% form_for :zide do |form|%>
+
+
+        <%= form.hidden_field :code %>
+        <%= submit_tag 'Update', :id=>'update'  %>
+
+
+    <% end %>
+
+      </div>
+     
+
+    </div>
+
+  </body>
+</html>
+
+
