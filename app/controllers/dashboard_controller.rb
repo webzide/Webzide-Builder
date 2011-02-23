@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  include SessionsHelper
+  include ApplicationHelper
 
   layout 'application'
 
