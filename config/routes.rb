@@ -70,7 +70,7 @@ Webzide11::Application.routes.draw do
   match '/register', :to=> "users#new"
   match '/login', :to=>"sessions#new"
   match '/logout', :to=>"sessions#destroy"
-  match '/dashboard', :to=> "dashboard#{}index"
+  match '/dashboard', :to=> "dashboard#index"
   match '/show', :to=> "dashboard#show"
   match '/editor', :to=> "dashboard#editor"
 
