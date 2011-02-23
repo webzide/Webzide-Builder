@@ -4,7 +4,9 @@ class DashboardController < ApplicationController
   layout 'application'
 
   def index
-    @user=current_user
+    if signed_in?
+      @user=current_user
+    end
   end
 
 end
