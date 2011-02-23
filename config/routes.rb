@@ -2,7 +2,6 @@ Webzide11::Application.routes.draw do
   
 
   get "users/profile"
-  get "pages/contact"
 
   resources :users
   resources :sessions, :only => [:create, :destroy]
