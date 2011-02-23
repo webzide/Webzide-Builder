@@ -1,1 +1,25 @@
-fgdgdfgdgfdgfd
+        <div class="main">
+          <div id="controller">
+            <table>
+              <tr>
+                <td>
+                  <%= "#{@user.name}'s webzide" %>
+                </td>
+
+                <td>
+                  <%= link_to 'View', show_path %>
+                </td>
+
+                <td>
+                  <%= link_to 'Edit', editor_path %>
+                </td>
+
+                <td>
+                  <%= link_to 'settings', 'dashboard#settings', %>
+                </td>
+
+              </tr>
+
+            </table>
+          </div>
+        </div>
