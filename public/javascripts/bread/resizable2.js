@@ -148,8 +148,8 @@ $(document).bind('ready', function(){
             })
 
             $(cornerResize).bind('mousedown', function(event){
-                var currPosX=event.pageX;
-                var currPosY=event.pageY;
+                var currPosX=event.clientX;
+                var currPosY=event.clientY;
                 var currElem=event.target;
                 var currLeft = $(currElem).parent().width();
                 var currTop = $(currElem).parent().height();
@@ -161,8 +161,8 @@ $(document).bind('ready', function(){
                      $(currElem).parent().children('.rightResize').css('left', $(currElem).parent().width() -2)
                      $(currElem).parent().children('.rightResize').height($(currElem).parent().height() - 10)
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
-                   var nextPosX=event.pageX;
-                   var nextPosY=event.pageY
+                   var nextPosX=event.clientX;
+                   var nextPosY=event.clientY
                    var resizedLengthX= nextPosX - currPosX;
                    var resizedLengthY = nextPosY - currPosY;
 
