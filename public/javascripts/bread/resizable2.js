@@ -28,7 +28,7 @@ $(document).bind('ready', function(){
             })
 
             $(rightResize).bind('mousedown', function(event){
-                var currPos=event.pageX;
+                var currPos=event.clientX;
                 var currElem=event.target;
                 var currLeft = $(currElem).parent().width();
                 var parentLeft=$(currElem).parent().offset().left;
@@ -36,7 +36,7 @@ $(document).bind('ready', function(){
                 $("#page").bind('mousemove', function(event){
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
 
-                   var nextPos=event.pageX;
+                   var nextPos=event.clientX;
                    var resizedLength= nextPos - currPos;
 
                    if($(currElem).offset().left < parentLeft){
@@ -87,7 +87,7 @@ $(document).bind('ready', function(){
             })
 
             $(verticalResize).bind('mousedown', function(event){
-                var currPos=event.pageY;
+                var currPos=event.clientY;
                 var currElem=event.target;
                 var currTop = $(currElem).parent().height();
                 var parentTop=$(currElem).parent().offset().top;
@@ -95,7 +95,7 @@ $(document).bind('ready', function(){
                 $("#page").bind('mousemove', function(event){
                    $(currElem).parent().children('.rightResize').height($(currElem).parent().height() -10)
 
-                   var nextPos=event.pageY;
+                   var nextPos=event.clientY;
                    var resizedLength= nextPos - currPos;
 
                    if($(currElem).offset().top < parentTop){
