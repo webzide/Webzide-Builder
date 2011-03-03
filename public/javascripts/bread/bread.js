@@ -5,7 +5,7 @@ $(document).bind('ready', function(){
 		'height': '366px',
 		'right': '6px',
 		'top' : '6px',
-		'background': '#E1E1E1',
+		'background': 'rgb(240, 235, 226)',
 		'border-right': '2px solid #999999',
 		'border-bottom': '2px solid #999999'
 	}
@@ -30,7 +30,7 @@ $(document).bind('ready', function(){
 	toolBox=new tools('div', 'toolBox', 'bread', ['toolBox'], null, {width: '100%', height: '135px'})
 	toolBox.init();
 	
-	makeDimensions(document.getElementById('toolBox'), 'table', 6, 2,  {rowHeight: 25, cellWidth: 25})
+	makeDimensions(document.getElementById('toolBox'), 'table', 9, 2,  {rowHeight: 25, cellWidth: 25})
 	
 	handTool=new tools('div', 'handTool', 'toolBox', ['tools'], 'bread/handTool.png', {height: '25px', width: '25px'}, {row: 0, col: 0})
 	handTool.init();
@@ -61,6 +61,23 @@ $(document).bind('ready', function(){
 
         divisionResize=new tools('div', 'divisionResize', 'toolBox', ['tools'], 'bread/divisionResize.png', {height: '25px', width: '25px'}, {row: 4, col: 1})
 	divisionResize.init();
+
+        divBackground=new tools('div', 'divBackground', 'toolBox', ['tools'], 'bread/divisionBackground.gif', {height: '25px', width: '25px'}, {row: 5, col: 0})
+	divBackground.init();
+
+        paintText=new tools('div', 'paintText', 'toolBox', ['tools'], 'bread/paint-brush-tool.jpg', {height: '25px', width: '25px'}, {row: 5, col: 1})
+	paintText.init();
+
+        imageInsert=new tools('div', 'imageInsert', 'toolBox', ['tools'], 'bread/imageInsert.png', {height: '25px', width: '25px'}, {row: 6, col: 0})
+	imageInsert.init();
+
+        attachLink=new tools('div', 'attachLink', 'toolBox', ['tools'], 'bread/linkInsert.png', {height: '25px', width: '25px'}, {row: 6, col: 1})
+	attachLink.init();
+
+        elementProperties=new tools('div', 'elementProperties', 'toolBox', ['tools'], 'bread/elementProperties.png', {height: '40px', width: '50px', margin: "auto", "text-align": "center", "margin-top": "5px", "z-index": 998}, {row: 7, col: 0, colspan: 2})
+	elementProperties.init();
+
+
 });	
 
 	 

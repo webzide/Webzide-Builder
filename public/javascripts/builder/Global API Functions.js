@@ -45,9 +45,13 @@ function tools(elem, id, parent, classes, src, css, dim){
 			$(this.obj).css(this.css)
 		}
 		
-		
+
+
 		if(this.dim){
-			document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].appendChild(this.obj);
+                        if(this.dim.colspan){
+                            document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].colSpan=this.dim.colspan;
+                        }
+                        document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].appendChild(this.obj);
 		}
 		
 	};
@@ -110,3 +114,181 @@ function loopBorder(obj){
 	return loop;
 }
 //----------------------------------------------------------------------
+
+//Function of webzide Drag and Draw
+
+
+var draw_mousedown=function(event){
+
+    event.preventDefault ? event.preventDefault() : event.returnValue = false;
+
+    $(event.target).bind('selectstart', function(){
+        return false;
+    });
+
+    if(event.target.nodeName == 'DIV'){
+        curr = event.target;
+    } else {
+        curr = $(event.target).parents().filter('.div').get(0);
+    }
+
+    startX = event.clientX; // starting X
+    startY = event.clientY; // starting Y
+
+    div = document.createElement("div");
+
+    $(div).css({
+        position: 'absolute',
+        left: (event.clientX - determine(curr, 'left') + document.body.parentNode.scrollLeft) + 'px',
+        top: (event.clientY - determine(curr, 'top') +  document.body.parentNode.scrollTop) + 'px'
+    });
+
+    $(div).addClass('div');
+
+    if(event.data.innerElem == true){
+        var innerElem = document.createElement(event.data.elemType);
+
+        if(event.data.elemType == 'span'){
+            innerElem.innerHTML = "Insert Text Here"
+        }
+
+        if(event.data.elemType == 'img'){
+            innerElem.src = drawImageLink;
+            
+        }
+
+        $(div).append(innerElem);
+    }
+
+    $('.div').bind('mousemove', event.data,function (event) {
+
+        var endX = event.clientX;
+        var endY = event.clientY;
+
+        difX = (endX - startX);
+        difY = (endY - startY);
+
+       if ((difX || difY) > 0){
+            $(div).css({
+                width: (difX - (borderwidth * 2) - loopBorder(curr)) + "px",
+                height: ((difY - (borderwidth * 2)) - loopBorder(curr)) + "px"
+            });
+            curr.appendChild(div);
+
+                if(event.data.innerElem == true){
+                    
+
+                    if(event.data.elemType == "img"){
+
+                       
+
+                        $(innerElem).css({
+                            width: (difX - (borderwidth * 2) - loopBorder(curr)) + "px",
+                            height: ((difY - (borderwidth * 2)) - loopBorder(curr)) + "px"
+                        });
+                    }
+                    if(event.data.elemType == "span"){
+                        $(innerElem).css("font-size", ((difX - (borderwidth * 2) - loopBorder(curr)) + ((difY - (borderwidth * 2)) - loopBorder(curr))) / 17 + "pt");
+                        $(innerElem).css('padding', '0')
+                    }
+
+
+                }
+
+       }
+
+
+
+    });
+
+    $('.div').bind('mouseup', function() {
+        $('.div').unbind('mousemove');
+    });
+
+    event.stopPropagation();
+}
+
+var draw=function(event){
+    
+    
+    $('.div').addClass('.DIV')
+    $('.div, span').css('cursor', 'crosshair');
+
+    borderwidth=1;
+
+    if(event.data.elemType != 'img'){
+    boundariesCSS.disabled=false;
+    }
+
+    drawingBorders=document.createElement('div');
+    $(drawingBorders).css({
+            height: '85px',
+            width: '35px',
+            'background': '#E1E1E1',
+            'border-right': '1px solid #999999',
+            'border-bottom': '1px solid #999999'
+    });
+    {
+        var grooveBorders=document.createElement('div');
+        grooveBorders.icon=new Image();
+        grooveBorders.icon.src="../images/toaster/grooved.jpg"
+
+        $(grooveBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '30px'
+        });
+
+        grooveBorders.appendChild(grooveBorders.icon)
+
+        $(grooveBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px ridge black;} #page{border: none}'
+        });
+
+        drawingBorders.appendChild(grooveBorders);
+    }
+
+    {
+        var dashedBorders=document.createElement('div');
+        dashedBorders.icon=new Image();
+        dashedBorders.icon.src="../images/toaster/dashed.png"
+
+        $(dashedBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '30px'
+        });
+
+        dashedBorders.appendChild(dashedBorders.icon)
+
+        $(dashedBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px dashed #666666;} #page{border: none}'
+        });
+
+        drawingBorders.appendChild(dashedBorders);
+
+    }
+    {
+        var dottedBorders=document.createElement('div');
+        dottedBorders.icon=new Image();
+        dottedBorders.icon.src="../images/toaster/dotted.png"
+
+        $(dottedBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '30px'
+        });
+
+        dottedBorders.appendChild(dottedBorders.icon)
+
+        $(dottedBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px dotted #555555;} #page{border: none}'
+        });
+
+        drawingBorders.appendChild(dottedBorders);
+    }
+
+    $('#toaster').append(drawingBorders);
+
+    $('.div').bind('mousedown', event.data, draw_mousedown);
+}

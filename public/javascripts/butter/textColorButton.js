@@ -1,7 +1,5 @@
 var textColor=function(){
-	
-	
-	
+	colorPicker({style: "butter", type: "text"});
 	
 };
 

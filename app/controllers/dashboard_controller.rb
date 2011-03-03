@@ -13,6 +13,7 @@ class DashboardController < ApplicationController
   end
 
   def demo
+    render :layout=> 'builder'
   end
 
   def show
@@ -21,7 +22,7 @@ class DashboardController < ApplicationController
 
     @settings = @zide[:page_settings]
 
-    render :layout=> 'dashboard'
+    render :layout=> 'builder'
   end
 
   def settings
@@ -70,7 +71,7 @@ class DashboardController < ApplicationController
       @user=current_user
       @zide=Zide.find_by_user_id(current_user[:id])
       @settings=@zide[:page_settings]
-      render :layout => 'dashboard'
+      render :layout => 'builder'
     else
       redirect_to root_path
     end

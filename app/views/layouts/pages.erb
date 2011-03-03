@@ -13,16 +13,28 @@
   <body>
     <div id="webzide_page">
       <div id="top">
+         
+
+         <div id="nav">
+           <div id="version">
+            Alpha (version. 0.2)
+           </div>
+            <%= render 'layouts/nav' %>
+         </div>
+
          <div id="logo">
             <span id="logo-span">
               <%= link_to "Webzide", root_path %>
             </span>
          </div>
+        
 
-         <div id="nav">
-            <%= render 'layouts/nav' %>
-         </div>
 
+        <div id="slogan">
+          <span id="slogan-span">
+              web without boundaries
+          </span>
+        </div>
       </div>
 
       <div id="authen">
@@ -33,7 +45,9 @@
         <%= yield %>
       </div>
 
-
+      <div id="footer">
+          <%= render 'layouts/footer' %>
+      </div>
 
       <div id="copyright">
         Copyright &copy; 2010 Webzide.com. All rights reserved.

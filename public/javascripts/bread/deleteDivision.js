@@ -4,12 +4,14 @@ var deleteDivision=function(){
     $('.div').unbind();
     $('span').unbind();
 
-
-
     $('.div').each(function(){
             $(this).bind('click', function(event){
                     if(event.target.id!='page'){
+                        if(event.target.nodeName != "DIV"){
+                            $(event.target).parent(".div").remove();
+                        } else {
                             $(event.target).remove();
+                        }
                     }
             })
     });

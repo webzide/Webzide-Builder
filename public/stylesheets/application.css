@@ -7,6 +7,7 @@ body{
 margin: 0;
 width: 100%;
 height: 100%;
+font-family: 'Arial', 'sans-serif';
 }
 
 #webzide_page{
@@ -18,49 +19,78 @@ top: 0px;
 }
 
 #top{
-
+margin-top: 3px;
 height: 100px;
 width: 100%;
 background: black;
 }
 
 #logo{
-position:absolute;
-left: 150px;
-top: 23px;
+margin-left: 10%;
+margin-top: 1%;
+float: left;
 }
 
 #logo-span{
 color: white;
 font-size: 40px;
 font-weight: bold;
-font-family: tahoma;
+font-family: Verdana, sans-serif;
 }
 
 #logo-span a:link, #logo-span a:visited{
     color: white
 }
 
-#nav{
-position: absolute;
-left: 525px;
+#version{
+    color: #666666;
+    float: left;
+    font-size: small;
+    padding-top: 5px;
+    padding-left: 6px;
+}
 
-top: 35px;
-background:#FFFFFF;
-text-align: center;
-border: 2px solid rgb(200,200,200);
-font-size: 11pt
+#slogan{
+
+    margin: 2.5% 33% 50% 50%;
+
+}
+
+#slogan-span{
+    color: #FFFFFF;
+    font-style: italic;
+    font-size: medium;
+}
+
+#nav{
+
+background: #E6E6E6;
+display: block;
+font-size: 14pt;
+border-top: 1px solid #000000;
+height: 30px;
+margin: auto;
+
+}
+
+#nav-wrapper{
+    display: block;
+    float: right;
+    text-align: center;
+    margin: auto;
 
 }
 
 .nav-subdiv{
     float: left;
-    margin: 0;
-    width: 80px;
-    height: 22px;
-    background: rgb(230,230,230);
+    width: 100px;
+    text-align: center;
+    background: #E6E6E6;
     border-left: 1px solid rgb(200,200,200);
-     padding: 6px;
+    background: rgb(200,200,200);
+    border-right: 1px solid #E6E6E6;
+    border-left: 1px solid #E6E6E6;
+    display: block;
 }
 
 
@@ -71,18 +101,18 @@ font-size: 11pt
 }
 
 .current{
-    margin: 0;
-    padding: 6px;
-    width: 80px;
-    height: 22px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
     float: left;
-    background: rgb(200,200,200);
+    background: #E6E6E6;
+    display: block;
 
 }
 
 
 #nav a{
-    font-weight: bold;
+    
 }
 
 
@@ -97,7 +127,7 @@ background: #E6E6E6;
 
 #authen-span{
     text-align: left;
-    padding-left: 150px;
+    margin-left: 10%;
     font-size: 14px;
     margin-top: 4px;
     vertical-align: bottom;
@@ -111,7 +141,7 @@ background: #E6E6E6;
 #content{
     text-align: left;
     background:white;
-    padding: 25px 150px;
+    padding: 2% 10% 10% 10%;
     
 }
 
@@ -127,17 +157,14 @@ font-size: 15px;
 }
 
 #hotbuttons{
-    padding: 10px 50px;
+    width: 100%;
 
 }
 
 #signup{
-width: 330px;
-height: 70px;
+
 float: left;
-background: #666666;
-font-weight: bold;
-text-align: center;
+
 }
 
 #hotbuttons a:link, #hotbuttons a:visited{
@@ -154,8 +181,6 @@ text-align: center;
 }
 
 #demo{
-    width: 330px;
-    height: 70px;
     float: right;
 
 }
@@ -163,7 +188,13 @@ text-align: center;
 .button{
     -moz-border-radius: 10px;
     border-radius: 10px;
-    margin: 10px;
+    margin: 10px 5% 10px 0;
+    width: 330px;
+    height: 70px;
+
+    background: #666666;
+    font-weight: bold;
+    text-align: center
 }
 
 #footer{
@@ -173,11 +204,11 @@ height: 180px;
 background: #666666;
 color: #FFFFFF;
 clear: both;
-
+border-top: 1px solid black;
 }
 
 #foot{
-    padding-top: 40px;
+    padding-top: 30px;
     width: 100%;
     
 }
@@ -187,6 +218,18 @@ clear: both;
     color: white;
     font-size: 16px;
     font-weight: bold;
+}
+
+.footerdiv ul li{
+    font-weight: normal;
+}
+
+.footerdiv ul li a{
+    color: white
+}
+
+.footerdiv ul li a:hover{
+    text-decoration: overline underline;
 }
 
 #copyright{

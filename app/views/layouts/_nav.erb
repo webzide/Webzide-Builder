@@ -1,29 +1,37 @@
 
-    <%= link_to('Home', root_path) 
-      
-    %>
+<div id="nav-wrapper">
 
-    <%= link_to('Media', 'pages#media')
-    %>
+ <%= link_to_unless_current('<div class="nav-subdiv">Home</div>'.html_safe, root_path) do
+       '<div class="current">Home</div>'.html_safe
+      end
+ %>
 
-    <%= link_to('About', 'pages#about')
-    %>
+ <%= link_to_unless_current('<div class="nav-subdiv">Media</div>'.html_safe, media_path) do
+       '<div class="current">Media</div>'.html_safe
+      end
+ %>
 
-    <%= link_to('Contact', 'pages#contact')
-    %>
+  <%= link_to_unless_current('<div class="nav-subdiv">About</div>'.html_safe, about_path) do
+       '<div class="current">About</div>'.html_safe
+       end
+  %>
+ <%= link_to_unless_current('<div class="nav-subdiv">Contact</div>'.html_safe, contact_path) do
+       '<div class="current">Contact</div>'.html_safe
+      end
+ %>
 
+<% if signed_in? %>
 
-<% if session[:user_id] %>
-
-    <%= link_to_unless_current('<div class="nav-subdiv">Profile</div>', profile_path) do
-       '<div class="current">Profile</div>'
+    <%= link_to_unless_current('<div class="nav-subdiv">Profile</div>'.html_safe, profile_path) do
+       '<div class="current">Profile</div>'.html_safe
       end
     %>
 
-    <%= link_to_unless_current('<div class="nav-subdiv">Dashboard</div>', dashboard_path) do
-       '<div class="current">Dashboard</div>'
+    <%= link_to_unless_current('<div class="nav-subdiv">Dashboard</div>'.html_safe, dashboard_path) do
+       '<div class="current">Dashboard</div>'.html_safe
       end
     %>
 
 <% end %>
 
+</div>

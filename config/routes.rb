@@ -73,5 +73,7 @@ Webzide11::Application.routes.draw do
   match '/dashboard', :to=> "dashboard#index"
   match '/show', :to=> "dashboard#show"
   match '/editor', :to=> "dashboard#editor"
+  match '/demo', :to=> "dashboard#demo"
+  match '/profile', :to=> "users#profile"
 
 end

@@ -1,19 +1,19 @@
 $(document).ready(function(){
     	
-
-		    	butterDivCss={
+        butterDivCss={
     		'position': 'fixed',
-    		'background': '#DDDDDD',
+    		'background': 'rgb(240, 235, 226)',
     		'height': '20px',
     		'width': '266px',
-			'left': '566px',
-    		'bottom': '6px'	
+                'left': '466px',
+    		'bottom': '6px',
+                "border": "1px solid rgb(131, 118, 99)"
     	}
     	
 		butterDiv=new tools('div', 'butterDiv', document.body, ['bread'], null, butterDivCss)
 		butterDiv.init();
    
-        boldButton=new tools('div', 'boldButton', 'butterDiv', ['typo'], 'butter/boldButton.gif', {float: 'left'})
+                boldButton=new tools('div', 'boldButton', 'butterDiv', ['typo'], 'butter/boldButton.gif', {float: 'left'})
 		boldButton.init();
 		
 		italicButton=new tools('div', 'italicButton', 'butterDiv', ['typo'], 'butter/italicButton.gif', {float: 'left'})

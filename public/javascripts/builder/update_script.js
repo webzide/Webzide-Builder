@@ -6,7 +6,11 @@ $(document).ready(function(){
 		$('.div').removeAttr('contenteditable')
 		$('span').removeAttr('contenteditable');
 		$('*').css('cursor', 'default');
-		document.getElementById('zide_code').value = document.getElementById('page').innerHTML
+		document.getElementById('zide_code').value = document.getElementById('page').innerHTML;
+
+                $('.rightResize').remove();
+                $('.verticalResize').remove();
+                $('.cornerResize').remove();
 	});
 
 });

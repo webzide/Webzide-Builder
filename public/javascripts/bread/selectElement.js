@@ -42,7 +42,8 @@ $(document).bind('ready', function(){
 				
 				$('.sel').bind('click', function(){
 					$('.sel').filter('[state="selected"]').remove();
-				
+
+                                        currentElement=this.parentNode;
 				
 					$(this).css({
 						background: 'none',
