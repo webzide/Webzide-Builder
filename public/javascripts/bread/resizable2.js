@@ -23,8 +23,7 @@ $(document).bind('ready', function(){
 
                 $('.rightResize').css({
                     'position': 'absolute',
-                    'cursor': 'e-resize',
-                    'background-color': 'none',
+
                     'width': "4px",
 
                     'top': '0px'
