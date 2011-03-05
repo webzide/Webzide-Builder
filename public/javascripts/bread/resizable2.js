@@ -26,7 +26,8 @@ $(document).bind('ready', function(){
                     'cursor': 'e-resize',
                     'width': "4px",
 
-                    'top': '0px'
+                    'top': '0px',
+                    'background-color': 'none'
 
                 })
             }
