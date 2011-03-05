@@ -19,7 +19,7 @@ $(document).bind('ready', function(){
 
 
 
-                $(this).append(rightResize)
+                $(this).append($(rightResize));
 
                 $('.rightResize').css({
                     'position': 'absolute',
