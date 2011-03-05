@@ -15,7 +15,22 @@ $(document).bind('ready', function(){
 
             $(rightResize).addClass('rightResize')
 
+            $(rightResize).css({
+                'position': 'absolute',
+                'cursor': 'e-resize',
+                'background-color': 'none',
+                'width': "4px",
 
+                'top': '0px'
+
+            })
+
+            $(rightResize).bind('mousedown', function(event){
+
+
+                
+
+            })
 
             $(this).append(rightResize)
             }
