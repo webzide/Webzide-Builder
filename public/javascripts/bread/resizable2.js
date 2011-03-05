@@ -23,33 +23,7 @@ $(document).bind('ready', function(){
                 var currLeft = $(currElem).parent().width();
                 var parentLeft=$(currElem).parent().offset().left;
 
-                $("#page").bind('mousemove', function(event){
-                    $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
 
-                   var nextPos=event.clientX;
-                   var resizedLength= nextPos - currPos;
-
-                   if($(currElem).offset().left < parentLeft){
-
-                    $(currElem).css("left", 0)
-                   } else{
-                    $(currElem).css("left", currLeft + resizedLength)
-
-                   }
-
-                   $(currElem).parent().css("width", nextPos - parentLeft);
-
-                })
-
-                $('#page').bind('mouseup', function(){
-                    if($(currElem).offset().left < parentLeft){
-                         $(currElem).parent().css('width', "0px")
-                         $(currElem).css("left", 0)
-                     }
-                     $(currElem).css('left', $(currElem).parent().width())
-                    $('#page').unbind('mousemove')
-
-                })
 
             })
 
