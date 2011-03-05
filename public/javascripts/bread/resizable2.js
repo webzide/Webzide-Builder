@@ -15,7 +15,13 @@ $(document).bind('ready', function(){
 
             $(rightResize).addClass('rightResize')
 
+            $(rightResize).css({
+                'position': 'absolute',
 
+                'background-color': 'none',
+                'width': "4px",
+                'top': '0px'
+            })
 
 
 
