@@ -25,12 +25,7 @@ $(document).bind('ready', function(){
 
             })
 
-            $(rightResize).bind('mousedown', function(event){
 
-
-                
-
-            })
 
             $(this).append(rightResize)
             }
