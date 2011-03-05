@@ -27,7 +27,7 @@ $(document).bind('ready', function(){
                     'width': "4px",
 
                     'top': '0px',
-                    'background-color': 'none'
+                    'background-color': 'transparent'
 
                 })
             }
