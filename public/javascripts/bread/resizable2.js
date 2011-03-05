@@ -15,7 +15,7 @@ $(document).bind('ready', function(){
 
             $(rightResize).addClass('rightResize')
 
-            $(rightResize).css({
+            $('.rightResize').css({
                 'position': 'absolute',
 
                 'background-color': 'none',
