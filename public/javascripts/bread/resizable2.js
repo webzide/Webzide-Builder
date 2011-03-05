@@ -17,15 +17,7 @@ $(document).bind('ready', function(){
 
 
 
-            $(rightResize).bind('mousedown', function(event){
-                var currPos=event.clientX;
-                var currElem=event.target;
-                var currLeft = $(currElem).parent().width();
-                var parentLeft=$(currElem).parent().offset().left;
 
-
-
-            })
 
                 $(this).append(rightResize)
 
