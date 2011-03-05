@@ -22,12 +22,12 @@ $(document).bind('ready', function(){
                 $(this).append(rightResize)
 
                 $('.rightResize').css({
-                    position: 'absolute',
-                    cursor: 'e-resize',
+                    'position': 'absolute',
+                    'cursor': 'e-resize',
                     'background-color': 'none',
-                    width: "4px",
+                    'width': "4px",
 
-                    top: '0px'
+                    'top': '0px'
 
                 })
             }
