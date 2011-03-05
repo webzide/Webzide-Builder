@@ -39,7 +39,7 @@ $(document).bind('ready', function(){
                    var resizedLength= nextPos - currPos;
 
                    if($(currElem).offset().left < parentLeft){
-                    
+
                     $(currElem).css("left", 0)
                    } else{
                     $(currElem).css("left", currLeft + resizedLength)
@@ -57,7 +57,7 @@ $(document).bind('ready', function(){
                      }
                      $(currElem).css('left', $(currElem).parent().width())
                     $('#page').unbind('mousemove')
-                    
+
                 })
 
             })
@@ -68,7 +68,7 @@ $(document).bind('ready', function(){
             //vertical resize
             {
             var verticalResize = document.createElement('div');
-            
+
             $(verticalResize).addClass('verticalResize')
 
             $(verticalResize).css({
@@ -184,7 +184,21 @@ $(document).bind('ready', function(){
 
                 })
 
+                $('#page').bind('mouseup', function(){
+                    if($(currElem).offset().left < parentLeft){
+                         $(currElem).parent().css('width', "0px")
+                         $(currElem).css("left", 0)
+                     }
+                     $(currElem).css('left', $(currElem).parent().width() -5)
+                     $(currElem).css('top', $(currElem).parent().height() -5)
 
+                     $(currElem).parent().children('.verticalResize').css('top', $(currElem).parent().height() -2)
+                     $(currElem).parent().children('.rightResize').css('left', $(currElem).parent().width() -2)
+                     $(currElem).parent().children('.rightResize').height($(currElem).parent().height() - 10)
+                    $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
+                    $('#page').unbind('mousemove')
+
+                })
 
             })
 
@@ -192,7 +206,7 @@ $(document).bind('ready', function(){
             }
 
 
-            
+
         })
 
     });
