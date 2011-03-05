@@ -20,8 +20,7 @@ $(document).bind('ready', function(){
                 cursor: 'e-resize',
                 'background-color': 'none',
                 width: "4px",
-                height: $(this).height() - 10,
-                left: $(this).width() - 2,
+
                 top: '0px'
 
             })
