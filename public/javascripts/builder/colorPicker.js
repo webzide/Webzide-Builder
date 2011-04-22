@@ -69,11 +69,16 @@ var colorPicker = function(data){
                     colorVar=$(this).css('background-color')
 
                     if(data.type == "text"){
-                        $('.sel').parent().css('color', colorVar);
-                        document.execCommand('italic', false, null)
-                    } else if(data.type == "back") {
-                        $('.sel').parent().css('background-color', colorVar);
+                        $('.selectedElem').css('color', colorVar);
 
+                      
+
+                       
+
+                        $(".paletteBox").remove();
+                    } else if(data.type == "back") {
+                        $('.selectedElem').parent().css('background-color', colorVar);
+                        alert(colorVar)
                     }
 
                     $('.paletteBox').remove();

@@ -1,62 +1,26 @@
-//Tools Class for bread/butter tools button objects
-function tools(elem, id, parent, classes, src, css, dim){
-	this.id=id;
-	this.elem=elem;
-	this.parent=parent;
-	this.classes=classes;
-	this.src=src;
-	this.css=css;
-	this.dim=dim;
+/*
+The following code/document/program is the copyrighted work of:
+"Xuan Duan", 2010 - 2011
+All Rights Reserved.
+This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
+*/
 
-	this.init=function(){
-		this.obj=document.createElement(this.elem)
-		this.obj.setAttribute('id', this.id);
-		this.obj.setAttribute('unselectable', 'on')
-		
-		$(this.obj).css({
-				'-moz-user-select':'none',
-				'-webkit-user-select': 'none'
-		});
-		
-		for(i=0;i<this.classes.length; i++){
-			$(this.obj).addClass(this.classes[i])
-		}
-		
-		if(this.src!= null){
-			this.obj.icon=document.createElement('img');
-			this.obj.icon.src='../images/' + this.src;
-			
-			$(this.obj.icon).css({
-				'-moz-user-select':'none',
-				'-webkit-user-select': 'none'
-			});
-			
-			this.obj.icon.setAttribute('unselectable', 'on')
-			this.obj.appendChild(this.obj.icon)
-		}	
-		
-		if(typeof this.parent=='string'){
-			document.getElementById(parent).appendChild(this.obj)
-		} else{
-			this.parent.appendChild(this.obj);
-		}
-		
-		if(this.css!=null){
-			$(this.obj).css(this.css)
-		}
-		
+function disableSelection(target){
 
+    if (typeof target.onselectstart!="undefined") //IE route
+        target.onselectstart=function(){return false}
 
-		if(this.dim){
-                        if(this.dim.colspan){
-                            document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].colSpan=this.dim.colspan;
-                        }
-                        document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].appendChild(this.obj);
-		}
-		
-	};
+    else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
+        target.style.MozUserSelect="none"
 
+    else //All other route (ie: Opera)
+        target.onmousedown=function(){return false}
+
+    target.style.cursor = "default"
 }
+
+
+
 //---------------------------------------------------------------	
 
 //Function for Making dimensions in an element

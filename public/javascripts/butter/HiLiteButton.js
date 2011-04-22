@@ -5,12 +5,12 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-var backColor=function(){
-	global.palette.showhide();  
-        global.palette.state.intent="back";
+var HiLiteColor=function(){
+	global.palette.showhide();
+        global.palette.state.intent="hilite";
 };
 
 $(document).bind('ready', function(){
-	$('#backColorButton').bind('click', backColor);
+	$('#HiLiteButton').bind('click', HiLiteColor);
 });
 

@@ -2,6 +2,10 @@ $(document).bind("contextmenu", function(event){
 	  event.preventDefault();
 });
 
+$(".colors").bind("onselectstart", function(event){
+    event.preventDefault();
+})
+
 var prelim=function(event){
 
 	//Make body elements unselectable and unhighlightable
@@ -11,12 +15,11 @@ var prelim=function(event){
 	})
 	
 	//Precaching Images
-	imageReplacement=new Image();
-	imageReplacement.src="../images/builder/imageReplacement.png"
+
 	
 	//Set page height
-	$('#page').height("1400px")
-	$('#page').width("1200px")
+	$('#page').height(document.body.clientHeight)
+	$('#page').width(document.body.clientWidth)
 };
 
 $(document).bind('ready', prelim);
