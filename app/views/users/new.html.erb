@@ -7,28 +7,39 @@
 </div>
 <% else %>
 
-  <h1>Sign up</h1>
+  <h2>Sign up your new Webzide Account</h2>
 
   <%= form_for(@user) do |f| %>
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    <%= render 'shared/error_messages' %>
+
+     <fieldset>
+       <legend>Required Fields</legend>
+  
+      <div class="field">
+        <%= f.label "Webzide Name:" %><br />
+        <%= f.text_field :name %>@webzides.com
+
+      </div>
+       <br />
+      <div class="field">
+        <%= f.label "Email:" %><br />
+        <%= f.text_field :email %>
+      </div>
+       <br />
+      <div class="field">
+        <%= f.label "Password" %><br />
+        <%= f.password_field :password %>
+      </div>
+       <br />
+      <div class="field">
+        <%= f.label "Password Confirmation" %><br />
+        <%= f.password_field :password_confirmation %>
+      </div>
+       <br />
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+     </fieldset>
   <% end %>
 
 <% end %>

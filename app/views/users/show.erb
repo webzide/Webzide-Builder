@@ -1,6 +1,25 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
+<div class="profile-tab">
+  <div class="tab-top">
+    <%= link_to "Edit Profile", edit_user_path(current_user) %>
 
-<%= @user.name %>
+  </div>
+
+  <div id="profile_legend">
+    User Name:<br />
+    Email:
+  </div>
+
+  <div id="profile_content">
+    <div class="oddrow">
+      <%= @user.name %>
+    </div>
+
+     <div class="evenrow">
+      <%= @user.email %>
+    </div>
+  </div>
+
+
+</div>
+
+

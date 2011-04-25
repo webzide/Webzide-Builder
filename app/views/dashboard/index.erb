@@ -1,25 +1,15 @@
-        <div class="main">
-          <div id="controller">
-            <table>
-              <tr>
-                <td>
-                  <%= "webzide" %>
-                </td>
 
-                <td>
-                  <%= link_to 'View', show_path %>
-                </td>
+  		<div class="tab">
+    		<table class="tab-table">
+  			   <tr class="tab-top">
+  			   <td colspan="4" id="add-page"><%= link_to "Add New Page", edit_zide_path(current_user) %></td>
+  			   </tr>
 
-                <td>
-                  <%= link_to 'Edit', editor_path %>
-                </td>
-
-                <td>
-                  
-                </td>
-
-              </tr>
-
-            </table>
-          </div>
-        </div>
+  			   <tr>
+  			   	   <td class="page-name">Default Home Page</td>
+  				   <td class="page-view"><%= link_to 'View', show_path %></td>
+  				   <td class="page-edit"><%= link_to 'Edit', editor_path %></td>
+  				   <td class="page-delete">delete</td>
+  			   </tr>
+  			   </table>
+		</div>

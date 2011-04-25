@@ -1,3 +1,10 @@
+/*
+The following code/document/program is the copyrighted work of:
+"Xuan Duan", 2010 - 2011
+All Rights Reserved.
+This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
+*/
+
 function tools(type, id, parent, classes, src, css, dim, func){
 	this.id=id;
 	this.type=type;
@@ -61,9 +68,30 @@ function tools(type, id, parent, classes, src, css, dim, func){
 
                 }
 
+                if(this.id!= "butterDiv"){
+                    this.hover();
+                }
+
 	};
 
 }
 
 
 tools.prototype = new zid();
+
+tools.prototype.hover =function(){
+
+    $(this.obj).hover(
+        function(event){
+            var width = $(this).width();
+            var height = $(this).height();
+
+
+            event.stopPropagation();
+        },
+        function(event){
+
+            event.stopPropagation();
+        }
+    )
+}

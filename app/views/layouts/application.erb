@@ -1,31 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Webzide1.1</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
+<html lang="en">
+  <head>
+    <title>
+    </title>
 
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <%= render 'layouts/stylesheets' %>
+    <script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21841913-1']);
+      _gaq.push(['_trackPageview']);
 
-    <%= render 'layouts/stylesheets' %>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </head>
   <body>
     <div id="webzide_page">
       <div id="top">
 
 
          <div id="nav">
+           <div id="version">
+            Alpha (version. 0.2)
+           </div>
             <%= render 'layouts/nav' %>
          </div>
 
          <div id="logo">
             <span id="logo-span">
-              <%= link_to 'Webzide', root_path %>
+              <%= link_to "Webzide", root_path %>
             </span>
          </div>
 
-         <div id="slogan">
+
+
+        <div id="slogan">
           <span id="slogan-span">
               web without boundaries
           </span>
@@ -37,6 +54,15 @@
       </div>
 
       <div id="content">
+
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
         <%= yield %>
       </div>
 
@@ -45,11 +71,16 @@
       </div>
 
       <div id="copyright">
-        Copyright &copy; 2010 Webzide.com. All rights reserved.
+        Copyright &copy; 2010-2011 Webzide.com. All rights reserved.
       </div>
 
+      <% if Rails.env.development? %>
+        <div id="debugger">
+          <%= debug(params) %>
+          <%= debug(request) %>
+        </div>
+      <% end %>
     </div>
 
-
-</body>
+  </body>
 </html>

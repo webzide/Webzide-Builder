@@ -2,21 +2,24 @@
 
   <% if !current_user.nil? %>
     <div class="authen_user">
-        <%= 'Welcome' %>
+        <%= 'Hi' %>
         <span class="user_name">
           <%= current_user.name %>
+          
         </span>
-            !
-        <span id="logout-text">
-          <%= link_to 'Logout', logout_path %>
-        </span>
+            ! Today is <%= Date.today.to_s %>
+        <div id="logout-button">
+          <span id="logout-text">
+            <%= link_to '<button>Logout</button>'.html_safe, logout_path %>
+          </span>
+        </div>
     </div>
 
   <% else %>
      <%= form_for(:session, :url => sessions_path) do |form| %>
       <div class="authen_field">
-        <label for="email">User Name:</label>
-        <%= form.text_field(:email, { :size=> 15, :maxlength=> 20 }) %>
+        <label for="name">User Name:</label>
+        <%= form.text_field(:name, { :size=> 15, :maxlength=> 20 }) %>
       </div>
 
       <div class="authen_field">
@@ -32,13 +35,21 @@
         <%= 'New User?  ' %>
       </div>
 
-      <div class="authen_elements">
-        <span class="register_button"
-          <%= link_to 'Register Here', register_path %>
-        </span>
-      </div>
+
 
      <% end %>
+
+
+     <div class="authen_elements">
+        <span class="register_button">
+
+          <%= link_to '<button>Register Here</button>'.html_safe, register_path %>
+
+        </span>
+
+
+     </div>
+
   <% end %>
 
 </div>

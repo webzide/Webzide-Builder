@@ -5,6 +5,7 @@ Webzide11::Application.routes.draw do
 
   resources :users
   resources :sessions, :only => [:create, :destroy]
+  resources :zides
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -68,6 +69,7 @@ Webzide11::Application.routes.draw do
   match '/contact', :to => "pages#contact"
   
   match '/register', :to=> "users#new"
+
   match '/login', :to=>"sessions#new"
   match '/logout', :to=>"sessions#destroy"
   match '/dashboard', :to=> "dashboard#index"
