@@ -355,6 +355,8 @@ div#spec_div{
 
 .tab-top a:link, .tab-top a:visited {
     color: white;
+    font-size: smaller;
+    margin-right: 5px;
 }
 
 .page-name{
@@ -382,7 +384,7 @@ div#spec_div{
 .tab-table{
 	width: 100%;
         border: 1px solid black;
-        border-spacing: 3px;
+        border-spacing: 2px;
 }
 
 .tab td{
@@ -396,19 +398,27 @@ div#spec_div{
 
 #edit a:link, #edit a:visited{
     color: #FFFFFF;
+    
 }
 
-#profile_legend{
-    float: left;
+.profile-legend{
     height: 100%;
-    width: 20%;
+    width: 30%;
     background: rgb(200,200,200);
     border-right: 1px solid black;
     font-weight: bold;
 }
 
+.profile-value{
+    width: 70%;
+}
+
 #profile_content{
     text-align: center;
+}
+
+#tab-edit{
+  text-align: right;
 }
 
 .oddrow{

@@ -1,25 +1,37 @@
-<div class="profile-tab">
-  <div class="tab-top">
-    <%= link_to "Edit Profile", edit_user_path(current_user) %>
+<div class="tab">
+    		<table class="tab-table">
+  			   <tr class="tab-top">
+                             <td id="tab-edit" colspan="2"><%= link_to "<button>Edit Profile</button>".html_safe, edit_user_path(current_user) %></td>
+  			   </tr>
 
-  </div>
-
-  <div id="profile_legend">
-    User Name:<br />
-    Email:
-  </div>
-
-  <div id="profile_content">
-    <div class="oddrow">
-      <%= @user.name %>
-    </div>
-
-     <div class="evenrow">
-      <%= @user.email %>
-    </div>
-  </div>
-
-
-</div>
-
+  			   <tr>
+  			   	   <td class="profile-legend">User Name:</td>
+  				   <td class="profile-value oddrow"><%= @user.name %></td>
+  			   </tr>
+			   <tr>
+  			   	   <td class="profile-legend">Email:</td>
+  				   <td class="profile-value evenrow"><%= @user.email %></td>
+  			   </tr>
+                           <tr>
+  			   	   <td class="profile-legend">First Name:</td>
+  				   <td class="profile-value oddrow"><%= @profile.first_name %></td>
+  			   </tr>
+			   <tr>
+  			   	   <td class="profile-legend">Last Name:</td>
+  				   <td class="profile-value evenrow"><%= @profile.last_name %></td>
+  			   </tr>
+                           <tr>
+  			   	   <td class="profile-legend">Gender:</td>
+  				   <td class="profile-value oddrow"><%= @profile.gender %></td>
+  			   </tr>
+			   <tr>
+  			   	   <td class="profile-legend">About Yourself:</td>
+  				   <td class="profile-value evenrow"><%= @profile.about %></td>
+  			   </tr>
+                           <tr>
+  			   	   <td class="profile-legend">Interests:</td>
+  				   <td class="profile-value oddrow"><%= @profile.interests %></td>
+  			   </tr>
+  			 </table>
+		</div>
 
