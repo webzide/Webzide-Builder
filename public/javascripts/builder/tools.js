@@ -33,7 +33,7 @@ function tools(type, id, parent, classes, src, css, dim, func){
 
 		if(this.src!= null){
 			this.obj.icon=document.createElement('img');
-			this.obj.icon.src='../images/' + this.src;
+			this.obj.icon.src='/images/' + this.src;
 
 			$(this.obj.icon).css({
 				'-moz-user-select':'none',

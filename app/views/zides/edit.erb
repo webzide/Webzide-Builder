@@ -37,17 +37,17 @@
       </div>
       <div>
 
-     <%= form_for :zide, :remote => 'true' do |form|%>
+     <%= form_for(@zide) do |form|%>
 
 
         <%= form.hidden_field :code %>
-        <%= submit_tag 'Update', :id=>'update'  %>
+        <%= form.submit 'Update', :id=> "update" %>
 
 
     <% end %>
 
       </div>
-     
+
 
     </div>
 
