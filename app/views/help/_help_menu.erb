@@ -1,0 +1,25 @@
+      <div class="left_menu">
+ <%= link_to_unless_current('<div class="menu_item">Overview</div>'.html_safe, about_path) do
+       '<div class="menu_item_on">Overview</div>'.html_safe
+      end
+ %>
+
+ <%= link_to_unless_current('<div class="menu_item">Inspiration</div>'.html_safe, :controller => "about", :action => "inspiration") do
+       '<div class="menu_item_on">Inspiration</div>'.html_safe
+      end
+ %>
+
+  <%= link_to_unless_current('<div class="menu_item">Features</div>'.html_safe, :controller => "about", :action => "features") do
+       '<div class="menu_item_on">Features</div>'.html_safe
+       end
+  %>
+ <%= link_to_unless_current('<div class="menu_item">Contact</div>'.html_safe, :controller => "about", :action => "contact") do
+       '<div class="menu_item_on">Contact</div>'.html_safe
+      end
+ %>
+
+
+
+
+
+      </div>

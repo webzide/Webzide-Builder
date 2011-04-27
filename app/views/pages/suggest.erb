@@ -1,0 +1,46 @@
+<% if signed_in?  %>
+
+  <%= form_for @suggestion do |f| %>
+
+    <h3>Your Suggestion Drop Box</h3>
+
+    <p class="paragraph_home">
+      Feel Free to Make suggestions here. You can view them and add any number of them as you wish.
+      Is also another option where you can email <b>admin@webzide.com</b> directly if priority is a concern.
+    </p>
+
+    <div class="field">
+      <%= f.text_area :content, :id => "suggestion_field" %>
+      <%= f.submit "Submit Suggestion" %>
+    </div>
+
+    <% end %>
+
+    <br />
+
+    <%  unless @user.suggestions.empty? %>
+      <table class="suggestion_tab">
+        <tr>
+          <td id="suggestion_number">
+            So far, you have made a total of <u><b><%= @user.suggestions.count %></b></u> Suggestions
+          </td>
+
+        </tr>
+
+        <%= render @suggestions %>
+      </table>
+  <% end %>
+
+
+
+  <%= will_paginate @suggestions %>
+
+  
+
+<% else %>
+    <h3>Making Suggestions to Webzide</h3>
+
+  We have designed a system to allow users to give suggestions.
+
+
+<% end %>

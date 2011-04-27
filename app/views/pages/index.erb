@@ -1,5 +1,44 @@
 <div class="main">
 
+
+
+  <% if signed_in? %>
+  <h3>Dear <%= current_user.name %>, </h3>
+    <p id="p1" class="paragraph_home">
+    Webzide would like to congratulate and thank you for being a true <i>"Early Adopter"</i>.
+    Because Webzide is currently at the Alpha stage and its software platform is still under heavy development.
+    We kindly ask you to excuse us if there is any inconvenience due to downtime or scheduled updates that may significant change the structures of our site.
+    It will happen so that we are constantly making improvements
+    </p>
+
+
+    <p id="p2" class="paragraph_home">
+      We are working hard every single day to bring forth new features and to enhance our customer service experience.
+      You may feel free to check out our official <a href="webzide.wordpress.com">Blog</a> to read more about the ideas and inspirations behind Webzide.
+      Or you can follow us on <a href="http://twitter.com/#!/webzide">Twitter</a> to obtain the latest news and updates we made.
+    </p>
+
+    <p id="p2" class="paragraph_home">
+          We are at the early stage of our product development, your opinions and inputs are highly valued.
+    We would like to speed up the feedback loop by giving you a chance make some necessary suggestions that will possibly improve our software/service.
+
+    </p>
+
+    <p id="p2" class="paragraph_home">
+      Please feel free to make any technical or service oriented suggestions both on the user interface and back end. 
+      During this stage, we have integrated an automatic suggestion system where you can easily make suggestions in forms of posts.
+      You could do so in our <%= link_to "Suggestions", suggest_path %>  page. This is the post convenient way for you to make suggestions. Administrator will review periodically.
+
+
+    </p>
+
+    <p id="p2" class="paragraph_home">
+      If you have any administrative inquiries or technical difficulties using our Web Page Builder, we have supplied you an <a href="http://webzide.freeforums.org/">Support Forum</a> where such concerns will be addressed.
+
+    </p>
+
+  <% else %>
+
   <h2>Welcome to Webzide</h2>
   <p id="p1" class="paragraph_home">
   Webzide offers FREE remotely generated websites for users and organizations. Our service is 100% free of charge. The website is generated using an fully integrated and dynamic "What You See is What You Get" web editor. There is no ads, no catch, and no hidden fee. Members could enjoy full features and functionalities from the start. The team Webzide is working hard everyday to bring in new features and updates.
@@ -37,5 +76,7 @@
 
 
   </div>
+
+  <% end  %>
 
 </div>

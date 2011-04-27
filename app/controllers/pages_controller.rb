@@ -1,6 +1,9 @@
 class PagesController < ActionController::Base
+
+  include SessionsHelper
+
   def index
-    
+    @suggestion = Suggestion.new if signed_in?
 	end
 
 	def about
@@ -11,6 +14,18 @@ class PagesController < ActionController::Base
 
 	def contact
 	end
+
+  def suggest
+    @suggestion = Suggestion.new if signed_in?
+
+    if signed_in?
+      @user = User.find(current_user[:id])
+      @suggestions = @user.suggestions.paginate(:page => params[:page])
+
+    end
+
+    
+  end
 
 
 end

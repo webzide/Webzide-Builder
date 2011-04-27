@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_one :zide
 
+  has_many :suggestions, :dependent => :destroy
+
   validates :name, :presence => true, :uniqueness =>true, :length => {:maximum => 30}
   validates :email, :presence => true, :uniqueness =>{ :case_sensitive => false}, :format => { :with => email_regex}
 

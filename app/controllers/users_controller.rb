@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user= current_user
-    @profile = Profile.find_by_user_id(current_user[:id])
+    @user= User.find_by_id(params[:id])
+    @profile = Profile.find_by_user_id(@user.id)
   end
 
   def create

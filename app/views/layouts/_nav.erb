@@ -6,17 +6,20 @@
       end
  %>
 
- <%= link_to_unless_current('<div class="nav-subdiv">Media</div>'.html_safe, media_path) do
-       '<div class="current">Media</div>'.html_safe
-      end
- %>
 
   <%= link_to_unless_current('<div class="nav-subdiv">About</div>'.html_safe, about_path) do
        '<div class="current">About</div>'.html_safe
        end
   %>
- <%= link_to_unless_current('<div class="nav-subdiv">Contact</div>'.html_safe, contact_path) do
-       '<div class="current">Contact</div>'.html_safe
+
+
+ <%= link_to_unless_current('<div class="nav-subdiv">Suggestions</div>'.html_safe, suggest_path) do
+       '<div class="current">Suggestions</div>'.html_safe
+      end
+ %>
+
+ <%= link_to_unless_current('<div class="nav-subdiv">Support</div>'.html_safe, "http://webzide.freeforums.org") do
+       '<div class="current">Support</div>'.html_safe
       end
  %>
 

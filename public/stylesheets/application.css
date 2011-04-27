@@ -66,9 +66,9 @@ font-family: Verdana, sans-serif;
 
 background: #E6E6E6;
 display: block;
-font-size: 14pt;
+font-size: 11pt;
 border-top: 1px solid #000000;
-height: 30px;
+height: 32px;
 margin: auto;
 
 }
@@ -83,14 +83,17 @@ margin: auto;
 
 .nav-subdiv{
     float: left;
-    width: 100px;
+    width: 103px;
+    font-size: 11pt;
     text-align: center;
+    font-weight: bold;
     background: #E6E6E6;
     border-left: 1px solid rgb(200,200,200);
     background: rgb(200,200,200);
     border-right: 1px solid #E6E6E6;
     border-left: 1px solid #E6E6E6;
     display: block;
+    border-top: 5px solid #666666;
 }
 
 
@@ -103,10 +106,11 @@ margin: auto;
 .current{
     text-align: center;
     width: 100px;
-    height: 30px;
+    height: 26px;
     float: left;
     background: #E6E6E6;
     display: block;
+    border-top: 5px solid #666666;
 
 }
 
@@ -161,6 +165,12 @@ background: #E6E6E6;
 
 text-indent: 3em;
 font-size: 15px;
+
+}
+
+.paragraph_home a:link{
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 #p1:first-letter{
@@ -445,3 +455,60 @@ div#spec_div{
 .round{
     background: #E6E6E6;
 }
+
+.suggestion_tab{
+    width: 70%;
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background: #E6E6E6;
+    
+}
+
+.suggestion_box{
+        border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px;
+}
+
+.suggestion_content{
+    font-size: 12pt;
+}
+
+#suggestion_field{
+    height: 80px;
+    width: 523px;
+}
+
+#suggestion_number{
+    font-size: 11pt;
+    text-align: center;
+    color: white;
+    background: #666666;
+}
+
+.field{
+    width: 70%;
+    margin: auto;
+}
+
+.left_menu{
+background: #E6E6E6;
+float: left;
+border-top: 6px solid #666666;
+
+}
+
+.menu_item{
+                   font-size: 12pt;
+		   padding: 8px;
+		   border-bottom: 1px solid black;
+                   border-right: 1px solid black;
+ }
+
+ .menu_item_on{
+                   font-size: 12pt;
+		   padding: 8px;
+		   border-bottom: 1px solid black;
+                   background: white;
+ }
