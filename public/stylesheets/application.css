@@ -489,6 +489,11 @@ div#spec_div{
 
 .field{
     width: 70%;
+
+}
+
+.suggest_field{
+    width: 70%;
     margin: auto;
 }
 
@@ -512,3 +517,51 @@ border-top: 6px solid #666666;
 		   border-bottom: 1px solid black;
                    background: white;
  }
+
+ .users_tab{
+     width: 70%;
+     margin: auto;
+     border-spacing: 3px;
+     border: 1px solid black;
+    
+}
+
+.users_tab tr{
+    
+}
+
+.users_td{
+    background: #E6E6E6;
+    border: 1px solid black;
+    border-collapse: collapse;
+ padding: 3px;
+}
+
+
+
+.users_legend_tr{
+    background: #666666;
+}
+
+.users_legend_tr td{
+    padding: 3px;
+    color: white;
+    font-size: larger;
+}
+
+.username_legend{
+    width: 30%;
+    text-align: center;
+    font-size: larger;
+}
+
+.email_legend{
+    width: 60%;
+    text-align: center;
+    font-size: larger;
+}
+
+.users_badge{
+    text-align: center;
+    vertical-align: middle;
+}

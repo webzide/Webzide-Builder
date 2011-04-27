@@ -12,6 +12,11 @@
        end
   %>
 
+  <%= link_to_unless_current('<div class="nav-subdiv">Members</div>'.html_safe, users_path) do
+       '<div class="current">Members</div>'.html_safe
+       end
+  %>
+
 
  <%= link_to_unless_current('<div class="nav-subdiv">Suggestions</div>'.html_safe, suggest_path) do
        '<div class="current">Suggestions</div>'.html_safe

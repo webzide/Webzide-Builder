@@ -1,15 +1,21 @@
 
+
+
+
+
   		<div class="tab">
     		<table class="tab-table">
   			   <tr class="tab-top">
-  			   <td colspan="4" id="add-page"><%= link_to "Add New Page", edit_zide_path(current_user) %></td>
+  			   <td colspan="4" id="add-page">Customize your new Webzide
+                             <%-# link_to "Add New Page", edit_zide_path(current_user) -%>
+                           </td>
   			   </tr>
 
   			   <tr>
   			   	   <td class="page-name">Default Home Page</td>
   				   <td class="page-view"><%= link_to 'View',  @zide %></td>
   				   <td class="page-edit"><%= link_to 'Edit', edit_zide_path(@zide) %></td>
-  				   <td class="page-delete">delete</td>
+  				   <td class="page-delete">/</td>
   			   </tr>
   			   </table>
 		</div>

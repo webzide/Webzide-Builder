@@ -1,0 +1,35 @@
+<h3>
+  Here is a list honouring all early adopters. With a badge next to them
+
+</h3>
+
+<table class="users_tab">
+  <tr class="users_legend_tr">
+    <td class="username_legend">
+      User Name
+    </td>
+
+    <td class="email_legend">
+      Email
+    </td>
+
+    <td class="users_badge">
+      Badge
+    </td>
+  </tr>
+  <% @suggestions.each do |user| %>
+    <tr>
+      <td class="users_td username_legend">
+      <%= user.content %>
+      </td>
+
+      <td class="users_td email_legend">
+      
+      </td>
+
+      <td class="users_td users_badge">
+      <%= image_tag("http://media.playpark.net/MapleStory/uploadimages/Trophy.png")  %>
+      </td>
+    </tr>
+  <% end %>
+</table>

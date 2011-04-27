@@ -9,7 +9,7 @@
       Is also another option where you can email <b>admin@webzide.com</b> directly if priority is a concern.
     </p>
 
-    <div class="field">
+    <div class="suggest_field">
       <%= f.text_area :content, :id => "suggestion_field" %>
       <%= f.submit "Submit Suggestion" %>
     </div>
@@ -18,7 +18,11 @@
 
     <br />
 
-    <%  unless @user.suggestions.empty? %>
+  <% if @user.suggestions.empty?  %>
+
+  <% else %>
+
+
       <table class="suggestion_tab">
         <tr>
           <td id="suggestion_number">
