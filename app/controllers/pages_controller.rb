@@ -3,7 +3,10 @@ class PagesController < ActionController::Base
   include SessionsHelper
 
   def index
+    
     @suggestion = Suggestion.new if signed_in?
+
+    render :layout => "application"
 	end
 
 	def about
@@ -16,6 +19,8 @@ class PagesController < ActionController::Base
 	end
 
   def suggest
+    
+
     @suggestion = Suggestion.new if signed_in?
 
     if signed_in?
@@ -23,6 +28,8 @@ class PagesController < ActionController::Base
       @suggestions = @user.suggestions.paginate(:page => params[:page])
 
     end
+
+    render :layout => "application"
 
     
   end

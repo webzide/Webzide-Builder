@@ -1,3 +1,15 @@
+      <div id="content">
+
+
+
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
 <% if signed_in?  %>
 
   <%= form_for @suggestion do |f| %>
@@ -48,3 +60,5 @@
 
 
 <% end %>
+
+      </div>

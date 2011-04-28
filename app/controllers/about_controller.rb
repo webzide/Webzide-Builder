@@ -1,6 +1,6 @@
 class AboutController < ApplicationController
   def index
-    
+    render :layout => "application"
   end
 
   def inspiration

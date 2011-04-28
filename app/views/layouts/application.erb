@@ -53,20 +53,7 @@
         <%= render 'layouts/authen' %>
       </div>
 
-      <div id="content">
-
-      
-
-        <section class="round">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= value %>">
-              <%= value %>
-           </div>
-          <% end%>
-        </section>
-
-        <%= yield %>
-      </div>
+      <%= yield %>
 
       <div id="footer">
           <%= render 'layouts/footer' %>

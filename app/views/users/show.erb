@@ -1,3 +1,15 @@
+      <div id="content">
+
+
+
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
 <div class="tab">
     		<table class="tab-table">
   			   <tr class="tab-top">
@@ -35,3 +47,4 @@
   			 </table>
 		</div>
 
+      </div>

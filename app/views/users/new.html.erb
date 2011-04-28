@@ -1,4 +1,14 @@
+      <div id="content">
 
+
+
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
 
 <% if !current_user.nil?  %>
 
@@ -7,8 +17,9 @@
 </div>
 <% else %>
 
-  <h2>Sign up your new Webzide Account</h2>
+  <h3>Sign up a new Webzide Account</h3>
 
+  <div class="authen_form">
   <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
 
@@ -16,30 +27,58 @@
        <legend>Required Fields</legend>
   
       <div class="field">
-        <%= f.label "Webzide Name:" %><br />
-        <%= f.text_field :name %>@webzides.com
+        <div class="field_label">
+          <%= f.label "User Name:" %>
+        </div>
+        <div class="field_input">
+          <%= f.text_field :name %>
+        </div>
+      </div>
 
-      </div>
-       <br />
       <div class="field">
-        <%= f.label "Email:" %><br />
-        <%= f.text_field :email %>
+        <div class="field_label">
+          <%= f.label "Email:" %>
+        </div>
+        <div class="field_input">
+          <%= f.text_field :email %>
+        </div>
       </div>
-       <br />
+
       <div class="field">
-        <%= f.label "Password" %><br />
-        <%= f.password_field :password %>
+        <div class="field_label">
+          <%= f.label "Password:" %>
+        </div>
+        <div class="field_input">
+          <%= f.password_field :password %>
+        </div>
       </div>
-       <br />
+
       <div class="field">
-        <%= f.label "Password Confirmation" %><br />
-        <%= f.password_field :password_confirmation %>
+        <div class="field_label">
+          <%= f.label "Password Confirmation:" %>
+        </div>
+        <div class="field_input">
+          <%= f.password_field :password_confirmation %>
+        </div>
       </div>
+
+       <div class="tos">
+         <span class="tos_title">Terms of Service</span>
+       
        <br />
+          <div class="tos_content">
+            <%= render "shared/tos" %>
+          </div>
+       </div>
+
+
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>
      </fieldset>
   <% end %>
+  </div>
 
 <% end %>
+
+      </div>

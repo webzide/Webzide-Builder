@@ -1,6 +1,27 @@
+      <div id="content">
 
 
 
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
+        <div class="welcome-table">
+          <div class="welcome-table-header">
+            Welcome to Your Webzide Dashboard
+          </div>
+
+          <div class="welcome-table-content">
+            Webzide provides you with the options to view and edit your own Webzide.
+            Currently, during the alpha stage of our product development, users could only access a single page which will become the default home page.
+            Webzide is working on a scalable framework which allow users to add multiple pages create dynamic links among those pages.
+            
+          </div>
+        </div>
 
 
   		<div class="tab">
@@ -19,3 +40,5 @@
   			   </tr>
   			   </table>
 		</div>
+
+      </div>

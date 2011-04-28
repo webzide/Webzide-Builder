@@ -25,8 +25,6 @@
   <body>
     <div id="webzide_page">
       <div id="top">
-         
-
          <div id="nav">
            <div id="version">
             Alpha (version. 0.2)
@@ -34,18 +32,21 @@
             <%= render 'layouts/nav' %>
          </div>
 
-         <div id="logo">
-            <span id="logo-span">
-              <%= link_to "Webzide", root_path %>
+        <div id="logo_bar">
+
+           <div id="logo">
+              <span id="logo-span">
+                <%= link_to "Webzide", root_path %>
+              </span>
+           </div>
+
+
+
+          <div id="slogan">
+            <span id="slogan-span">
+                web without boundaries
             </span>
-         </div>
-        
-
-
-        <div id="slogan">
-          <span id="slogan-span">
-              web without boundaries
-          </span>
+          </div>
         </div>
       </div>
 
@@ -53,9 +54,10 @@
         <%= render 'layouts/authen' %>
       </div>
 
-      <div id="content">
-        <%= yield %>
-      </div>
+      
+       
+      <%= yield %>
+      
 
       <div id="footer">
           <%= render 'layouts/footer' %>

@@ -1,3 +1,15 @@
+      <div id="content">
+
+
+
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
 <h3>
   Here is a list honouring all early adopters. With a badge next to them
 
@@ -33,3 +45,5 @@
     </tr>
   <% end %>
 </table>
+
+      </div>

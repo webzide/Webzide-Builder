@@ -20,15 +20,21 @@ top: 0px;
 
 #top{
 margin-top: 3px;
-height: 100px;
+height: 18%;
 width: 100%;
 background: black;
 }
 
+#logo_bar{
+    background: black;
+    height: 100px;
+    width: 100%;
+}
+
 #logo{
-margin-left: 12%;
-margin-top: 1%;
+padding-left: 12%;
 float: left;
+padding-top: 1%;
 }
 
 #logo-span{
@@ -51,8 +57,9 @@ font-family: Verdana, sans-serif;
 }
 
 #slogan{
-
-    margin: 2.5% 33% 50% 50%;
+    float: right;
+    padding-right: 120px;
+    padding-top: 25px;
 
 }
 
@@ -68,7 +75,7 @@ background: #E6E6E6;
 display: block;
 font-size: 11pt;
 border-top: 1px solid #000000;
-height: 32px;
+height: 35%;
 margin: auto;
 
 }
@@ -157,7 +164,7 @@ background: #E6E6E6;
 #content{
     text-align: left;
     background:white;
-    padding: 2% 12% 10% 12%;
+    padding: 2% 12% 5% 12%;
     
 }
 
@@ -179,6 +186,7 @@ font-size: 15px;
 }
 
 #hotbuttons{
+    height: 100px;
     width: 100%;
 
 }
@@ -210,19 +218,23 @@ float: left;
 .button{
     -moz-border-radius: 10px;
     border-radius: 10px;
-    margin: 10px 5% 10px 0;
+    margin: 10px 0 6px 0;
+    padding: 3px;
     width: 330px;
     height: 70px;
     border: 1px solid black;
     background: #666666;
     font-weight: bold;
-    text-align: center
+    text-align: center;
+    -moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 10px 10px 5px #888;
+box-shadow: 10px 10px 5px #888;
 }
 
 #footer{
 
 width: 100%;
-height: 180px;
+height: 160px;
 background: #666666;
 color: #FFFFFF;
 border-top: 1px solid black;
@@ -245,16 +257,24 @@ border-top: 1px solid black;
     font-weight: bold;
 }
 
+
 .footerdiv ul li{
     font-weight: normal;
+    font-size: 11pt;
 }
 
 .footerdiv ul li a{
-    color: white
+    color: white;
+    font-size: 11pt;
 }
 
 .footerdiv ul li a:hover{
     text-decoration: overline underline;
+}
+
+.footer-legend{
+    font-size: 12pt;
+    text-decoration: underline;
 }
 
 #copyright{
@@ -358,14 +378,14 @@ div#spec_div{
     border-bottom: 1px solid black;
     background: #666666;
     text-align: right;
-    font-size: 14pt;
+    font-size: 11pt;
     color: white;
     
 }
 
 .tab-top a:link, .tab-top a:visited {
     color: white;
-    font-size: smaller;
+    font-size: 11pt;
     margin-right: 5px;
 }
 
@@ -413,14 +433,16 @@ div#spec_div{
 
 .profile-legend{
     height: 100%;
-    width: 30%;
+    width: 25%;
     background: rgb(200,200,200);
     border-right: 1px solid black;
     font-weight: bold;
+
+    font-size: 10pt;
 }
 
 .profile-value{
-    width: 70%;
+    width: 75%;
 }
 
 #profile_content{
@@ -429,6 +451,7 @@ div#spec_div{
 
 #tab-edit{
   text-align: right;
+  padding: 2px;
 }
 
 .oddrow{
@@ -489,7 +512,28 @@ div#spec_div{
 
 .field{
     width: 70%;
+    margin: auto;
+    height: 47px;
 
+}
+
+.field_label{
+    float: left;
+    padding-top: 6px;
+
+}
+
+.field_input{
+    float: right;
+}
+
+.tos{
+    width: 80%;
+    margin: auto;
+}
+
+.tos textarea{
+    height: 120px;
 }
 
 .suggest_field{
@@ -564,4 +608,48 @@ border-top: 6px solid #666666;
 .users_badge{
     text-align: center;
     vertical-align: middle;
+}
+
+.welcome-table{
+    width: 100%;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.welcome-table-header{
+    background: #666666;
+    color: white;
+    padding: 2px;
+    font-size: 11pt;
+}
+
+.welcome-table-content{
+    background: #E6E6E6;
+    font-size: 10pt;
+    padding: 8px;
+    text-indent: 3em;
+}
+
+.authen_form{
+    width: 70%;
+    margin: auto;
+}
+
+.tos_content{
+    width: 100%;
+    height: 130px;
+    
+    overflow: scroll;
+}
+
+.tos_title{
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.actions{
+    width: 80%;
+    padding-top: 8px;
+    margin: auto;
+    text-align: right;
 }
