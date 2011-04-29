@@ -1,23 +1,44 @@
-<h1>Sign in</h1>
+      <div id="content">
 
 
 
+        <section class="round">
+          <% flash.each do |key, value| %>
+            <div class="flash <%= value %>">
+              <%= value %>
+           </div>
+          <% end%>
+        </section>
+
+        <br />
+
+<div class="authen_form">
 <%= form_for(:session, :url => sessions_path) do |f| %>
-
-  
-
+     <fieldset>
+       <legend>Please Sign in to Continue</legend>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <div class="field_label">
+      <%= f.label :name, "Name:" %>
+    </div>
+    <div class="field_input">
+      <%= f.text_field :name %>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <div class="field_label">
+      <%= f.label :password, "Password:" %>
+    </div>
+    <div class="field_input">
+      <%= f.password_field :password %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit "Sign in" %>
+    <%= f.submit "Login" %>
   </div>
+
+     </fieldset>
 <% end %>
 
 
-
+      </div>
+      </div>

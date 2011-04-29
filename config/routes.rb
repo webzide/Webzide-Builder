@@ -87,4 +87,9 @@ Webzide11::Application.routes.draw do
 
   match '/help', :to => "help#index"
 
+  match '/policy', :to => "legal#policy"
+  match '/privacy', :to => "legal#privacy"
+  match '/tos', :to => "legal#tos"
+
+
 end

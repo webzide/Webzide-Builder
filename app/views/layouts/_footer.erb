@@ -3,9 +3,15 @@
   <div class="footerdiv">
     <ul>
       <span class="footer-legend">About Us</span>
-      <li>Overview</li>
-      <li>Features</li>
-      <li>Contact</li>
+      <li>
+        <%= link_to "Overview", :controller => "about", :action => "index" %>
+      </li>
+      <li>
+        <%= link_to "Features", :controller => "about", :action => "features" %>
+      </li>
+      <li>
+        <%= link_to "Contact", :controller => "about", :action => "contact" %>
+      </li>
     </ul>
   </div>
 
@@ -13,9 +19,11 @@
     
     <ul>
       <span class="footer-legend">Help</span>
-      <li>Forums</li>
+      <li>
+        <a href="http://webzide.freeforums.org">Forums</a>
+      </li>
       <li>FAQ</li>
-      <li>Suggestions</li>
+      <li><%= link_to "Suggestions", suggest_path %></li>
     </ul>
   </div>
 
@@ -31,9 +39,9 @@
   <div class="footerdiv">
     <ul>
       <span class="footer-legend">Legal</span>
-      <li>Legal Policy</li>
-      <li>Privacy Statements</li>
-      <li>Terms of Service</li>
+      <li><%= link_to "Legal Policy", :controller => "legal", :action => "policy" %></li>
+      <li><%= link_to "Privacy Statements", :controller => "legal", :action => "privacy" %></li>
+      <li><%= link_to "Terms of Service", :controller => "legal", :action => "tos" %></li>
     </ul>
   </div>
 </div>
