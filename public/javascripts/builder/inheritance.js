@@ -1,7 +1,23 @@
 // Top level Object
 
 global = {
+    "initialPropertyWindow": null,
+    "initialAssitantModal": null
+}
 
+global.methods = {
+    "toggleBoundaries": new Function()
+}
+
+global.state = {
+    "gridSwitch": 0,
+    "borderSwitch": 0,
+    "legendSwitch": 0,
+    "activeTool": null
+}
+
+global.event = {
+    "drag": 0
 }
 
 var zid = function(id, type, parent, css, dim, state, func){
@@ -34,5 +50,6 @@ zid.prototype.unSelectable = function(element){
         "user-select": "none"
     })
 }
+
 //Tools Class for bread/butter tools button objects
 

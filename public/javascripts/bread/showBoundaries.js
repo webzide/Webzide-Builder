@@ -5,11 +5,14 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-boundaries=function(){
+global.methods.toggleBoundaries=function(){
+
+        
+
 	boundariesTag=document.getElementById('boundariesTag');
 
-	if(boundariesSwitch==0){
-		boundariesSwitch=1;
+	if(global.state.borderSwitch==0){
+		global.state.borderSwitch=1;
 		
 		if(document.all){
 			boundariesCSS.disabled=false;
@@ -18,8 +21,8 @@ boundaries=function(){
 		}
 		
 		
-	} else if(boundariesSwitch==1){
-		boundariesSwitch=0;
+	} else if(global.state.borderSwitch==1){
+		global.state.borderSwitch=0;
 		if(document.all){
 			boundariesCSS.disabled=true;
 		} else{
@@ -33,5 +36,5 @@ boundaries=function(){
 
 
 $(document).bind('ready', function(){
-	$('#showBoundaries').bind('click', boundaries)
+	$('#showBoundaries').bind('click', global.methods.toggleBoundaries)
 });

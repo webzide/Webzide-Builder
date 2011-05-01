@@ -16,7 +16,7 @@ var resetit=function(){
             $(this).removeAttr("contenteditable")
 
     });
-    $('*').unbind('mousedown', DragHandler._dragBegin);
+    
 
             $('.rightResize').remove();
             $('.verticalResize').remove();

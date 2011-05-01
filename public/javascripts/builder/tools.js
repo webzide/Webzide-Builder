@@ -35,12 +35,15 @@ function tools(type, id, parent, classes, src, css, dim, func){
 			this.obj.icon=document.createElement('img');
 			this.obj.icon.src='/images/' + this.src;
 
+                        $(this.obj.icon).attr("unselectable", "on");
+
 			$(this.obj.icon).css({
 				'-moz-user-select':'none',
 				'-webkit-user-select': 'none'
 			});
 
-			this.obj.icon.setAttribute('unselectable', 'on')
+
+                      
 			this.obj.appendChild(this.obj.icon)
 		}
 

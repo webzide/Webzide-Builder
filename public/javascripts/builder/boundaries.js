@@ -7,7 +7,7 @@ This document/software/program/code, or any portions of it may not be cited, rep
 
 $(document).bind('ready', function(){
 
-	boundariesSwitch=0;
+	
 	
 	if(document.all){
 		boundariesCSS=document.createStyleSheet();
