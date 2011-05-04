@@ -3,7 +3,7 @@ $(document).bind('ready', function(){
 
 
 
-        $(".div").not("#page").showLegend();
+        
 
 	  if($('.sel').parent().css('font-weight')=='bold'){
 		$('.sel').parent().css('font-weight', 'normal')

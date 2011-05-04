@@ -1,9 +1,45 @@
+    global.showCheckPrompt = function(){
+        var onmousestop = function(event){
+            var checkPrompt = document.createElement("div");
+            $(checkPrompt).css({
+                "background": "#FFFFCC",
+                "position": "absolute",
+                "left": event.clientX,
+                "top": parseInt(event.clientY) - 20,
+                "border": "1px solid black"
+            })
+
+            $(checkPrompt).addClass("checkPrompt")
+
+            $(checkPrompt).text("Click on the Element Show Properties")
+
+            $("body").append(checkPrompt)
+        }
+
+        var threat;
+
+        return function(event){
+            $(".checkPrompt").remove();
+            clearTimeout(threat);
+
+
+
+            threat = setTimeout(function(){
+                onmousestop(event);
+            }, 1000)
+        }
+    }
+
 checkDivision=function(){
 
-    $('.sel').remove();
-    $('.div').unbind();
-    $('span').unbind();
-    
+    global.state.activeTool = "handTool"
+
+
+
+
+
+    //$('.div').bind("mousemove", global.showCheckPrompt());
+
 	$('.div').css({
 		'cursor': 'pointer'
 	});
@@ -52,5 +88,9 @@ checkDivision=function(){
 };
 
 $(document).bind('ready', function(){
-	$('#handTool').bind('click', checkDivision);
+    $('#handTool').bind('click', checkDivision);
+
+
+
+
 });

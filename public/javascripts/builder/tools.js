@@ -5,13 +5,15 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-function tools(type, id, parent, classes, src, css, dim, func){
+function tools(type, id, parent, classes, props, src, css, dim, func){
 	this.id=id;
 	this.type=type;
 	this.parent=parent;
 	this.classes=classes;
-	this.src=src;
+	this.props = props;
+        this.src=src;
 	this.css=css;
+
 	this.dim=dim;
         this.func=func;
 
@@ -40,9 +42,31 @@ function tools(type, id, parent, classes, src, css, dim, func){
 			$(this.obj.icon).css({
 				'-moz-user-select':'none',
 				'-webkit-user-select': 'none'
+
 			});
 
 
+                        $(this.obj.icon).bind("click", {obj: this},function(event){
+                            
+                            global.state.activeTool = event.data.obj.id;
+                            global.methods.switchTool(event.data.obj);
+                        })
+
+                        $(this.obj.icon).hover(
+                        function(){
+                            $(this).css({
+                                "box-shadow":"0px 0px 5px #000",
+                                "-webkit-box-shadow":"0px 0px 5px #000",
+                                "-moz-box-shadow": "0px 0px 5px #000"
+                            })
+                        },
+                        function(){
+                            $(this).css({
+                                "box-shadow":"none",
+                                "-webkit-box-shadow":"none",
+                                "-moz-box-shadow": "none"
+                            })
+                        })
                       
 			this.obj.appendChild(this.obj.icon)
 		}

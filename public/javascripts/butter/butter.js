@@ -17,40 +17,40 @@ $(document).bind('ready', function(){
                 "border": "1px solid rgb(131, 118, 99)"
     	}
     	
-		butterDiv=new tools('div', 'butterDiv', document.body, ['bread'], null, butterDivCss, null, null)
+		butterDiv=new tools('div', 'butterDiv', document.body, ['bread', 'zidebuilder'], null, null, butterDivCss, null, null)
 		butterDiv.init();
    
-                boldButton=new tools('div', 'boldButton', 'butterDiv', ['typo'], 'butter/boldButton.gif', {float: 'left'}, null, null)
+                boldButton=new tools('div', 'boldButton', 'butterDiv', ['typo'], null, 'butter/boldButton.gif', {float: 'left'}, null, null)
 		boldButton.init();
 		
-		italicButton=new tools('div', 'italicButton', 'butterDiv', ['typo'], 'butter/italicButton.gif', {float: 'left'}, null, null)
+		italicButton=new tools('div', 'italicButton', 'butterDiv', ['typo'], null, 'butter/italicButton.gif', {float: 'left'}, null, null)
 		italicButton.init();
 		
-		underlineButton=new tools('div', 'underlineButton', 'butterDiv', ['typo'], 'butter/underlineButton.gif', {float: 'left'}, null, null)
+		underlineButton=new tools('div', 'underlineButton', 'butterDiv', ['typo'], null, 'butter/underlineButton.gif', {float: 'left'}, null, null)
 		underlineButton.init();
 		
-		strikethroughButton=new tools('div', 'strikethroughButton', 'butterDiv', ['typo'], 'butter/strikethroughButton.gif', {float: 'left'}, null, null)
+		strikethroughButton=new tools('div', 'strikethroughButton', 'butterDiv', ['typo'], null, 'butter/strikethroughButton.gif', {float: 'left'}, null, null)
 		strikethroughButton.init();
 		
-		leftAlignedButton=new tools('div', 'leftAlignedButton', 'butterDiv', ['typo'], 'butter/leftAlignedButton.gif', {float: 'left'}, null, null)
+		leftAlignedButton=new tools('div', 'leftAlignedButton', 'butterDiv', ['typo'], null, 'butter/leftAlignedButton.gif', {float: 'left'}, null, null)
 		leftAlignedButton.init();
 		
-		centredButton=new tools('div', 'centredButton', 'butterDiv', ['typo'], 'butter/centredButton.gif', {float: 'left'}, null, null)
+		centredButton=new tools('div', 'centredButton', 'butterDiv', ['typo'], null, 'butter/centredButton.gif', {float: 'left'}, null, null)
 		centredButton.init();
 		
-		rightAlignedButton=new tools('div', 'rightAlignedButton', 'butterDiv', ['typo'], 'butter/rightAlignedButton.gif', {float: 'left'}, null, null)
+		rightAlignedButton=new tools('div', 'rightAlignedButton', 'butterDiv', ['typo'], null, 'butter/rightAlignedButton.gif', {float: 'left'}, null, null)
 		rightAlignedButton.init();
 		
-		textColorButton=new tools('div', 'textColorButton', 'butterDiv', ['typo'], 'butter/textColorButton.gif', {float: 'left'}, null, null)
+		textColorButton=new tools('div', 'textColorButton', 'butterDiv', ['typo'], null, 'butter/textColorButton.gif', {float: 'left'}, null, null)
 		textColorButton.init();
 		
-		backColorButton=new tools('div', 'backColorButton', 'butterDiv', ['typo'], 'butter/backColorButton.gif', {float: 'left'}, null, null)
+		backColorButton=new tools('div', 'backColorButton', 'butterDiv', ['typo'], null, 'butter/backColorButton.gif', {float: 'left'}, null, null)
                 backColorButton.init();
 
-                HiLiteButton=new tools('div', 'HiLiteButton', 'butterDiv', ['typo'], 'butter/button_highlight.gif', {float: 'left'}, null, null)
+                HiLiteButton=new tools('div', 'HiLiteButton', 'butterDiv', ['typo'], null, 'butter/button_highlight.gif', {float: 'left'}, null, null)
                 HiLiteButton.init();
 
-                fontSizeButton=new tools('select', 'fontSizeButton', 'butterDiv', ['typo'], null, {float: 'left', margin: 0}, null, fontsizeFunc)
+                fontSizeButton=new tools('select', 'fontSizeButton', 'butterDiv', ['typo'], null, null, {float: 'left', margin: 0}, null, fontsizeFunc)
 		fontSizeButton.init();
 
 		

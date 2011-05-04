@@ -25,11 +25,11 @@ var draggable ={
                        $(event.data.obj).css("left", (parseInt(draggable.startLeft) + (event.clientX - draggable.startX)) + 'px')
                        $(event.data.obj).css("top", (parseInt(draggable.startTop) + (event.clientY - draggable.startY)) + 'px')
 
-                       if(global.state.legendSwitch == 1){
+                       //if(global.state.legendSwitch == 1){
+                       // $(event.data.obj).children("#widthBox").children("#widthLegend").text((parseInt(draggable.startLeft) + (event.clientX - draggable.startX)) + 'px');
+                       //}
 
-                       }
-
-
+                      
 
                        return false;
 

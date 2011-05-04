@@ -29,9 +29,9 @@ $(document).bind('ready', function(){
                     position: 'absolute',
                      width: width,
                      height: height,
-                     background: '#D1E1FA',
-                     opacity:'0.4',
-                     filter: 'alpha(opacity=40)'
+                     background: 'black',
+                     opacity:'0.2',
+                     filter: 'alpha(opacity=20)'
 
                 });
 
@@ -51,8 +51,8 @@ $(document).bind('ready', function(){
 
                     $(this).css({
                             background: 'none',
-                        border: '5px solid #D1E1FA',
-                        opacity:'0.8',
+                        border: '5px solid black',
+                        opacity:'0.6',
                             width: (parseInt($(this).width()) - 10),
                             height: (parseInt($(this).height()) - 10),
                             filter: 'alpha(opacity=20)'

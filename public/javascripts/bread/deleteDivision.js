@@ -1,8 +1,7 @@
 var deleteDivision=function(){
 
-    $('.sel').remove();
-    $('.div').unbind();
-    $('span').unbind();
+    
+
 
     $('.div').each(function(){
             $(this).bind('click', function(event){
