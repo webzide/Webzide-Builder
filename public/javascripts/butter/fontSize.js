@@ -5,7 +5,7 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-var fontsizeFunc = function(elem){
+var fontsizeFunc = function(obj){
                         
     var sizeArray = [8, 10, 12 ,15, 18, 20, 25, 30, 35, 40, 50];
 
@@ -19,10 +19,7 @@ var fontsizeFunc = function(elem){
                          $('.selectedElem span').css('font-size', this.innerHTML);
                      })
 
-                     elem.obj.appendChild(cur);
-
-
-
+                     obj.elem.appendChild(cur);
 
     }
     

@@ -4,8 +4,8 @@ $(document).bind('ready', function(){
 	$('#showGrid').bind('click', function(event){
     
 
-		if(global.state.gridSwitch==0){
-			global.state.gridSwitch=1;
+		if(builder.state.gridSwitch==0){
+			builder.state.gridSwitch=1;
 
                         if (!document.all){
 
@@ -23,8 +23,8 @@ $(document).bind('ready', function(){
 				'background-repeat': 'no-repeat'
 			})
 
-		} else if(global.state.gridSwitch==1){
-			global.state.gridSwitch=0;
+		} else if(builder.state.gridSwitch==1){
+			builder.state.gridSwitch=0;
 
 			$(document.body).css({
 				'background': "url('images/ps-grid.png')"

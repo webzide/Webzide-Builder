@@ -1,4 +1,4 @@
-    global.showCheckPrompt = function(){
+    builder.showCheckPrompt = function(){
         var onmousestop = function(event){
             var checkPrompt = document.createElement("div");
             $(checkPrompt).css({
@@ -32,13 +32,13 @@
 
 checkDivision=function(){
 
-    global.state.activeTool = "handTool"
+    builder.state.activeTool = "handTool"
 
 
 
 
 
-    //$('.div').bind("mousemove", global.showCheckPrompt());
+    //$('.div').bind("mousemove", builder.showCheckPrompt());
 
 	$('.div').css({
 		'cursor': 'pointer'

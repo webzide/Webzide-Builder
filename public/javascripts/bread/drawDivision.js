@@ -3,9 +3,9 @@ $(document).bind('ready', function(){
     $('#drawDiv').bind('click', function(){
         
 
-        if(global.state.activeTool != "drawDiv"){
-            global.methods.toggleBoundaries()
-            global.state.activeTool = "drawDiv"
+        if(builder.state.activeTool != "drawDiv"){
+            builder.methods.toggleBoundaries()
+            builder.state.activeTool = "drawDiv"
         }
 
         

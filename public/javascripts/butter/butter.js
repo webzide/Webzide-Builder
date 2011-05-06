@@ -5,53 +5,83 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
+builder.divisions.butter = {}
+
+builder.divisions.butter.css={
+        'position': 'fixed',
+        'background': 'rgb(240, 235, 226)',
+        'height': '20px',
+        'width': 'auto',
+        'left': '260px',
+        'bottom': '6px',
+        "border": "1px solid rgb(131, 118, 99)"
+}
+
 $(document).bind('ready', function(){
-    	
-        butterDivCss={
-    		'position': 'fixed',
-    		'background': 'rgb(240, 235, 226)',
-    		'height': '20px',
-    		'width': '466px',
-                'left': '366px',
-    		'bottom': '6px',
-                "border": "1px solid rgb(131, 118, 99)"
-    	}
-    	
-		butterDiv=new tools('div', 'butterDiv', document.body, ['bread', 'zidebuilder'], null, null, butterDivCss, null, null)
-		butterDiv.init();
-   
-                boldButton=new tools('div', 'boldButton', 'butterDiv', ['typo'], null, 'butter/boldButton.gif', {float: 'left'}, null, null)
-		boldButton.init();
-		
-		italicButton=new tools('div', 'italicButton', 'butterDiv', ['typo'], null, 'butter/italicButton.gif', {float: 'left'}, null, null)
-		italicButton.init();
-		
-		underlineButton=new tools('div', 'underlineButton', 'butterDiv', ['typo'], null, 'butter/underlineButton.gif', {float: 'left'}, null, null)
-		underlineButton.init();
-		
-		strikethroughButton=new tools('div', 'strikethroughButton', 'butterDiv', ['typo'], null, 'butter/strikethroughButton.gif', {float: 'left'}, null, null)
-		strikethroughButton.init();
-		
-		leftAlignedButton=new tools('div', 'leftAlignedButton', 'butterDiv', ['typo'], null, 'butter/leftAlignedButton.gif', {float: 'left'}, null, null)
-		leftAlignedButton.init();
-		
-		centredButton=new tools('div', 'centredButton', 'butterDiv', ['typo'], null, 'butter/centredButton.gif', {float: 'left'}, null, null)
-		centredButton.init();
-		
-		rightAlignedButton=new tools('div', 'rightAlignedButton', 'butterDiv', ['typo'], null, 'butter/rightAlignedButton.gif', {float: 'left'}, null, null)
-		rightAlignedButton.init();
-		
-		textColorButton=new tools('div', 'textColorButton', 'butterDiv', ['typo'], null, 'butter/textColorButton.gif', {float: 'left'}, null, null)
-		textColorButton.init();
-		
-		backColorButton=new tools('div', 'backColorButton', 'butterDiv', ['typo'], null, 'butter/backColorButton.gif', {float: 'left'}, null, null)
-                backColorButton.init();
 
-                HiLiteButton=new tools('div', 'HiLiteButton', 'butterDiv', ['typo'], null, 'butter/button_highlight.gif', {float: 'left'}, null, null)
-                HiLiteButton.init();
+    builder.divisions.butter.object=new tools('butterDiv', document.body, ['bread', 'zidebuilder', "builderDiv"], null, null, builder.divisions.butter.css, null, null)
+    builder.divisions.butter.object.init();
 
-                fontSizeButton=new tools('select', 'fontSizeButton', 'butterDiv', ['typo'], null, null, {float: 'left', margin: 0}, null, fontsizeFunc)
-		fontSizeButton.init();
+    builder.divisions.butter.object.children = {}
 
-		
-	})
+    builder.divisions.butter.object.children.boldButton = {}
+    builder.divisions.butter.object.children.boldButton.object=new tools('boldButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/boldButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.boldButton.object.init();
+
+    builder.divisions.butter.object.children.italicButton = {}
+    builder.divisions.butter.object.children.italicButton.object=new tools('italicButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/italicButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.italicButton.object.init();
+
+    builder.divisions.butter.object.children.underlineButton=new tools('underlineButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/underlineButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.underlineButton.init();
+
+    builder.divisions.butter.object.children.strikethroughButton=new tools('strikethroughButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/strikethroughButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.strikethroughButton.init();
+
+    builder.divisions.butter.object.children.leftAlignedButton=new tools( 'leftAlignedButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/leftAlignedButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.leftAlignedButton.init();
+
+    builder.divisions.butter.object.children.centredButton=new tools( 'centredButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/centredButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.centredButton.init();
+
+    builder.divisions.butter.object.children.rightAlignedButton=new tools( 'rightAlignedButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/rightAlignedButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.rightAlignedButton.init();
+
+    builder.divisions.butter.object.children.cutButton=new tools( 'cutButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_cut.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.cutButton.init();
+
+    builder.divisions.butter.object.children.copyButton=new tools( 'copyButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_copy.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.copyButton.init();
+
+    builder.divisions.butter.object.children.pasteButton=new tools( 'pasteButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_paste.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.pasteButton.init();
+
+    builder.divisions.butter.object.children.numListButton=new tools( 'numListButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_numlist.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.numListButton.init();
+
+    builder.divisions.butter.object.children.bulListButton=new tools( 'bulListButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_bullist.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.bulListButton.init();
+
+    builder.divisions.butter.object.children.linkButton=new tools( 'linkButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_ins_link.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.linkButton.init();
+
+    builder.divisions.butter.object.children.imageAddButton=new tools( 'imageAddButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_ins_image.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.imageAddButton.init();
+
+    builder.divisions.butter.object.children.indentButton=new tools( 'linkButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/icon_indent.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.indentButton.init();
+
+    builder.divisions.butter.object.children.textColorButton=new tools( 'textColorButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/textColorButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.textColorButton.init();
+
+    builder.divisions.butter.object.children.backColorButton=new tools( 'backColorButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/backColorButton.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.backColorButton.init();
+
+    builder.divisions.butter.object.children.hiLiteButton=new tools( 'hiLiteButton', 'butterDiv', ['typo', "butterButton"], null, 'butter/button_highlight.gif', {float: 'left'}, null, null)
+    builder.divisions.butter.object.children.hiLiteButton.init();
+
+    builder.divisions.butter.object.children.fontFamilyButton = new selectMenu("kobe", "#butterDiv", null, {"margin": "0", "float": "left"}, fontFamiliesArray, changeFontFamily);
+    builder.divisions.butter.object.children.fontFamilyButton.init()
+
+
+})

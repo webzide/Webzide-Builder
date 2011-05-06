@@ -5,9 +5,9 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-function tools(type, id, parent, classes, props, src, css, dim, func){
+
+function tools(id, parent, classes, props, src, css, dim, func){
 	this.id=id;
-	this.type=type;
 	this.parent=parent;
 	this.classes=classes;
 	this.props = props;
@@ -20,39 +20,54 @@ function tools(type, id, parent, classes, props, src, css, dim, func){
 	this.init=function(){
 
 
-		this.obj=document.createElement(this.type)
-		this.obj.setAttribute('id', this.id);
-		this.obj.setAttribute('unselectable', 'on')
+		this.elem=document.createElement("div")
+		this.elem.setAttribute('id', this.id);
+		this.elem.setAttribute('unselectable', 'on')
 
-		$(this.obj).css({
+		$(this.elem).css({
 				'-moz-user-select':'none',
 				'-webkit-user-select': 'none'
 		});
 
 		for(i=0;i<this.classes.length; i++){
-			$(this.obj).addClass(this.classes[i])
+			$(this.elem).addClass(this.classes[i])
 		}
 
 		if(this.src!= null){
-			this.obj.icon=document.createElement('img');
-			this.obj.icon.src='/images/' + this.src;
+			this.elem.icon=document.createElement('img');
 
-                        $(this.obj.icon).attr("unselectable", "on");
+                        if(this.classes[1]=="butterButton"){
+                            if(builder.state.selectedElems.length > 0){
+                                this.elem.icon.src='/images/' + this.src;
+                            } else {
+                                
+                                this.elem.icon.src = '/images/butter/disabled/' + disabledIconSrc[this.id] + ".png"
 
-			$(this.obj.icon).css({
+                                
+                            }
+                        } else {
+                            this.elem.icon.src='/images/' + this.src;
+                        }
+			
+
+                        $(this.elem.icon).attr("unselectable", "on");
+
+			$(this.elem.icon).css({
 				'-moz-user-select':'none',
 				'-webkit-user-select': 'none'
 
 			});
 
+                        if(this.classes[0]=="tools"){
 
-                        $(this.obj.icon).bind("click", {obj: this},function(event){
-                            
-                            global.state.activeTool = event.data.obj.id;
-                            global.methods.switchTool(event.data.obj);
-                        })
+                            $(this.elem.icon).bind("click", {obj: this},function(event){
 
-                        $(this.obj.icon).hover(
+                                builder.state.activeTool = event.data.obj.id;
+                                builder.methods.switchTool(event.data.obj);
+                            })
+                        }
+
+                        $(this.elem.icon).hover(
                         function(){
                             $(this).css({
                                 "box-shadow":"0px 0px 5px #000",
@@ -68,17 +83,17 @@ function tools(type, id, parent, classes, props, src, css, dim, func){
                             })
                         })
                       
-			this.obj.appendChild(this.obj.icon)
+			this.elem.appendChild(this.elem.icon)
 		}
 
 		if(typeof this.parent=='string'){
-			document.getElementById(parent).appendChild(this.obj)
+			document.getElementById(parent).appendChild(this.elem)
 		} else{
-			this.parent.appendChild(this.obj);
+			this.parent.appendChild(this.elem);
 		}
 
 		if(this.css){
-			$(this.obj).css(this.css)
+			$(this.elem).css(this.css)
 		}
 
 
@@ -87,7 +102,7 @@ function tools(type, id, parent, classes, props, src, css, dim, func){
                         if(this.dim.colspan){
                             document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].colSpan=this.dim.colspan;
                         }
-                        document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].appendChild(this.obj);
+                        document.getElementById(this.parent).childNodes[0].rows[this.dim.row].cells[this.dim.col].appendChild(this.elem);
 		}
 
                 if(this.func){
@@ -95,9 +110,7 @@ function tools(type, id, parent, classes, props, src, css, dim, func){
 
                 }
 
-                if(this.id!= "butterDiv"){
-                    this.hover();
-                }
+
 
 	};
 
@@ -105,20 +118,3 @@ function tools(type, id, parent, classes, props, src, css, dim, func){
 
 
 tools.prototype = new zid();
-
-tools.prototype.hover =function(){
-
-    $(this.obj).hover(
-        function(event){
-            var width = $(this).width();
-            var height = $(this).height();
-
-
-            event.stopPropagation();
-        },
-        function(event){
-
-            event.stopPropagation();
-        }
-    )
-}

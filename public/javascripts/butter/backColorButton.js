@@ -6,8 +6,8 @@ This document/software/program/code, or any portions of it may not be cited, rep
 */
 
 var backColor=function(){
-	global.palette.showhide();  
-        global.palette.state.intent="back";
+	builder.palette.showhide();
+        builder.palette.state.intent="back";
 };
 
 $(document).bind('ready', function(){

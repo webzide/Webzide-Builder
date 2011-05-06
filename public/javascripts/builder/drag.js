@@ -14,7 +14,7 @@ var draggable ={
 
                     $(document).bind('mouseup', {obj: obj}, draggable.undrag)
 
-                    global.event.drag = 1;
+                    builder.event.drag = 1;
 
                     return false;
 
@@ -25,7 +25,7 @@ var draggable ={
                        $(event.data.obj).css("left", (parseInt(draggable.startLeft) + (event.clientX - draggable.startX)) + 'px')
                        $(event.data.obj).css("top", (parseInt(draggable.startTop) + (event.clientY - draggable.startY)) + 'px')
 
-                       //if(global.state.legendSwitch == 1){
+                       //if(builder.state.legendSwitch == 1){
                        // $(event.data.obj).children("#widthBox").children("#widthLegend").text((parseInt(draggable.startLeft) + (event.clientX - draggable.startX)) + 'px');
                        //}
 
@@ -36,7 +36,7 @@ var draggable ={
                     },
             "undrag" :  function(event){
                             $(document).unbind('mousemove', draggable.dragging);
-                            global.event.drag = 0;
+                            builder.event.drag = 0;
                     },
             "startX": null,
             "startY": null,

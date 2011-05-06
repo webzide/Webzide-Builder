@@ -2,14 +2,17 @@ var makeToaster=function(){
 	toaster=document.createElement('div');
 	
 	toaster.setAttribute('id', 'toaster')
-	
+
+        $(toaster).addClass("builderDiv")
+
 	$(toaster).css({
 		position: 'fixed',
 		'right': '6px',
 		'bottom': '6px',
-		'background': '#E1E1E1',
-		'border-right': '2px solid #999999',
-		'border-bottom': '2px solid #999999'
+                'width': '50px',
+		'background': '#F0EBE2',
+                'visibility': 'hidden'
+
 	});
 	document.body.appendChild(toaster);
 }

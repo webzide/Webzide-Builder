@@ -13,45 +13,44 @@ helpTextArray["divBackground"] = "Fill the background color of an element. Simpl
 helpTextArray["paintText"] = "Set the font color of the texts in an element. Used in an similar fashion as the background filler"
 
 $(document).bind("ready", function(){
-    global.helpDesk = document.createElement("div")
-    $(global.helpDesk).text(global.state.activeTool);
+    builder.helpDesk = document.createElement("div")
+    $(builder.helpDesk).text(builder.state.activeTool);
 
-    $(global.helpDesk).addClass("zidebuilder")
+    $(builder.helpDesk).addClass("zidebuilder").addClass("builderDiv")
 
-    global.helpDesk.heading = document.createElement("div");
+    builder.helpDesk.heading = document.createElement("div");
 
-    $(global.helpDesk.heading).text("Webzide Builder Help Desk")
+    $(builder.helpDesk.heading).text("Webzide Builder Help Desk")
 
-    $(global.helpDesk.heading).appendTo(global.helpDesk)
+    $(builder.helpDesk.heading).appendTo(builder.helpDesk)
 
-    $(global.helpDesk.heading).css({
+    $(builder.helpDesk.heading).css({
         "border-bottom": "1px solid black"
     })
 
-    $(global.helpDesk).appendTo("body")
+    $(builder.helpDesk).appendTo("body")
 
-    global.helpDesk.icon = document.createElement("img");
+    builder.helpDesk.icon = document.createElement("img");
 
-    $(global.helpDesk.icon).appendTo(global.helpDesk)
+    $(builder.helpDesk.icon).appendTo(builder.helpDesk)
 
-    $(global.helpDesk.icon).css({
+    $(builder.helpDesk.icon).css({
         "margin-top": "4px",
         "margin-left": "4px",
         "margin-right": "4px"
     })
 
-    global.helpDesk.helpText = document.createElement("span");
+    builder.helpDesk.helpText = document.createElement("span");
 
-    if(global.state.activeTool==null){
-        $(global.helpDesk.helpText).text("You may use the tools on the toolbox. If you click on it, information is shown here")
+    if(builder.state.activeTool==null){
+        $(builder.helpDesk.helpText).text("You may use the tools on the toolbox. If you click on it, information is shown here")
     }
 
-    $(global.helpDesk.helpText).appendTo(global.helpDesk);
+    $(builder.helpDesk.helpText).appendTo(builder.helpDesk);
 
-    $(global.helpDesk).css({
+    $(builder.helpDesk).css({
         "position": "absolute",
-        "background": "#E6E6E6",
-        "border": "1px solid black",
+
         "width": "230px",
         "height": "100px",
         "bottom": "6px",

@@ -6,8 +6,8 @@ This document/software/program/code, or any portions of it may not be cited, rep
 */
 
 var HiLiteColor=function(){
-	global.palette.showhide();
-        global.palette.state.intent="hilite";
+	builder.palette.showhide();
+        builder.palette.state.intent="hilite";
 };
 
 $(document).bind('ready', function(){

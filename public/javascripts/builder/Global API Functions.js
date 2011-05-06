@@ -19,37 +19,37 @@ function disableSelection(target){
     target.style.cursor = "default"
 }
 
-
-
 //---------------------------------------------------------------	
 
 //Function for Making dimensions in an element
-function makeDimensions(obj, dimType, rows, cols, styled){
+
+
+zid.prototype.makeDimensions = function(obj, dimType, rows, cols, styled){
 	var dim=document.createElement(dimType);
 	dim.setAttribute('id', obj.id + '-Table');
 	this.style=styled;
-	
+
 	if(dimType=='table'){
 		tableRows=[];
 		for(r=0;r<rows;r++){
 			tableRows[r]=dim.insertRow(-1);
 			tableRows[r].setAttribute('row', r);
 			$(tableRows[r]).height(this.style.rowHeight);
-			
-			
+
+
 			tableRows['cols']=[];
 			for(c=0;c<cols;c++){
 				cells=tableRows[r].insertCell(-1);
 				cells.setAttribute('col', c);
 				$(cells).width(this.style.cellWidth);
-				
+
 			}
 
 		}
-		
-		obj.appendChild(dim);					
+
+		obj.appendChild(dim);
 	}
-	
+
 }
 //---------------------------------------------------------------
 
@@ -172,9 +172,76 @@ var draw_mousedown=function(event){
     event.stopPropagation();
 }
 
+function toasterDrawdiv(){
+
+    {
+        var grooveBorders=document.createElement('div');
+        grooveBorders.icon=new Image();
+        grooveBorders.icon.src="../images/toaster/solid.gif"
+
+        $(grooveBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '23px'
+        });
+
+        grooveBorders.appendChild(grooveBorders.icon)
+
+        $(grooveBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px ridge black;} #page{border: none}'
+        });
+
+        $(grooveBorders).appendTo("#toaster")
+    }
+
+    {
+        var dashedBorders=document.createElement('div');
+        dashedBorders.icon=new Image();
+        dashedBorders.icon.src="../images/toaster/dashed.gif"
+
+        $(dashedBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '23px'
+        });
+
+        dashedBorders.appendChild(dashedBorders.icon)
+
+        $(dashedBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px dashed #666666;} #page{border: none}'
+        });
+
+        $(dashedBorders).appendTo("#toaster")
+
+    }
+    {
+        var dottedBorders=document.createElement('div');
+        dottedBorders.icon=new Image();
+        dottedBorders.icon.src="../images/toaster/dotted.gif"
+
+        $(dottedBorders).css({
+                'margin-left': 'auto',
+                'margin-right': 'auto',
+                'width': '23px'
+        });
+
+        dottedBorders.appendChild(dottedBorders.icon)
+
+        $(dottedBorders).bind('click', function(){
+            boundariesCSS.innerHTML='.div{border: 1px dotted #555555;} #page{border: none}'
+        });
+
+       $(dottedBorders).appendTo("#toaster")
+    }
+
+
+}
+
 var draw=function(event){
-    
-    
+
+    $("#toaster").css("visibility", 'visible')
+    toasterDrawdiv()
+
     $('.div').addClass('.DIV')
     $('.div, span').css('cursor', 'crosshair');
 
@@ -184,75 +251,7 @@ var draw=function(event){
     boundariesCSS.disabled=false;
     }
 
-    drawingBorders=document.createElement('div');
-    $(drawingBorders).css({
-            height: '85px',
-            width: '35px',
-            'background': '#E1E1E1',
-            'border-right': '1px solid #999999',
-            'border-bottom': '1px solid #999999'
-    });
-    {
-        var grooveBorders=document.createElement('div');
-        grooveBorders.icon=new Image();
-        grooveBorders.icon.src="../images/toaster/grooved.jpg"
-
-        $(grooveBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '30px'
-        });
-
-        grooveBorders.appendChild(grooveBorders.icon)
-
-        $(grooveBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px ridge black;} #page{border: none}'
-        });
-
-        drawingBorders.appendChild(grooveBorders);
-    }
-
-    {
-        var dashedBorders=document.createElement('div');
-        dashedBorders.icon=new Image();
-        dashedBorders.icon.src="../images/toaster/dashed.png"
-
-        $(dashedBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '30px'
-        });
-
-        dashedBorders.appendChild(dashedBorders.icon)
-
-        $(dashedBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px dashed #666666;} #page{border: none}'
-        });
-
-        drawingBorders.appendChild(dashedBorders);
-
-    }
-    {
-        var dottedBorders=document.createElement('div');
-        dottedBorders.icon=new Image();
-        dottedBorders.icon.src="../images/toaster/dotted.png"
-
-        $(dottedBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '30px'
-        });
-
-        dottedBorders.appendChild(dottedBorders.icon)
-
-        $(dottedBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px dotted #555555;} #page{border: none}'
-        });
-
-        drawingBorders.appendChild(dottedBorders);
-    }
-
-    $('#toaster').append(drawingBorders);
-
+    
     $('.div').bind('mousedown', event.data, draw_mousedown);
 }
+

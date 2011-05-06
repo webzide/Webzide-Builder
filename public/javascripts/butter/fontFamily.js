@@ -12,16 +12,10 @@ fontFamiliesArray[2] = "Comic Sans MS";
 fontFamiliesArray[3] = "Courier New";
 fontFamiliesArray[4] = "Georgia";
 fontFamiliesArray[5] = "Impact";
-fontFamiliesArray[6] = "Times New Roman";
+fontFamiliesArray[6] = "Times";
 fontFamiliesArray[7] = "Trebuchet MS";
 fontFamiliesArray[8] = "Verdana";
 
 var changeFontFamily = function(family){
    document.execCommand("fontname", false, family);
 }
-
-$(document).bind("ready", function(){
-    var fontFamilyButton = new selectMenu("kobe", "#butterDiv", null, {"margin": "0", "float": "left"}, fontFamiliesArray, changeFontFamily);
-
-    fontFamilyButton.init()
-})

@@ -67,14 +67,14 @@ $(document).bind("ready", function(){
     var welcomeMessage = "In order to get started, please set up Your initial page settings in the Box below."
     welcomeMessage += "You may also choose to leave it as default which creates a elements that spans the whole page."
 
-    global.initialAssistantModal = new assistantModal(null, "body", null, {"visible": true}, null, welcomeHeading, welcomeMessage);
+    builder.initialAssistantModal = new assistantModal(null, "body", null, {"visible": true}, null, welcomeHeading, welcomeMessage);
 
     var fadeit = function(){
-        $(global.initialAssistantModal.elem).fadeIn('slow')
+        $(builder.initialAssistantModal.elem).fadeIn('slow')
     }
 
     setTimeout(fadeit, 1000)
 
-    global.initialAssistantModal.centerX();
+    builder.initialAssistantModal.centerX();
 
 })

@@ -25,6 +25,8 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     $(this.elem).attr("id", this.id)
 
+    
+
     $(this.elem).css(this.css)
 
     $(this.elem).css({
@@ -37,6 +39,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
     })
 
     $(this.elem).addClass("zidebuilder")
+    $(this.elem).addClass("builderDiv")
 
     this.elem.topBar = document.createElement("div");
 
@@ -75,7 +78,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     $(intent).appendTo(this.elem.contentBar)
 
-    if(global.state.stage == "setUp"){
+    if(builder.state.stage == "setUp"){
         intentText = "Setting Initial Properties for the <b>Page</b> Element";
         $(intent).html(intentText)
     }
@@ -166,19 +169,19 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     var whichBorders = document.createElement("div");
 
-    global.bordersSide = ["top", "left", "bottom", "right"]
+    builder.bordersSide = ["top", "left", "bottom", "right"]
 
     for(i=0; i<4; i++){
         var border = document.createElement("input");
         border.type = "checkbox";
 
-        $(border).attr("id", global.bordersSide[i] + "-border-check")
+        $(border).attr("id", builder.bordersSide[i] + "-border-check")
 
-        $(border).bind("click", {name: global.bordersSide[i]},function(event){
+        $(border).bind("click", {name: builder.bordersSide[i]},function(event){
             if($(this).attr("checked")){
-                global.state.activeBorders.push(event.data.name);
+                builder.state.activeBorders.push(event.data.name);
             } else {
-                global.state.activeBorders.remove(event.data.name)
+                builder.state.activeBorders.remove(event.data.name)
             }
 
             
@@ -187,7 +190,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
         borderText = document.createElement("span");
 
-        $(borderText).text(capFirst(global.bordersSide[i]))
+        $(borderText).text(capFirst(builder.bordersSide[i]))
 
         $(borderText).appendTo(whichBorders)
 
@@ -198,7 +201,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     $(whichBorders).appendTo(this.elem.contentBar)
 
-    global.bordersSelectArr = ["style", "width", "color"]
+    builder.bordersSelectArr = ["style", "width", "color"]
 
     bordersSelections = new Array();
 
@@ -206,28 +209,28 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
     bordersSelections["width"]=["0px", "1px", "2px", "3px", "4px", "5px", "10px", "15px", "20px", "25px"]
     bordersSelections["color"]=["black", "red", "green", "blue", "yellow", "orange", "maroon", "purple", "cyan"]
 
-    for(j=0; j<global.bordersSelectArr.length; j++){
+    for(j=0; j<builder.bordersSelectArr.length; j++){
         var bordersDiv = document.createElement("div");
 
         var bordersLegend = document.createElement ("span")
 
-        $(bordersLegend).text("Border " + global.bordersSelectArr[j])
+        $(bordersLegend).text("Border " + builder.bordersSelectArr[j])
 
         var bordersSelect = document.createElement("select")
 
-        var currSelections = bordersSelections[global.bordersSelectArr[j]]
+        var currSelections = bordersSelections[builder.bordersSelectArr[j]]
 
-        $(bordersSelect).attr("id", "border-" + global.bordersSelectArr[j])
+        $(bordersSelect).attr("id", "border-" + builder.bordersSelectArr[j])
 
         for(k=0; k<currSelections.length; k++){
             var option = document.createElement("option");
             
             $(option).text(currSelections[k])
 
-            $(option).bind("click", {"propertyArr": global.bordersSelectArr[j], "optionsArr": currSelections[k]},function(event){
+            $(option).bind("click", {"propertyArr": builder.bordersSelectArr[j], "optionsArr": currSelections[k]},function(event){
 
              
-                global.selectedProperties["border-" + event.data.propertyArr] = event.data.optionsArr;
+                builder.selectedProperties["border-" + event.data.propertyArr] = event.data.optionsArr;
             })
 
             $(option).appendTo(bordersSelect)
@@ -279,9 +282,10 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     $(submit_close_field).bind("click", {obj: this}, function(event){
         event.data.obj.func(event.data.obj.intent, {submit: "applyClose"})
-        event.data.obj.showhide();
 
-        global.initialAssistantModal.showhide()
+        $(event.data.obj.elem).remove()
+
+        $(builder.initialAssistantModal.elem).css("visibility", "hidden");
         
     })
 
@@ -316,7 +320,7 @@ $(document).bind("ready", function(){
                 $(curr).css(p, arr[p])
 
                 if(p == "background-color"){
-                    
+
                 }
 
             } else {
@@ -331,9 +335,9 @@ $(document).bind("ready", function(){
 
 
 
-        for(i = 0; i< global.state.activeBorders.length; i++){
-            for(j = 0; j< global.bordersSelectArr.length; j++){
-                $(curr).css("border-" +  global.state.activeBorders[i] + "-" + global.bordersSelectArr[j] , global.selectedProperties["border-" + global.bordersSelectArr[j]])
+        for(i = 0; i< builder.state.activeBorders.length; i++){
+            for(j = 0; j< builder.bordersSelectArr.length; j++){
+                $(curr).css("border-" +  builder.state.activeBorders[i] + "-" + builder.bordersSelectArr[j] , builder.selectedProperties["border-" + builder.bordersSelectArr[j]])
             }
         }
 
@@ -342,8 +346,8 @@ $(document).bind("ready", function(){
        
     }
 
-    global.state.stage = "setUp"
-    global.initialPropertyWindow = new propertiesWindow(null, "body", {height: "100px", width: "70px", "background": "#E6E6E6", "border": "1px solid black"}, "#page", {visible: true}, applyProperties)
+    builder.state.stage = "setUp"
+    builder.initialPropertyWindow = new propertiesWindow(null, "body", {height: "100px", width: "70px", "background": "#E6E6E6", "border": "1px solid black"}, "#page", {visible: true}, applyProperties)
     
 
     

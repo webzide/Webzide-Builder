@@ -122,12 +122,12 @@ $(document).bind('ready', function(){
                     "background-color": '#FFFFFF',
                     "visibility": "hidden"
                     };
-    global.palette = new palettes("p2", 'div', document.getElementById("butterDiv"), paletteButterCSS,null,{visible: false, intent: "fore", belongs: "butter"},  null);
-    global.palette.init();
-    global.palette.fillColors(global.palette);
-    global.palette.unSelectable();
+    builder.palette = new palettes("p2", 'div', document.getElementById("butterDiv"), paletteButterCSS,null,{visible: false, intent: "fore", belongs: "butter"},  null);
+    builder.palette.init();
+    builder.palette.fillColors(builder.palette);
+    builder.palette.unSelectable();
 
-    global.palette.changePosn(null)
+    builder.palette.changePosn(null)
 })
 
 
