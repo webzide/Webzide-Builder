@@ -15,24 +15,35 @@ $(document).bind('ready', function(){
 
             $(rightResize).addClass('rightResize')
 
-            $(rightResize).css({
-                position: 'absolute',
-                cursor: 'e-resize',
-                'background-color': 'none',
-                width: "4px",
-                height: $(this).height() - 10,
-                left: $(this).width() - 2,
-                top: '0px'
+                $(rightResize).css({
+                    position: 'absolute',
+                    cursor: 'e-resize',
+                    width: "4px",
+                    height: $(this).height() - 10,
+                    left: $(this).width() - 2,
+                    top: '0px'
 
-            })
+                })
 
             $(rightResize).bind('mousedown', function(event){
+                event.preventDefault();
+
                 var currPos=event.clientX;
                 var currElem=event.target;
                 var currLeft = $(currElem).parent().width();
                 var parentLeft=$(currElem).parent().offset().left;
 
-                $("#page").bind('mousemove', function(event){
+                var innerElem;
+                  if($(currElem).parent().children("img").length>0){
+                       innerElem = $(currElem).parent().children("img")
+                   } else {
+                       innerElem = null;
+                   }
+
+
+
+
+                $("#page").bind('mousemove', {innerElem:innerElem}, function(event){
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
 
                    var nextPos=event.clientX;
@@ -48,9 +59,14 @@ $(document).bind('ready', function(){
 
                    $(currElem).parent().css("width", nextPos - parentLeft);
 
+                   if(event.data.innerElem != null){
+                       $(innerElem).css("width", nextPos - parentLeft);
+                   }
+
                 })
 
                 $('#page').bind('mouseup', function(){
+                    
                     if($(currElem).offset().left < parentLeft){
                          $(currElem).parent().css('width', "0px")
                          $(currElem).css("left", 0)
@@ -63,6 +79,8 @@ $(document).bind('ready', function(){
             })
 
             $(this).append(rightResize)
+
+
             }
 
             //vertical resize
@@ -71,10 +89,9 @@ $(document).bind('ready', function(){
 
             $(verticalResize).addClass('verticalResize')
 
-            $(verticalResize).css({
+             $(verticalResize).css({
                 position: 'absolute',
                 cursor: 's-resize',
-                'background-color': 'none',
                 height: "4px",
                 width: $(this).width() - 10,
                 top: $(this).height(),
@@ -83,12 +100,21 @@ $(document).bind('ready', function(){
             })
 
             $(verticalResize).bind('mousedown', function(event){
+                event.preventDefault();
+
                 var currPos=event.clientY;
                 var currElem=event.target;
                 var currTop = $(currElem).parent().height();
                 var parentTop=$(currElem).parent().offset().top;
 
-                $("#page").bind('mousemove', function(event){
+                var innerElem;
+                  if($(currElem).parent().children("img").length>0){
+                       innerElem = $(currElem).parent().children("img")
+                   } else {
+                       innerElem = null;
+                   }
+
+                $("#page").bind('mousemove', {innerElem: innerElem},function(event){
                    $(currElem).parent().children('.rightResize').height($(currElem).parent().height() -10)
 
                    var nextPos=event.clientY;
@@ -107,6 +133,10 @@ $(document).bind('ready', function(){
                    var theParent=$(currElem).parent();
                    $(currElem).parent().css("height", nextPos - parentTop);
 
+                   if(event.data.innerElem != null){
+                       $(innerElem).css("height", nextPos - parentTop);
+                   }
+
                 })
 
                 $('#page').bind('mouseup', function(){
@@ -124,6 +154,9 @@ $(document).bind('ready', function(){
             })
 
             $(this).append(verticalResize)
+
+
+
             }
 
             //corner Resize
@@ -135,7 +168,6 @@ $(document).bind('ready', function(){
             $(cornerResize).css({
                 position: 'absolute',
                 cursor: 'se-resize',
-                'background-color': 'none',
                 width: "10px",
                 height: "10px",
                 left: $(this).width() - 5,
@@ -144,6 +176,8 @@ $(document).bind('ready', function(){
             })
 
             $(cornerResize).bind('mousedown', function(event){
+                event.preventDefault();
+
                 var currPosX=event.clientX;
                 var currPosY=event.clientY;
                 var currElem=event.target;
@@ -152,7 +186,14 @@ $(document).bind('ready', function(){
                 var parentTop=$(currElem).parent().offset().top;
                 var parentLeft=$(currElem).parent().offset().left;
 
-                $("#page").bind('mousemove', function(event){
+                var innerElem;
+                  if($(currElem).parent().children("img").length>0){
+                       innerElem = $(currElem).parent().children("img")
+                   } else {
+                       innerElem = null;
+                   }
+
+                $("#page").bind('mousemove', {innerElem: innerElem},function(event){
                      $(currElem).parent().children('.verticalResize').css('top', $(currElem).parent().height() -2)
                      $(currElem).parent().children('.rightResize').css('left', $(currElem).parent().width() -2)
                      $(currElem).parent().children('.rightResize').height($(currElem).parent().height() - 10)
@@ -182,6 +223,12 @@ $(document).bind('ready', function(){
                    $(currElem).parent().css("width", nextPosX - parentLeft);
                    $(currElem).parent().css("height", nextPosY - parentTop);
 
+                   if(event.data.innerElem != null){
+                       $(innerElem).css("width", nextPosX - parentLeft);
+                       $(innerElem).css("height", nextPosY - parentTop);
+                   }
+
+
                 })
 
                 $('#page').bind('mouseup', function(){
@@ -203,6 +250,8 @@ $(document).bind('ready', function(){
             })
 
             $(this).append(cornerResize)
+
+
             }
 
 

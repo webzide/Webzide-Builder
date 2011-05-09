@@ -56,6 +56,8 @@ for(p in enabledIconSrc){
     preImage.src = "images/butter/" + enabledIconSrc[p] + ".gif";
     preEnabled[p] = preImage;
 
+    
+
 }
 
 $(document).bind("ready", function(){

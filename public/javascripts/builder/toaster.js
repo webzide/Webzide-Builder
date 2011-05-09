@@ -1,20 +1,20 @@
-var makeToaster=function(){
-	toaster=document.createElement('div');
-	
-	toaster.setAttribute('id', 'toaster')
+//type, id, parent, classes, css, dim, state, func
 
-        $(toaster).addClass("builderDiv")
 
-	$(toaster).css({
-		position: 'fixed',
+$(document).bind('ready', function(){
+
+    toasterCss= {
+		"position": 'fixed',
 		'right': '6px',
 		'bottom': '6px',
-                'width': '50px',
-		'background': '#F0EBE2',
-                'visibility': 'hidden'
+                'width': 'auto',
+		'background': '#F0EBE2'
 
-	});
-	document.body.appendChild(toaster);
-}
+	}
 
-$(document).bind('ready', makeToaster)
+    builder.divisions.toaster = {}
+
+    builder.divisions.toaster.object = new zid("div", "toaster", "body", ["builderDiv", "zidebuilder"], toasterCss, null, null, null)
+
+    builder.divisions.toaster.object.init();
+})

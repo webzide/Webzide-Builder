@@ -11,7 +11,8 @@ builder = {
     "helpDesk": new Object(),
     "bread": new Object(),
     "butter": new Object(),
-    "toaster": new Object()
+    "toaster": new Object(),
+    "elementPropertyWindow": new Object()
 }
 
 builder.methods = {
@@ -42,6 +43,7 @@ builder.info.breadToolsArray[12]= "imageInsert";
 builder.info.breadToolsArray[13]= "attachLink";
 
 builder.methods.switchTool = function(tools){
+
     builder.state.selectedOn = 0;
     builder.methods.disableButtons();
     $('.sel').remove();
@@ -66,12 +68,46 @@ builder.methods.switchTool = function(tools){
     })
 }
 
+var toasterToolsMatch = {
+    "drawDiv": "boundariesStyle",
+    "drawText": "boundariesStyle",
+    "curtainH": "curtainToast",
+    "curtainV": "curtainToast",
+    "imageInsert": "imageLinkDiv",
+    "attachLink": ""
+
+}
+
+builder.methods.toast = function(tool){
+    $("#toaster").children().each(function(){
+        $(this).css({
+            "display": "none"
+        })
+    })
+
+    $("#toaster").children("#" + toasterToolsMatch[tool]).css("display", "block")
+}
+
 builder.methods.enableButtons = function(){
 
     $(".butterButton").each(function(){
 
         tempImg = $(preEnabled[$(this).attr("id")]).clone();
+        
+        $(tempImg).css({
+            				'-moz-user-select':'none',
+				'-webkit-user-select': 'none'
+        })
+
+        $(tempImg).attr("unselectable", "on")
+
+        $(tempImg).bind("mousedown click", function(event){
+            event.preventDefault();
+        })
+
         $(this).empty();
+
+
         $(this).append(tempImg)
     })
 
@@ -81,6 +117,17 @@ builder.methods.disableButtons = function(){
     $(".butterButton").each(function(){
 
         tempImg = $(preDisabled[$(this).attr("id")]).clone();
+
+                $(tempImg).css({
+            				'-moz-user-select':'none',
+				'-webkit-user-select': 'none'
+        })
+
+        $(tempImg).bind("mousedown click", function(event){
+            event.preventDefault();
+        })
+
+        $(tempImg).attr("unselectable", "on")
         $(this).empty();
         $(this).append(tempImg)
     })
@@ -96,7 +143,9 @@ builder.state = {
     "stage": null,
     "activeBorders": [],
     "selectedElems": [],
-    "selectedOn": 0
+    "selectedOn": 0,
+    "boundaryStyle": "grooveBorders",
+    "textSelection": 0
 }
 
 builder.bordersChecked = []

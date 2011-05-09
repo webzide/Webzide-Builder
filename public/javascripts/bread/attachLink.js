@@ -25,4 +25,13 @@ $(document).bind('ready', function(){
     $('#attachLink').bind('click', attachingLink);
     $('#attachLink').bind('click', showImageLinkDiv);
 
+    var attachLinkDiv = document.createElement("div");
+
+    var attachLinkInput=document.createElement("input");
+
+    $(attachLinkDiv).attr("id", "attachLinkDiv")
+
+    $(attachLinkInput).attr("id", "attachLinkInput");
+
+
 });

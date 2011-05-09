@@ -122,9 +122,16 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
         $(field_input).attr("id", props[key])
 
-        defaultArr = {"left": "0px", "top": "0px", "width": "100%", "height": '100%', "background-color": "#transparent"}
+        defaultArr = {"left": "0px", "top": "0px", "width": "100%", "height": '100%', "background-color": "transparent"}
 
-        $(field_input).val(defaultArr[props[key]])
+        if(builder.state.stage != "setUp"){
+            $(field_input).val($(this.intent).css(props[key]));
+        } else {
+            $(field_input).val(defaultArr[props[key]])
+
+        }
+
+     
 
         $(field_input).bind("click", {arr: defaultArr[props[key]]},function(event){
             if($(this).val() == event.data.arr){
@@ -228,9 +235,10 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
             $(option).text(currSelections[k])
 
             $(option).bind("click", {"propertyArr": builder.bordersSelectArr[j], "optionsArr": currSelections[k]},function(event){
+         
 
-             
-                builder.selectedProperties["border-" + event.data.propertyArr] = event.data.optionsArr;
+                
+                builder.selectedProperties["border-" + event.data.propertyArr] = $(this).val();
             })
 
             $(option).appendTo(bordersSelect)
@@ -263,6 +271,8 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     $(submit_field).bind("click", {elem: this} ,function(event){
         event.data.elem.func(event.data.elem.intent, {submit: "apply"})
+
+
     })
 
 
@@ -286,6 +296,8 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
         $(event.data.obj.elem).remove()
 
         $(builder.initialAssistantModal.elem).css("visibility", "hidden");
+
+        builder.state.stage = "normal"
         
     })
 
@@ -350,6 +362,6 @@ $(document).bind("ready", function(){
     builder.initialPropertyWindow = new propertiesWindow(null, "body", {height: "100px", width: "70px", "background": "#E6E6E6", "border": "1px solid black"}, "#page", {visible: true}, applyProperties)
     
 
-    
+
     
 })

@@ -5,17 +5,31 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
+member = function(arr, item){
+    for(i=0; i<arr.length; i++){
+        if(arr[i] == item){
+            return true;
+        }
+    }
 
-function tools(id, parent, classes, props, src, css, dim, func){
+    return false;
+}
+
+function tools(id, parent, previous,classes, state, src, css, dim, func){
 	this.id=id;
 	this.parent=parent;
+        this.previous = previous;
 	this.classes=classes;
-	this.props = props;
+	this.state = state;
         this.src=src;
 	this.css=css;
 
 	this.dim=dim;
         this.func=func;
+
+        if(this.previous!=null){
+            previous.children = {}
+        }
 
 	this.init=function(){
 
@@ -28,6 +42,13 @@ function tools(id, parent, classes, props, src, css, dim, func){
 				'-moz-user-select':'none',
 				'-webkit-user-select': 'none'
 		});
+
+                if(this.classes[1] == "butterButton"){
+                    $(this.elem).css({
+                        "width": "20px",
+                        "height": "20px"
+                    })
+                }
 
 		for(i=0;i<this.classes.length; i++){
 			$(this.elem).addClass(this.classes[i])
@@ -48,6 +69,8 @@ function tools(id, parent, classes, props, src, css, dim, func){
                         } else {
                             this.elem.icon.src='/images/' + this.src;
                         }
+
+                        
 			
 
                         $(this.elem.icon).attr("unselectable", "on");
@@ -64,6 +87,27 @@ function tools(id, parent, classes, props, src, css, dim, func){
 
                                 builder.state.activeTool = event.data.obj.id;
                                 builder.methods.switchTool(event.data.obj);
+
+                                builder.methods.toast(event.data.obj.id);
+                            })
+                        }
+
+                        if(member(this.classes, "switch")){
+                            $(this.elem.icon).bind("click", {obj:this},function(event){
+                                if(builder.state[event.data.obj.id] == 0){
+                                    builder.state[event.data.obj.id] = 1
+                                    $(event.data.obj.elem.icon).css({
+                                        "border-left": "2px solid black",
+                                        "border-top": "2px solid black"
+                                    })
+                                } else {
+                                    builder.state[event.data.obj.id] = 0;
+                                    $(event.data.obj.elem.icon).css({
+                                        "border": "none"
+                                    })
+                                }                              
+
+
                             })
                         }
 
@@ -118,3 +162,9 @@ function tools(id, parent, classes, props, src, css, dim, func){
 
 
 tools.prototype = new zid();
+
+tools.prototype.trigger = function(){
+    if(builder.state.borderSwitch == 0){
+        $(this.elem.icon).trigger("click")
+    }
+}

@@ -85,11 +85,6 @@ $(document).bind('ready', function(){
 
         boundariesCSS.disabled=false;
 
-        curtainSize=document.createElement('div');
-        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainwidth=this.value;" size="5" value="0">';
-
-        $('#toaster').append(curtainSize)
-
         var followDiv=document.createElement('div');
         $(followDiv).attr('id', 'followDiv');
 

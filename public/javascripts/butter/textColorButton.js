@@ -6,8 +6,8 @@ This document/software/program/code, or any portions of it may not be cited, rep
 */
 
 textColor=function(){
-	zide.palette.showhide();
-        zide.palette.state.intent="fore";
+	global.palette.showhide();
+        global.palette.state.intent="fore";
 };
 
 $(document).bind('ready', function(){

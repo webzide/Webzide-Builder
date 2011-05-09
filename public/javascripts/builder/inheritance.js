@@ -23,11 +23,15 @@ var zid = function(type, id, parent, classes, css, dim, state, func){
 
         $(this.elem).attr("id", this.id);
 
-        for(i=0; i<this.css.length; i++){
-            $(this).addClass(this.css[i]);
+        for(i=0; i<this.classes.length; i++){
+            $(this.elem).addClass(this.classes[i]);
         }
 
-        $(this.elem).appendTo(this.parent.elem);
+        if(typeof this.parent == "string"){
+            $(this.elem).appendTo($(this.parent))
+        } else {
+            $(this.elem).appendTo(this.parent.elem);
+        }
     }
 }
 

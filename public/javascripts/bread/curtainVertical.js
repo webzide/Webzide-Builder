@@ -2,6 +2,15 @@ $(document).bind('ready', function(){
     curtainwidth=0;
     clickSwitch=0;
 
+        curtainSize=document.createElement('div');
+        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainHeight=this.value; curtainWidth = this.value" size="5" value="0">';
+
+        $(curtainSize).attr("id", "curtainToast")
+
+        $(curtainSize).css("display", "none")
+
+        $('#toaster').append(curtainSize)
+
     var curtainPull2=function(event){
         endX=event.clientX;
         endY=event.clientY;
@@ -85,10 +94,7 @@ $(document).bind('ready', function(){
 
         boundariesCSS.disabled=false;
 
-        curtainSize=document.createElement('div');
-        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainHeight=this.value;" size="5" value="0">';
 
-        $('#toaster').append(curtainSize)
 
         var followDiv=document.createElement('div');
         $(followDiv).attr('id', 'followDiv');

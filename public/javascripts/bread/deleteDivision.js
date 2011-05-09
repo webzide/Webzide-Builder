@@ -15,7 +15,7 @@ var deleteDivision=function(){
             })
     });
 	
-    $('.div').not('#page').css('cursor', 'url(../images/cursors/cursorDelete.cur), default')
+    $('.div').not('#page').css('cursor', 'url(../images/cursors/cursorDelete.gif), default')
 }
 
 $(document).bind('ready', function(){

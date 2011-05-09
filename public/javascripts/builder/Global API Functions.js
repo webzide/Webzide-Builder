@@ -118,8 +118,14 @@ var draw_mousedown=function(event){
 
         if(event.data.elemType == 'img'){
             innerElem.src = drawImageLink;
+          $(innerElem).css({
+                '-moz-user-select':'none',
+		'-webkit-user-select': 'none'
+        })
             
         }
+
+
 
         $(div).append(innerElem);
     }
@@ -172,75 +178,15 @@ var draw_mousedown=function(event){
     event.stopPropagation();
 }
 
-function toasterDrawdiv(){
-
-    {
-        var grooveBorders=document.createElement('div');
-        grooveBorders.icon=new Image();
-        grooveBorders.icon.src="../images/toaster/solid.gif"
-
-        $(grooveBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '23px'
-        });
-
-        grooveBorders.appendChild(grooveBorders.icon)
-
-        $(grooveBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px ridge black;} #page{border: none}'
-        });
-
-        $(grooveBorders).appendTo("#toaster")
-    }
-
-    {
-        var dashedBorders=document.createElement('div');
-        dashedBorders.icon=new Image();
-        dashedBorders.icon.src="../images/toaster/dashed.gif"
-
-        $(dashedBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '23px'
-        });
-
-        dashedBorders.appendChild(dashedBorders.icon)
-
-        $(dashedBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px dashed #666666;} #page{border: none}'
-        });
-
-        $(dashedBorders).appendTo("#toaster")
-
-    }
-    {
-        var dottedBorders=document.createElement('div');
-        dottedBorders.icon=new Image();
-        dottedBorders.icon.src="../images/toaster/dotted.gif"
-
-        $(dottedBorders).css({
-                'margin-left': 'auto',
-                'margin-right': 'auto',
-                'width': '23px'
-        });
-
-        dottedBorders.appendChild(dottedBorders.icon)
-
-        $(dottedBorders).bind('click', function(){
-            boundariesCSS.innerHTML='.div{border: 1px dotted #555555;} #page{border: none}'
-        });
-
-       $(dottedBorders).appendTo("#toaster")
-    }
 
 
-}
+
+
+
 
 var draw=function(event){
 
     $("#toaster").css("visibility", 'visible')
-    toasterDrawdiv()
 
     $('.div').addClass('.DIV')
     $('.div, span').css('cursor', 'crosshair');

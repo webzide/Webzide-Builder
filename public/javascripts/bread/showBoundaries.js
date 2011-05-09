@@ -11,8 +11,7 @@ builder.methods.toggleBoundaries=function(){
 
 	boundariesTag=document.getElementById('boundariesTag');
 
-	if(builder.state.borderSwitch==0){
-		builder.state.borderSwitch=1;
+	if(builder.state.borderSwitch==1){
 		
 		if(document.all){
 			boundariesCSS.disabled=false;
@@ -21,8 +20,7 @@ builder.methods.toggleBoundaries=function(){
 		}
 		
 		
-	} else if(builder.state.borderSwitch==1){
-		builder.state.borderSwitch=0;
+	} else if(builder.state.borderSwitch==0){
 		if(document.all){
 			boundariesCSS.disabled=true;
 		} else{
@@ -36,5 +34,5 @@ builder.methods.toggleBoundaries=function(){
 
 
 $(document).bind('ready', function(){
-	$('#showBoundaries').bind('click', builder.methods.toggleBoundaries)
+	$('#borderSwitch').bind('click', builder.methods.toggleBoundaries)
 });
