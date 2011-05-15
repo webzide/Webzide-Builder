@@ -54,7 +54,11 @@ $(document).bind('ready', function(){
                 position: 'absolute',
                 left: (startX - (curtainwidth/2) - determine(current, 'left') + document.body.parentNode.scrollLeft) + 'px',
                 top: (startY - determine(current, 'top') +  document.body.parentNode.scrollTop) + 'px',
-                width: curtainwidth + 'px'
+                width: curtainwidth + 'px',
+                                        'border-color': builder.state.propertyBox["border-color"],
+        'border-style':builder.state.propertyBox["border-style"],
+        'border-width':builder.state.propertyBox["border-width"],
+        "background": builder.state.propertyBox["background"]
             });
 
             $(current).append(div)

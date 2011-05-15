@@ -1,17 +1,33 @@
+builder.del = false;
+
 var deleteDivision=function(){
 
-    
-
-
-    $('.div').each(function(){
+    $('.div').not("#page").each(function(){
             $(this).bind('click', function(event){
-                    if(event.target.id!='page'){
-                        if(event.target.nodeName != "DIV"){
-                            $(event.target).parent(".div").remove();
+
+
+                    action = function(){
+                       if(builder.del == false){
+                            return function(){                               
+                                if(event.target.id!='page'){
+                                    if(event.target.nodeName != "DIV"){
+                                        $(event.target).parent(".div").remove();
+                                    } else {
+                                        $(event.target).remove();
+                                    }
+                                }
+                            }
                         } else {
-                            $(event.target).remove();
+
                         }
-                    }
+                    }();
+
+
+                    var deleteConfirm = new confirmBox("deleteConfirm", document.body, "deleteConfirm", action)
+                    deleteConfirm.centerX();
+                    deleteConfirm.centerY();
+
+
             })
     });
 	

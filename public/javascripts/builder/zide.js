@@ -35,17 +35,22 @@ builder.info.breadToolsArray[4]= "drawDiv";
 builder.info.breadToolsArray[5]= "drawText";
 builder.info.breadToolsArray[6]= "curtainH";
 builder.info.breadToolsArray[7]= "curtainV";
-builder.info.breadToolsArray[8]= "divisionDrag";
-builder.info.breadToolsArray[9]= "divisionResize";
-builder.info.breadToolsArray[10]= "divBackground";
-builder.info.breadToolsArray[11]= "paintText";
-builder.info.breadToolsArray[12]= "imageInsert";
-builder.info.breadToolsArray[13]= "attachLink";
+builder.info.breadToolsArray[8]= "dividerY";
+builder.info.breadToolsArray[9]= "dividerX";
+builder.info.breadToolsArray[10]= "divisionDrag";
+builder.info.breadToolsArray[11]= "divisionResize";
+builder.info.breadToolsArray[12]= "divBackground";
+builder.info.breadToolsArray[13]= "paintText";
+builder.info.breadToolsArray[14]= "imageInsert";
+builder.info.breadToolsArray[15]= "attachLink";
 
 builder.methods.switchTool = function(tools){
 
     builder.state.selectedOn = 0;
     builder.methods.disableButtons();
+
+    builder.state.selectedElem = null;
+
     $('.sel').remove();
     $('.div').unbind();
     $('span').unbind();
@@ -69,12 +74,15 @@ builder.methods.switchTool = function(tools){
 }
 
 var toasterToolsMatch = {
-    "drawDiv": "boundariesStyle",
-    "drawText": "boundariesStyle",
-    "curtainH": "curtainToast",
-    "curtainV": "curtainToast",
-    "imageInsert": "imageLinkDiv",
-    "attachLink": ""
+    "drawDiv": ["propertyBox"],
+    "drawText": ["propertyBox"],
+    "curtainH": ["propertyBox","curtainToast"],
+    "curtainV": ["propertyBox","curtainToast"],
+    "imageInsert": ["imageLinkDiv"],
+    "dividerX": ["firstProp", "secondProp"],
+    "dividerY": ["firstProp", "secondProp"],
+    "insertText": ["textDiv"],
+    "attachLink": []
 
 }
 
@@ -85,7 +93,11 @@ builder.methods.toast = function(tool){
         })
     })
 
-    $("#toaster").children("#" + toasterToolsMatch[tool]).css("display", "block")
+    if(toasterToolsMatch[tool]){
+        for(i=0; i< toasterToolsMatch[tool].length; i++){
+            $("#toaster").children("#" + toasterToolsMatch[tool][i]).css("display", "block")
+        }
+    }
 }
 
 builder.methods.enableButtons = function(){
@@ -142,11 +154,39 @@ builder.state = {
     "activeTool": null,
     "stage": null,
     "activeBorders": [],
-    "selectedElems": [],
+    "selectedElem": null,
     "selectedOn": 0,
     "boundaryStyle": "grooveBorders",
-    "textSelection": 0
+    "textSelection": 0,
+    "backColor": null,
+    "foreColor": null,
+    "eyeColor": null,
+    "propertyBox": {},
+    "firstProp": {},
+    "secondProp": {}
 }
+
+builder.state.propertyBox={
+    "border-style": 'dotted',
+    "border-width": '1px',
+    "border-color": 'black',
+    "background": "transparent"
+}
+
+builder.state.firstProp={
+    "border-style": 'dotted',
+    "border-width": '1px',
+    "border-color": 'black',
+    "background": "transparent"
+}
+
+builder.state.secondProp={
+    "border-style": 'dotted',
+    "border-width": '1px',
+    "border-color": 'black',
+    "background": "transparent"
+}
+
 
 builder.bordersChecked = []
 builder.bordersChecked["top"] = 0;

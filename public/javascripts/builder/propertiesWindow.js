@@ -14,6 +14,11 @@ function capFirst(string)
 
 
 var propertiesWindow = function(id, parent, css, intent, state, func){
+
+    if(intent == null){
+        return false;
+    }
+
     this.id = id;
     this.parent= parent;
     this.css = css;
@@ -229,17 +234,18 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
         $(bordersSelect).attr("id", "border-" + builder.bordersSelectArr[j])
 
+        $(bordersSelect).bind('change', function(event){
+
+                builder.selectedProperties[$(this).attr("id")] = $(this).find(":selected").val()
+            })
+        
+
         for(k=0; k<currSelections.length; k++){
             var option = document.createElement("option");
             
             $(option).text(currSelections[k])
 
-            $(option).bind("click", {"propertyArr": builder.bordersSelectArr[j], "optionsArr": currSelections[k]},function(event){
-         
 
-                
-                builder.selectedProperties["border-" + event.data.propertyArr] = $(this).val();
-            })
 
             $(option).appendTo(bordersSelect)
         }
@@ -350,6 +356,7 @@ $(document).bind("ready", function(){
         for(i = 0; i< builder.state.activeBorders.length; i++){
             for(j = 0; j< builder.bordersSelectArr.length; j++){
                 $(curr).css("border-" +  builder.state.activeBorders[i] + "-" + builder.bordersSelectArr[j] , builder.selectedProperties["border-" + builder.bordersSelectArr[j]])
+
             }
         }
 

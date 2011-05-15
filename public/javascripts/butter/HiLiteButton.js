@@ -11,6 +11,27 @@ var HiLiteColor=function(){
 };
 
 $(document).bind('ready', function(){
-	$('#HiLiteButton').bind('click', HiLiteColor);
+
+    $('.colorpicker').bind('mousedown', function(event){
+        event.preventDefault();
+    })
+
+    $("#hiLiteButton").ColorPicker({
+
+        onSubmit: function(hsb, hex, rgb, el) {
+            document.execCommand("hilitecolor", false, "#" + hex);
+            $(el).ColorPickerHide();
+        }
+    })
+
+    $(".colorpicker").children().each(function(event){
+        this.style.MozUserSelect="none"
+    })
+
+    $(".colorpicker").css({
+        '-moz-user-select':'none',
+        '-webkit-user-select': 'none'
+    })
+
 });
 

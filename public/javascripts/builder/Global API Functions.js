@@ -5,20 +5,6 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
-function disableSelection(target){
-
-    if (typeof target.onselectstart!="undefined") //IE route
-        target.onselectstart=function(){return false}
-
-    else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
-        target.style.MozUserSelect="none"
-
-    else //All other route (ie: Opera)
-        target.onmousedown=function(){return false}
-
-    target.style.cursor = "default"
-}
-
 //---------------------------------------------------------------	
 
 //Function for Making dimensions in an element
@@ -104,7 +90,11 @@ var draw_mousedown=function(event){
     $(div).css({
         position: 'absolute',
         left: (event.clientX - determine(curr, 'left') + document.body.parentNode.scrollLeft) + 'px',
-        top: (event.clientY - determine(curr, 'top') +  document.body.parentNode.scrollTop) + 'px'
+        top: (event.clientY - determine(curr, 'top') +  document.body.parentNode.scrollTop) + 'px',
+        'border-color': builder.state.propertyBox["border-color"],
+        'border-style':builder.state.propertyBox["border-style"],
+        'border-width':builder.state.propertyBox["border-width"],
+        "background": builder.state.propertyBox["background"]
     });
 
     $(div).addClass('div');
@@ -119,8 +109,8 @@ var draw_mousedown=function(event){
         if(event.data.elemType == 'img'){
             innerElem.src = drawImageLink;
           $(innerElem).css({
-                '-moz-user-select':'none',
-		'-webkit-user-select': 'none'
+
+
         })
             
         }

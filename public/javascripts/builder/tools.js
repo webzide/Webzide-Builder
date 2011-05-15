@@ -57,8 +57,21 @@ function tools(id, parent, previous,classes, state, src, css, dim, func){
 		if(this.src!= null){
 			this.elem.icon=document.createElement('img');
 
-                        if(this.classes[1]=="butterButton"){
-                            if(builder.state.selectedElems.length > 0){
+                        if(this.classes[0]=="switch"){
+
+                                $(this.elem.icon).width("15px")
+                                $(this.elem.icon).height("15px")
+                        } else if(this.classes[0]=="tools"){
+                                $(this.elem.icon).width("22px")
+                                $(this.elem.icon).height("22px")
+                        } else if(this.classes[0]=="windows"){
+                                $(this.elem.icon).width("48px")
+                                $(this.elem.icon).height("48px")
+                        }
+
+
+                        if (this.classes[1]=="butterButton"){
+                            if(builder.state.selectedElem){
                                 this.elem.icon.src='/images/' + this.src;
                             } else {
                                 

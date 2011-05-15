@@ -90,15 +90,17 @@ $(document).bind('ready', function(){
 
                     $(this).attr('state', 'selected');
 
-                    for(i=0; i<builder.state.selectedElems.length; i++){
-                        if(builder.state.selectedElems[i] == this.parentNode){
-                            builder.state.selectedElems.remove(this.parentNode)
-                        }
-                    }
+                    builder.state.selectedElem = this.parentNode
 
-                    if(i == builder.state.selectedElems.length){
-                        builder.state.selectedElems.push(this.parentNode)
-                    }
+                    //for(i=0; i<builder.state.selectedElems.length; i++){
+                    //    if(builder.state.selectedElems[i] == this.parentNode){
+                    //        builder.state.selectedElems.remove(this.parentNode)
+                    //    }
+                    //}
+
+                    //if(i == builder.state.selectedElems.length){
+                    //    builder.state.selectedElems.push(this.parentNode)
+                    //}
 
 
 

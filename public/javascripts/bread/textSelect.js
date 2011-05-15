@@ -5,7 +5,9 @@
 		
 		$('span').bind('click', function(event){
 			$(event.target).addClass('edit');
-			
+
+                        $(event.target).attr("unselectable", 'off')
+
 			$(event.target).parents('.div').not("#page").each(function(){
 				this.contentEditable=true;
 

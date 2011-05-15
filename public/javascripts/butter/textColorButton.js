@@ -11,5 +11,27 @@ textColor=function(){
 };
 
 $(document).bind('ready', function(){
-	$('#textColorButton').bind('click', textColor)
+
+
+
+    $('.colorpicker').bind('mousedown', function(event){
+        event.preventDefault();
+    })
+
+    $("#textColorButton").ColorPicker({
+
+        onSubmit: function(hsb, hex, rgb, el) {
+            document.execCommand("forecolor", false, "#" + hex);
+            $(el).ColorPickerHide();
+        }
+    })
+
+    $(".colorpicker").children().each(function(event){
+        this.style.MozUserSelect="none"
+    })
+
+    $(".colorpicker").css({
+        '-moz-user-select':'none',
+        '-webkit-user-select': 'none'
+    })
 });

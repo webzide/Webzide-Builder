@@ -5,29 +5,31 @@ All Rights Reserved.
 This document/software/program/code, or any portions of it may not be cited, reproduced or redistributed without express written consent of the Author.
 */
 
+
+
 builder.methods.toggleBoundaries=function(){
 
-        
+        $('.div').each(function(){
+            boundariesDiv = document.createElement('div');
 
-	boundariesTag=document.getElementById('boundariesTag');
+            $(boundariesDiv).css({
+                'position': 'absolute',
 
-	if(builder.state.borderSwitch==1){
-		
-		if(document.all){
-			boundariesCSS.disabled=false;
-		} else{
-			boundariesTag.disabled=false;
-		}
-		
-		
-	} else if(builder.state.borderSwitch==0){
-		if(document.all){
-			boundariesCSS.disabled=true;
-		} else{
-			boundariesTag.disabled=true;
-		}
-		
-	}
+                "width": $(this).width(),
+
+
+                "height": $(this).height(),
+                "border": "1px dotted red"
+            })
+
+            $(boundariesDiv).addClass("boundaries")
+
+            $(this).prepend(boundariesDiv)
+
+
+        })
+
+
 
 }
 
@@ -35,4 +37,7 @@ builder.methods.toggleBoundaries=function(){
 
 $(document).bind('ready', function(){
 	$('#borderSwitch').bind('click', builder.methods.toggleBoundaries)
+
+
+
 });

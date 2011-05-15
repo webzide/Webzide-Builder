@@ -2,14 +2,7 @@ $(document).bind('ready', function(){
     curtainwidth=0;
     clickSwitch=0;
 
-        curtainSize=document.createElement('div');
-        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainHeight=this.value; curtainWidth = this.value" size="5" value="0">';
 
-        $(curtainSize).attr("id", "curtainToast")
-
-        $(curtainSize).css("display", "none")
-
-        $('#toaster').append(curtainSize)
 
     var curtainPull2=function(event){
         endX=event.clientX;
@@ -63,7 +56,11 @@ $(document).bind('ready', function(){
                 position: 'absolute',
                 left: (startX - determine(current, 'left') +  document.body.parentNode.scrollLeft) + 'px',
                 top: (startY - determine(current, 'top') - (curtainHeight/2) +  document.body.parentNode.scrollTop) + 'px',
-                height: curtainHeight + 'px'
+                height: curtainHeight + 'px',
+                        'border-color': builder.state.propertyBox["border-color"],
+        'border-style':builder.state.propertyBox["border-style"],
+        'border-width':builder.state.propertyBox["border-width"],
+        "background": builder.state.propertyBox["background"]
             });
 
             $(current).append(div)
@@ -92,9 +89,6 @@ $(document).bind('ready', function(){
         $('#page').bind('mousemove', curtainFollow2);
         $('#page').bind('click', curtainClick2);
 
-        boundariesCSS.disabled=false;
-
-
 
         var followDiv=document.createElement('div');
         $(followDiv).attr('id', 'followDiv');
@@ -103,3 +97,16 @@ $(document).bind('ready', function(){
     })
 
 });
+
+$(document).bind('ready', function(){
+            curtainSize=document.createElement('div');
+        curtainSize.innerHTML='Curtain Size:<input type="text" id="curtainSize" onchange="curtainHeight=this.value; curtainWidth = this.value" size="5" value="0">';
+
+        $(curtainSize).attr("id", "curtainToast")
+
+        $(curtainSize).css({"display": "none",
+            "padding": "5px"
+    })
+
+        $('#toaster').append(curtainSize)
+})

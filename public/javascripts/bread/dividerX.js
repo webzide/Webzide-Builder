@@ -1,83 +1,124 @@
-	$(document).bind('ready', function(){
 
-        var dividerH=function(event){
-        	divider=document.createElement('div');
 
-			currentDiv=event.target;
+function determineBorder(obj, direction) {
+	total = 0;
 
-			$(divider).addClass('divider')
+	$(obj).parents().filter('.div').each(function () {
+		total = total + parseInt(document.defaultView.getComputedStyle(this, "").getPropertyValue("border-top-width"));
+	})
+	total = total +parseInt(document.defaultView.getComputedStyle(obj, "").getPropertyValue("border-top-width"));
 
-			$(divider).css({
-                position: 'absolute',
-                width: $(event.target).width(),
-                'border-top': '1px dotted black',
-                left: '0px'
-            })
 
-			$(divider).attr('id', 'divider')
+	return total;
+}
+$(document).bind('ready', function(){
 
-			$(currentDiv).unbind('mousemove')
 
-			$(currentDiv).bind('mousemove', function(event){
-    			$(divider).css({
-                    top: (parseInt(event.clientY) - determine(currentDiv, 'top') + document.body.parentNode.scrollTop) + 'px'
-                })
-			});
-			
-			event.target.appendChild(divider)
-			event.stopPropagation();
-		}
+    dividerH=function(event){
+        var temp = determineBorder(event.target, "top")
 
-		divideHorizontal=function(event){
-					if(event.target.nodeName == 'DIV' && $(event.target).hasClass('div')){
-						curr = event.target;
-					} else {
-						curr = $(event.target).parents().filter('.div').get(0);
-					}
-					
-					
-					top=document.createElement('div');
-                    bottom=document.createElement('div');
-					
-                    $(top).addClass('div')
-                    $(bottom).addClass('div')
+        $(event.data.divider).css({
+            "position": 'absolute',
+            "width": $(event.target).width(),
+            'border-top': '1px dotted black',
+             top: (event.clientY - determine(event.target, 'top') +  document.body.parentNode.scrollTop) - temp,
+            'left': "0px"
 
-                    topHeight=(event.clientY - determine(curr, 'top') + document.body.parentNode.scrollTop) + 'px'
 
-                    $(top).css({
-                        position: 'absolute',
-                        top: '0px',
-                        left: '0px',
-                        height: (event.clientY - determine(curr, 'top') + document.body.parentNode.scrollTop) + 'px',
-                        width: $(curr).width() + 'px'
-                    })
-								
-                    $(bottom).css({
-                        position: 'absolute',
-                        top: (event.clientY - determine(curr, 'top') + document.body.parentNode.scrollTop) + 'px',
-                        left: '0px',
-                        width: $(curr).width() + 'px',
-                        height: (parseInt($(curr).height()) - parseInt(topHeight)) + 'px'
-                    })
-
-					$(curr).append(top)
-					$(curr).append(bottom)
-					
-					event.stopPropagation();
-				}
-			
-		
-        $('#dividerX').bind('click', function(){
-			boundariesCSS.disabled=false;
-            $('.div').bind('mouseenter', dividerH)
-
-            $('.div').bind('mouseleave', function(event){
-                $('.divider').remove()
-            })
-			
-			$('.div').bind('click', divideHorizontal)
         })
 
+        try{
+            $(event.data.divider).prependTo(event.target)
+        } catch (e){
+            
+        }
 
 
-	});
+        event.stopPropagation();
+
+
+        
+    }
+
+
+
+
+});
+
+var split = function(event){
+
+
+
+                     var bottomDiv = document.createElement("div");
+
+                     $(bottomDiv).addClass('div');
+
+                     
+
+                     $(bottomDiv).css({
+                        "position": "absolute",
+                        "width": $(this).parent().width(),
+                        "top": parseInt($(this).parent().css('top')) + parseInt(event.clientY) - determine(this.parentNode, 'top') + document.body.parentNode.scrollTop + "px",
+                        'left': parseInt($(this).parent().css('left')) + document.body.parentNode.scrollLeft,
+                        "height": parseInt($(this).parent().height()) - (parseInt(event.clientY) - determine(this.parentNode, 'top')) - document.body.parentNode.scrollTop + "px",
+                        "background": builder.state.secondProp["background"],
+                        'border-color': builder.state.secondProp["border-color"],
+                        'border-style':builder.state.secondProp["border-style"],
+                        'border-width':builder.state.secondProp["border-width"]
+
+                     });
+
+                      $(bottomDiv).bind('mousemove', {divider: ddivider},dividerH)
+
+                     $(bottomDiv).prependTo(this.parentNode);
+
+                     var topDiv=document.createElement("div");
+
+                     $(topDiv).addClass('div');
+
+                     $(topDiv).css({
+                        "position": "absolute",
+                        "width": $(this).parent().width(),
+                        "top": $(this).parent().css('top'),
+                        'left': $(this).parent().css('left'),
+                        "height": parseInt(event.clientY) - determine(this.parentNode, 'top') + document.body.parentNode.scrollTop  -  (parseInt(builder.state.firstProp["border-width"]) *2) + "px",
+                        "background": builder.state.firstProp["background"],
+                        'border-color': builder.state.firstProp["border-color"],
+                        'border-style':builder.state.firstProp["border-style"],
+                        'border-width':builder.state.firstProp["border-width"]
+                     })
+
+                    $(topDiv).bind('mousemove', {divider: ddivider},dividerH)
+
+                     $(topDiv).prependTo(this.parentNode)
+
+                     $(bottomDiv, topDiv).unwrap()
+
+                     $(this).appendTo(topDiv)
+                    
+                }
+
+$(document).bind('ready', function(){
+
+    $('#dividerY').bind('click', function(){
+                ddivider=document.createElement('div');
+		$(document.body).append(ddivider)
+
+                $(ddivider).addClass('divider')
+
+
+                $('.div').bind('mousemove', {divider: ddivider},dividerH)
+
+                $('.div').bind('mouseenter', {divider: ddivider}, function(event){
+                    
+                })
+
+                $('.divider').bind('click', split)
+    })
+})
+
+$(document).bind('ready', function(){
+    var firstProp = new propertyBox("firstProp", "b", "c");
+
+    var secondProp = new propertyBox("secondProp", "b", "c")
+})

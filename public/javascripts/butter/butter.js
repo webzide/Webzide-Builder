@@ -84,24 +84,31 @@ $(document).bind('ready', function(){
     fontSizeMenu = new selectMenu("fontSizeMenu", "#butterDiv", null, {"margin": "0", "float": "left"}, fontSizeArray, changeFontSize)
     fontSizeMenu.init();
 
-    builder.divisions.butter.object.children.fontFamilyButton = new selectMenu("fontFamilyMenu", "#butterDiv", null, {"margin": "0", "float": "left"}, fontFamiliesArray, changeFontFamily);
+    builder.divisions.butter.object.children.fontFamilyButton = new selectMenu("fontFamilyMenu", "#butterDiv", null, {"margin": "0", "float": "left", 'width': "100px"}, fontFamiliesArray, changeFontFamily);
     builder.divisions.butter.object.children.fontFamilyButton.init()
 
     $(document).bind("mouseup", function(event){
-        
-        if(window.getSelection() == '' && builder.state.selectedOn != 1){
-            builder.methods.disableButtons();
-            builder.state.textSelection = 0
-        }
 
-
-       else if(window.getSelection() != '' && builder.state.textSelection != 1){
-
-            builder.state.textSelection = 1
-           builder.methods.enableButtons();
-        } else {
+        if(document.selection){
             
-            return false;
+
+        } else {
+
+            if(window.getSelection() == '' && builder.state.selectedOn != 1){
+                builder.methods.disableButtons();
+                builder.state.textSelection = 0
+            }
+
+
+           else if(window.getSelection() != '' && builder.state.textSelection != 1){
+
+                builder.state.textSelection = 1
+               builder.methods.enableButtons();
+            } else {
+
+                return false;
+
+            }
 
         }
 

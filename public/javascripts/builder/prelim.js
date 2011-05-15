@@ -32,8 +32,8 @@ var prelim=function(event){
 
         //create initial overlay.
 
-        
-        disableSelection(document.body)
+
+
 
         var overlay = $("<div></div>")
 
