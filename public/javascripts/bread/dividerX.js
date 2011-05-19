@@ -120,5 +120,9 @@ $(document).bind('ready', function(){
 $(document).bind('ready', function(){
     var firstProp = new propertyBox("firstProp", "b", "c");
 
+    $(firstProp.element).css("display", "none")
+
     var secondProp = new propertyBox("secondProp", "b", "c")
+
+    $(secondProp.element).css("display", "none")
 })

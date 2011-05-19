@@ -48,9 +48,12 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
     this.elem.topBar = document.createElement("div");
 
+    $(this.elem.topBar).text("Properties for the Initial Page")
+
     $(this.elem.topBar).css({
         height: "17px",
-        background: "black"
+        background: "black",
+        color: "white"
     })
 
     this.elem.appendChild(this.elem.topBar);
@@ -74,21 +77,9 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
         "Background Color:": "background-color"
     }
 
-    intent = document.createElement("div")
 
-    $(intent).css({
-        "font-size": "11pt",
-        "margin-bottom": "10px"
-    })
-
-    $(intent).appendTo(this.elem.contentBar)
-
-    if(builder.state.stage == "setUp"){
-        intentText = "Setting Initial Properties for the <b>Page</b> Element";
-        $(intent).html(intentText)
-    }
-
-    
+        defaultHeight = document.body.clientHeight;
+        defaultWidth = document.body.clientWidth;
 
     for (var key in props){
         field = document.createElement("div");
@@ -127,7 +118,8 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
         $(field_input).attr("id", props[key])
 
-        defaultArr = {"left": "0px", "top": "0px", "width": "100%", "height": '100%', "background-color": "transparent"}
+
+        defaultArr = {"left": "0px", "top": "0px", "width": defaultWidth + "px", "height": defaultHeight + "px", "background-color": "transparent"}
 
         if(builder.state.stage != "setUp"){
             $(field_input).val($(this.intent).css(props[key]));
@@ -304,6 +296,9 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
         $(builder.initialAssistantModal.elem).css("visibility", "hidden");
 
         builder.state.stage = "normal"
+
+        $("#handTool").trigger("click");
+        $("#handTool").children("img").trigger("click");
         
     })
 

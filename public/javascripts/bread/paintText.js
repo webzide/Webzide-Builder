@@ -20,5 +20,7 @@ $(document).bind('ready', function(){
         $(".div").bind('click', function(event){
             $(event.target).css('color', "#" + builder.state.foreColor);
         })
+
+        $('.div').css('cursor', 'url(../images/cursors/brushCurr.gif), default')
     })
 })

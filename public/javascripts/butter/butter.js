@@ -87,34 +87,5 @@ $(document).bind('ready', function(){
     builder.divisions.butter.object.children.fontFamilyButton = new selectMenu("fontFamilyMenu", "#butterDiv", null, {"margin": "0", "float": "left", 'width': "100px"}, fontFamiliesArray, changeFontFamily);
     builder.divisions.butter.object.children.fontFamilyButton.init()
 
-    $(document).bind("mouseup", function(event){
-
-        if(document.selection){
-            
-
-        } else {
-
-            if(window.getSelection() == '' && builder.state.selectedOn != 1){
-                builder.methods.disableButtons();
-                builder.state.textSelection = 0
-            }
-
-
-           else if(window.getSelection() != '' && builder.state.textSelection != 1){
-
-                builder.state.textSelection = 1
-               builder.methods.enableButtons();
-            } else {
-
-                return false;
-
-            }
-
-        }
-
-
-    })
-
-
 
 })

@@ -62,10 +62,12 @@ $(document).bind('ready', function(){
                     if(builder.state.selectedOn == 0){
                         builder.state.selectedOn = 1;
                         builder.methods.enableButtons();
+                        builder.state.butterDisabled = 0;
                     } else {
                         
                         builder.state.selectedOn = 0;
                         builder.methods.disableButtons();
+                        builder.state.butterDisabled = 1;
                     }
 
                     

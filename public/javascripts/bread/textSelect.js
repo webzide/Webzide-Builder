@@ -11,6 +11,13 @@
 			$(event.target).parents('.div').not("#page").each(function(){
 				this.contentEditable=true;
 
+                                $(this).bind("focus", function(){
+                                    builder.state.caret = 1;
+
+                                }).bind("blur", function(){
+                                    builder.state.caret = 0;
+                                })
+
                                 if(navigator.product == 'Gecko'){
                                     document.execCommand("enableObjectResizing", false, false);
                                 }

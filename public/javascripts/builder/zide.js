@@ -31,23 +31,38 @@ builder.info.breadToolsArray[0]= "handTool";
 builder.info.breadToolsArray[1]= "divisionDelete";
 builder.info.breadToolsArray[2]= "elementSelect";
 builder.info.breadToolsArray[3]= "textSelect";
-builder.info.breadToolsArray[4]= "drawDiv";
-builder.info.breadToolsArray[5]= "drawText";
-builder.info.breadToolsArray[6]= "curtainH";
-builder.info.breadToolsArray[7]= "curtainV";
-builder.info.breadToolsArray[8]= "dividerY";
-builder.info.breadToolsArray[9]= "dividerX";
-builder.info.breadToolsArray[10]= "divisionDrag";
-builder.info.breadToolsArray[11]= "divisionResize";
-builder.info.breadToolsArray[12]= "divBackground";
-builder.info.breadToolsArray[13]= "paintText";
-builder.info.breadToolsArray[14]= "imageInsert";
-builder.info.breadToolsArray[15]= "attachLink";
+builder.info.breadToolsArray[4]= "eyeDropper";
+builder.info.breadToolsArray[5]= "insertText";
+builder.info.breadToolsArray[6]= "drawDiv";
+builder.info.breadToolsArray[7]= "drawText";
+builder.info.breadToolsArray[8]= "curtainH";
+builder.info.breadToolsArray[9]= "curtainV";
+builder.info.breadToolsArray[10]= "dividerY";
+builder.info.breadToolsArray[11]= "dividerX";
+builder.info.breadToolsArray[12]= "divisionDrag";
+builder.info.breadToolsArray[13]= "divisionResize";
+builder.info.breadToolsArray[14]= "divBackground";
+builder.info.breadToolsArray[15]= "paintText";
+builder.info.breadToolsArray[16]= "imageInsert";
+builder.info.breadToolsArray[17]= "attachLink";
 
 builder.methods.switchTool = function(tools){
 
+    $(".div").css("cursor", "default")
+
     builder.state.selectedOn = 0;
     builder.methods.disableButtons();
+    builder.state.butterDisabled = 1;
+    builder.state.caret = 0;
+
+    if(window.getSelection().rangeCount){
+        window.getSelection().getRangeAt(0).collapse(false)
+    }
+
+    $("span").each(function(){
+        disableSelection(this)
+        $(this).removeAttr("contenteditable")
+    })
 
     builder.state.selectedElem = null;
 
@@ -82,7 +97,7 @@ var toasterToolsMatch = {
     "dividerX": ["firstProp", "secondProp"],
     "dividerY": ["firstProp", "secondProp"],
     "insertText": ["textDiv"],
-    "attachLink": []
+    "attachLink": ["attachLinkDiv"]
 
 }
 
@@ -156,14 +171,33 @@ builder.state = {
     "activeBorders": [],
     "selectedElem": null,
     "selectedOn": 0,
+    "buttonDisabled": 1,
     "boundaryStyle": "grooveBorders",
     "textSelection": 0,
     "backColor": null,
     "foreColor": null,
     "eyeColor": null,
+    "caret": 0,
+    "cutText": '',
     "propertyBox": {},
     "firstProp": {},
-    "secondProp": {}
+    "secondProp": {},
+    "linkURL": "#",
+    "butterState": {}
+}
+
+builder.state.butterState = {
+    "bold": 0,
+    "italic": 0,
+    "underline": 0,
+    "strikethrough": 0
+}
+
+builder.butter.typo = {
+    "boldButton": "bold",
+    "italicButton": "italic",
+    "underlineButton": "underline",
+    "strikethroughButton": "strikethrough"
 }
 
 builder.state.propertyBox={
@@ -203,4 +237,8 @@ builder.selectedProperties = {
 
 builder.event = {
     "drag": 0
+}
+
+builder.handlers = {
+    "butterMouseUp": new Function()
 }

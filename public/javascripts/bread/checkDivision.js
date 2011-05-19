@@ -2,7 +2,7 @@
         var onmousestop = function(event){
             var checkPrompt = document.createElement("div");
             $(checkPrompt).css({
-                "background": "#FFFFCC",
+                "background": "#E6E6E6",
                 "position": "absolute",
                 "left": event.clientX,
                 "top": parseInt(event.clientY) - 20,
@@ -34,10 +34,6 @@ checkDivision=function(){
 
     builder.state.activeTool = "handTool"
 
-
-
-
-
     //$('.div').bind("mousemove", builder.showCheckPrompt());
 
 	$('.div').css({
@@ -49,40 +45,97 @@ checkDivision=function(){
 
                         propertyWindow=document.createElement('div');
 
-			$(propertyWindow).attr('id', 'propertyWindow');
+			$(propertyWindow).attr('id', 'showPropertyWindow');
 
 			$(propertyWindow).css({
 				position: 'absolute',
-				width: '100px',
-				height: '160px',
-				background: 'rgb(255, 255, 225)',
-                                visibility: 'visible',
-				border: '1px solid black'
+				width: 'auto',
+				height: 'auto',
+				background: '#E6E6E6',
+                                visibility: 'visible'
 			});
 
-			pwHTML='<div style="padding: 6px;">';
-			pwHTML+='<b>Properties</b><br/>ID:' + event.target.id;
-			pwHTML+='<br/>Left:' + $(event.target).css('left');
-			pwHTML+='<br/>Top:' + $(event.target).css('top');
-			pwHTML+='<br/>Width:' + $(event.target).width() + 'px';
-			pwHTML+= '<br/>Height:' + $(event.target).height() + 'px';
-			pwHTML+= '<br/>Background:' + $(event.target).css('background');
-			pwHTML+='</div>';
+                        var topbar = document.createElement("div");
 
-			$(propertyWindow).html(pwHTML)
+                        $(topbar).css({
+                            "background": "black",
+                            "color": "white"
+                        })
+
+                        $(topbar).text("Element Properties")
+
+                        $(topbar).appendTo(propertyWindow)
+
 
                         $(propertyWindow).offset({
-                            left: event.pageX - 1,
-                            top: event.pageY - 1
+                            left: event.pageX,
+                            top: event.pageY
 
                         })
+
+                        var contentBar = document.createElement("div");
+
+                        var propertiesTab = document.createElement("table");
+
+                        $(propertiesTab).css({
+                            "border-collapse": "collapse",
+                            "padding": "3px"
+                        })
+
+                        var propsObj = {
+                            "left": "Left: ",
+                            "top": "Top: ",
+                            "width": "Width: ",
+                            "height": "Height: ",
+                            "background-color": "Background: ",
+                            "border-left-style": "Border Style:",
+                            "border-left-width": "Border Width:",
+                            "border-left-color": "Border Color: "
+
+                        };
+
+                        for(p in propsObj){
+                            var tr = document.createElement("tr");
+
+                            var td1 = document.createElement("td");
+
+                            $(td1).text(propsObj[p]);
+
+                            $(td1).appendTo(tr);
+
+                            var td2 = document.createElement("td");
+
+                            $(td2).text($(event.target).css(p))
+
+                            $(td1).css({
+                                "border": "1px solid black",
+                                "padding": "2px",
+                                "font-weight": "bold"
+                            })
+
+                            $(td2).css({
+                                "border": "1px solid black",
+                                "padding": "2px"
+                            })
+
+                            $(td2).appendTo(tr);
+
+                            $(tr).appendTo(propertiesTab);
+
+
+                        }
+
+                        $(propertiesTab).appendTo(propertyWindow);
+
 
 			document.body.appendChild(propertyWindow);
 
-                        $(propertyWindow).bind("mouseleave", function(){
-                            $('#propertyWindow').remove();
+                        $('.div').bind("mousemove", function(){
+                            $('#showPropertyWindow').remove();
 
                         })
+
+                        event.stopPropagation()
 
         });		
 };
