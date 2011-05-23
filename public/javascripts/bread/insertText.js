@@ -44,8 +44,8 @@ $(document).bind("ready", function(){
 
             $(newElem).css({
                 "position": "absolute",
-                "left": event.clientX,
-                "top": event.clientY,
+                left: (event.clientX - determine(event.target, 'left') + document.body.parentNode.scrollLeft) + 'px',
+                top: (event.clientY - determine(event.target, 'top') +  document.body.parentNode.scrollTop) + 'px',
                 "padding": "0px",
                 "margin": "0px"
             })

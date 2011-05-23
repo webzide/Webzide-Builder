@@ -1,16 +1,6 @@
-Array.prototype.remove = function(name){
-    for(i=0; i<this.length; i++){
-        if(this[i] == name){
-             this.splice(i,1);
-        }
-    }
-    
-}
 
-function capFirst(string)
-{
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+
+
 
 
 var propertiesWindow = function(id, parent, css, intent, state, func){
@@ -74,7 +64,19 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
         "Top Position:": "top",
         "Element Width:": "width",
         "Element Height:": "height",
-        "Background Color:": "background-color"
+        "Background:": "background-color"
+    }
+
+    propMacros = {
+        "Background:": new colorMacro(builder.propertyWindow.props.background)
+    }
+
+    propCSS = {
+        "Left Position:": {width: "30px"},
+        "Top Position:": {width: "30px"},
+        "Element Width:": {width: "30px"},
+        "Element Height:": {width: "30px"},
+        "Background:": {width: "80px"}
     }
 
 
@@ -85,7 +87,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
         field = document.createElement("div");
 
         $(field).css({
-            "margin": "5px",
+            "margin": "4px",
             "height": "23px"
         })
 
@@ -98,31 +100,40 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
 
         $(field_head).appendTo(field)
 
-        $(field_head).css({
-            
-        })
-
         field_body = document.createElement("div")
 
         $(field_body).css({
             "float": "right"
         })
 
-        field_input = document.createElement("input");
+        if(propMacros[key]){
+            field_input = propMacros[key]
+        } else {
+            field_input = document.createElement("input");
+        }
 
         $(field_input).css({
-            "width": "60px",
             "height": "13px",
             "font-size": "8pt"
         })
 
+        $(field_input).css(
+            propCSS[key]
+        )
+
         $(field_input).attr("id", props[key])
 
 
-        defaultArr = {"left": "0px", "top": "0px", "width": defaultWidth + "px", "height": defaultHeight + "px", "background-color": "transparent"}
+        defaultArr = {"left": "0", "top": "0", "width": defaultWidth, "height": defaultHeight, "background-color": "transparent"}
 
         if(builder.state.stage != "setUp"){
-            $(field_input).val($(this.intent).css(props[key]));
+            if($(field_input).attr("id") == "background-color"){
+                $(field_input).val($(this.intent).css(props[key]));
+            } else {
+                $(field_input).val(parseInt($(this.intent).css(props[key])));
+            }
+
+            
         } else {
             $(field_input).val(defaultArr[props[key]])
 
@@ -284,8 +295,7 @@ var propertiesWindow = function(id, parent, css, intent, state, func){
     $(submit_close_field).css({
        "background": "black",
        "color": "white",
-       height: "19px",
-       width: "100px"
+       width: "auto"
     })
 
     $(submit_close_field).bind("click", {obj: this}, function(event){
@@ -341,7 +351,7 @@ $(document).bind("ready", function(){
                     $(curr).css("background", $("#background-color").val())
                 } else {
 
-                    $(curr).css(p, $("#" + p).val())
+                    $(curr).css(p, $("#" + p).val() + "px")
                 }
             }
         }

@@ -8,6 +8,7 @@ $(document).bind('ready', function(){
 		$('.div').removeClass('wz-draw_division')
 		
 		$(".divider").remove();
+                
 	});
 	
 	$('div').not('.div').bind('mouseenter', function(){

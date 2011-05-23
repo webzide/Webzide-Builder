@@ -7,8 +7,23 @@ This document/software/program/code, or any portions of it may not be cited, rep
 
 //---------------------------------------------------------------	
 
-//Function for Making dimensions in an element
+function capFirst(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
+// Removes an item in the array
+
+Array.prototype.remove = function(name){
+    for(i=0; i<this.length; i++){
+        if(this[i] == name){
+             this.splice(i,1);
+        }
+    }
+
+}
+
+//Function for Making dimensions in an element
 
 zid.prototype.makeDimensions = function(obj, dimType, rows, cols, styled){
 	var dim=document.createElement(dimType);
@@ -69,6 +84,8 @@ function loopBorder(obj){
 
 
 var draw_mousedown=function(event){
+
+        borderwidth=parseInt(builder.state.propertyBox["border-width"]);
 
     event.preventDefault ? event.preventDefault() : event.returnValue = false;
 
@@ -139,9 +156,6 @@ var draw_mousedown=function(event){
                     
 
                     if(event.data.elemType == "img"){
-
-                       
-
                         $(innerElem).css({
                             width: (difX - (borderwidth * 2) - loopBorder(curr)) + "px",
                             height: ((difY - (borderwidth * 2)) - loopBorder(curr)) + "px"
@@ -181,11 +195,9 @@ var draw=function(event){
     $('.div').addClass('.DIV')
     $('.div, span').css('cursor', 'crosshair');
 
-    borderwidth=1;
 
-    if(event.data.elemType != 'img'){
-    boundariesCSS.disabled=false;
-    }
+
+
 
     
     $('.div').bind('mousedown', event.data, draw_mousedown);

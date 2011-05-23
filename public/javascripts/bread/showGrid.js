@@ -1,5 +1,3 @@
-
-
 clickit = function(event){
 
     if(builder.state.gridSwitch==1){

@@ -18,6 +18,8 @@ $(document).bind("ready", function(){
 
     $(builder.helpDesk).addClass("zidebuilder").addClass("builderDiv")
 
+    $(builder.helpDesk).attr("id", "helpdesk")
+
     builder.helpDesk.heading = document.createElement("div");
 
     $(builder.helpDesk.heading).text("Webzide Builder Help Desk")
@@ -49,12 +51,12 @@ $(document).bind("ready", function(){
     $(builder.helpDesk.helpText).appendTo(builder.helpDesk);
 
     $(builder.helpDesk).css({
-        "position": "absolute",
+        "position": "fixed",
 
         "width": "230px",
         "height": "100px",
         "bottom": "6px",
-        "left": "10px",
+        "left": "66px",
         "padding": "4px"
     })
 })

@@ -50,7 +50,7 @@ $(document).bind('ready', function(){
         builder.bread.divisionDelete=new tools('divisionDelete', 'toolBox', null, ['tools'], null, 'bread/delete_button.jpg', {height: '25px', width: '25px'}, {row: 0, col:1}, null)
 	builder.bread.divisionDelete.init();
 
-        builder.bread.elementSelect=new tools('elementSelect', 'toolBox', null, ['tools'], null, 'bread/elementSelect2.gif', {height: '25px', width: '25px'}, {row: 1, col:0}, null)
+        builder.bread.elementSelect=new tools('elementSelect', 'toolBox', null, ['tools'], null, 'bread/elementSelect.png', {height: '25px', width: '25px'}, {row: 1, col:0}, null)
 	builder.bread.elementSelect.init();
 
         builder.bread.textSelect=new tools('textSelect', 'toolBox', null, ['tools'], null, 'bread/texte3.png', {height: '25px', width: '25px'}, {row: 1, col:1}, null)

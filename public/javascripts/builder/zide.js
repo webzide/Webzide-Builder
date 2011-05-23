@@ -10,14 +10,23 @@ builder = {
     "initialAssitantModal": new Object(),
     "helpDesk": new Object(),
     "bread": new Object(),
-    "butter": new Object(),
+    "butter": {},
     "toaster": new Object(),
-    "elementPropertyWindow": new Object()
+    "propertyWindow": new Object()
 }
 
 builder.methods = {
     "toggleBoundaries": new Function(),
     "switchTool": new Function()
+}
+
+builder.propertyWindow.props = {
+    "left": null,
+    "top": null,
+    "width": null,
+    "height": null,
+    "background": null
+
 }
 
 builder.info = {
@@ -59,17 +68,12 @@ builder.methods.switchTool = function(tools){
         window.getSelection().getRangeAt(0).collapse(false)
     }
 
-    $("span").each(function(){
-        disableSelection(this)
-        $(this).removeAttr("contenteditable")
-    })
 
     builder.state.selectedElem = null;
 
     $('.sel').remove();
     $('.div').unbind();
     $('span').unbind();
-
 
     builder.helpDesk.icon.src = $("#" + builder.state.activeTool).children("img").attr("src");
     $(builder.helpDesk.helpText).text(helpTextArray[builder.state.activeTool])
@@ -190,14 +194,15 @@ builder.state.butterState = {
     "bold": 0,
     "italic": 0,
     "underline": 0,
-    "strikethrough": 0
+    "strikethrough": 0,
 }
 
 builder.butter.typo = {
     "boldButton": "bold",
     "italicButton": "italic",
     "underlineButton": "underline",
-    "strikethroughButton": "strikethrough"
+    "strikethroughButton": "strikethrough",
+    "fontsize": "12pt"
 }
 
 builder.state.propertyBox={

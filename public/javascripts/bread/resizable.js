@@ -18,10 +18,11 @@ $(document).bind('ready', function(){
                 $(rightResize).css({
                     position: 'absolute',
                     cursor: 'e-resize',
-                    width: "4px",
+                    width: "8px",
                     height: $(this).height() - 10,
-                    left: $(this).width() - 2,
-                    top: '0px'
+                    right: "0px",
+                    top: '0px',
+                    background: "url(../images/misc/rightResize.png)"
 
                 })
 
@@ -43,19 +44,12 @@ $(document).bind('ready', function(){
 
 
 
-                $("#page").bind('mousemove', {innerElem:innerElem}, function(event){
+                $(document).bind('mousemove', {innerElem:innerElem}, function(event){
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
 
                    var nextPos=event.clientX;
                    var resizedLength= nextPos - currPos;
 
-                   if($(currElem).offset().left < parentLeft){
-
-                    $(currElem).css("left", 0)
-                   } else{
-                    $(currElem).css("left", currLeft + resizedLength)
-
-                   }
 
                    $(currElem).parent().css("width", nextPos - parentLeft);
 
@@ -65,14 +59,13 @@ $(document).bind('ready', function(){
 
                 })
 
-                $('#page').bind('mouseup', function(){
+                $(document).bind('mouseup', function(){
                     
                     if($(currElem).offset().left < parentLeft){
                          $(currElem).parent().css('width', "0px")
-                         $(currElem).css("left", 0)
-                     }
-                     $(currElem).css('left', $(currElem).parent().width())
-                    $('#page').unbind('mousemove')
+                    }
+                    $(currElem).css('right', "0px")
+                    $(document).unbind('mousemove')
 
                 })
 
@@ -92,10 +85,11 @@ $(document).bind('ready', function(){
              $(verticalResize).css({
                 position: 'absolute',
                 cursor: 's-resize',
-                height: "4px",
+                height: "8px",
                 width: $(this).width() - 10,
-                top: $(this).height(),
-                left: '0px'
+                bottom: "0px",
+                left: '0px',
+                background: "url(../images/misc/verticalResize.png)"
 
             })
 
@@ -114,20 +108,11 @@ $(document).bind('ready', function(){
                        innerElem = null;
                    }
 
-                $("#page").bind('mousemove', {innerElem: innerElem},function(event){
+                $(document).bind('mousemove', {innerElem: innerElem},function(event){
                    $(currElem).parent().children('.rightResize').height($(currElem).parent().height() -10)
 
                    var nextPos=event.clientY;
                    var resizedLength= nextPos - currPos;
-
-                   if($(currElem).offset().top < parentTop){
-
-                    $(currElem).css("top", 0)
-                   } else{
-                    $(currElem).css("top", currTop + resizedLength)
-
-                   }
-
 
 
                    var theParent=$(currElem).parent();
@@ -139,15 +124,14 @@ $(document).bind('ready', function(){
 
                 })
 
-                $('#page').bind('mouseup', function(){
+                $(document).bind('mouseup', function(){
                     if($(currElem).offset().top < parentTop){
                          $(currElem).parent().css('height', "0px")
-                         $(currElem).css("top", 0)
                      }
 
-                    $(currElem).css('top', $(currElem).parent().height())
+                    
 
-                    $('#page').unbind('mousemove')
+                    $(document).unbind('mousemove')
 
                 })
 
@@ -165,14 +149,16 @@ $(document).bind('ready', function(){
 
             $(cornerResize).addClass('cornerResize')
 
+
+
             $(cornerResize).css({
                 position: 'absolute',
                 cursor: 'se-resize',
                 width: "10px",
                 height: "10px",
-                left: $(this).width() - 5,
-                top: $(this).height() - 5
-
+                right: 0,
+                bottom: 0,
+                background: "url(../images/misc/cornerResize.png)"
             })
 
             $(cornerResize).bind('mousedown', function(event){
@@ -193,9 +179,9 @@ $(document).bind('ready', function(){
                        innerElem = null;
                    }
 
-                $("#page").bind('mousemove', {innerElem: innerElem},function(event){
-                     $(currElem).parent().children('.verticalResize').css('top', $(currElem).parent().height() -2)
-                     $(currElem).parent().children('.rightResize').css('left', $(currElem).parent().width() -2)
+                $(document).bind('mousemove', {innerElem: innerElem},function(event){
+                     $(currElem).parent().children('.verticalResize').css('bottom', 0)
+                     $(currElem).parent().children('.rightResize').css('right', 0)
                      $(currElem).parent().children('.rightResize').height($(currElem).parent().height() - 10)
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
                    var nextPosX=event.clientX;
@@ -203,21 +189,7 @@ $(document).bind('ready', function(){
                    var resizedLengthX= nextPosX - currPosX;
                    var resizedLengthY = nextPosY - currPosY;
 
-                   if($(currElem).offset().left < parentLeft){
 
-                    $(currElem).css("left", 0)
-                   } else{
-                    $(currElem).css("left", currLeft + resizedLengthX)
-
-                   }
-
-                   if($(currElem).offset().top < parentTop){
-
-                    $(currElem).css("top", 0)
-                   } else{
-                    $(currElem).css("top", currTop + resizedLengthY)
-
-                   }
 
                    var theParent=$(currElem).parent();
                    $(currElem).parent().css("width", nextPosX - parentLeft);
@@ -231,19 +203,17 @@ $(document).bind('ready', function(){
 
                 })
 
-                $('#page').bind('mouseup', function(){
+                $(document).bind('mouseup', function(){
                     if($(currElem).offset().left < parentLeft){
                          $(currElem).parent().css('width', "0px")
-                         $(currElem).css("left", 0)
                      }
-                     $(currElem).css('left', $(currElem).parent().width() -5)
-                     $(currElem).css('top', $(currElem).parent().height() -5)
 
-                     $(currElem).parent().children('.verticalResize').css('top', $(currElem).parent().height() -2)
-                     $(currElem).parent().children('.rightResize').css('left', $(currElem).parent().width() -2)
+
+                     $(currElem).parent().children('.verticalResize').css('bottom', 0)
+                     $(currElem).parent().children('.rightResize').css('right', 0)
                      $(currElem).parent().children('.rightResize').height($(currElem).parent().height() - 10)
                     $(currElem).parent().children('.verticalResize').width($(currElem).parent().width() - 10)
-                    $('#page').unbind('mousemove')
+                    $(document).unbind('mousemove')
 
                 })
 
