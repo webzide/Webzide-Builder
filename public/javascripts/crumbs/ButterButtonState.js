@@ -1,4 +1,4 @@
-
+$(document).bind("ready", function(){
     builder.handlers.butterMouseUp = function(event){
 
         if(document.selection){
@@ -54,4 +54,8 @@
 
 
     }
+
+})
+
+
 
