@@ -1,6 +1,6 @@
 	$(document).bind('ready', function(){	
 	  $('#textSelect').bind('click', function(){
-                $(document).bind("mouseup", builder.butterMouseUp)
+                $(document).bind("click", builder.butterMouseUp)
 
                 $("span").each(function(){
                     $(this).css({
