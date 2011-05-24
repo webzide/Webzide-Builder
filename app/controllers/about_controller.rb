@@ -19,5 +19,9 @@ class AboutController < ApplicationController
 
   end
 
+  def videos
+    
+  end
+
 
 end

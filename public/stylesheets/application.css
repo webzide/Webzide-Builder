@@ -654,3 +654,19 @@ border-top: 6px solid #666666;
     margin: auto;
     text-align: right;
 }
+
+#videoStrip{
+    background: #E6E6E6;
+    height: 230px;
+    border: 1px solid black;
+}
+
+#leftVid{
+    float: left;
+    margin: 15px 0 0 10px;
+}
+
+#rightVid{
+    float: right;
+    margin: 15px 10px 0 0;
+}
