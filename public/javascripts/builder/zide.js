@@ -68,6 +68,9 @@ builder.methods.switchTool = function(tools){
         window.getSelection().getRangeAt(0).collapse(false)
     }
 
+    $("span").each(function(){
+        this.contentEditable = false;
+    })
 
     builder.state.selectedElem = null;
 

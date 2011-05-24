@@ -26,14 +26,17 @@ var selectMenu = function(id, parent, classes, css, options, behavior){
             var option = document.createElement("option");
             option.innerHTML = this.options[i];
 
-            $(option).bind("click", {element: this, family: this.options[i]}, function(event){
-                
-
-                 event.data.element.behavior(event.data.family)
-            })
 
             $(this.element).append(option);
         }
+
+            $(this.element).bind("change", {element: this}, function(event){
+
+                fal = $(this).find(":selected").text()
+
+
+                 event.data.element.behavior(fal)
+            })
 
         $(this.parent).append(this.element);
     }
