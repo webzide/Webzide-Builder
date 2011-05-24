@@ -80,10 +80,3 @@ var confirmBox = function(id, parent, intent, func){
 }
 
 confirmBox.prototype = new zid();
-
-
-
-$(document).bind('ready', function(){
-
-
-})
