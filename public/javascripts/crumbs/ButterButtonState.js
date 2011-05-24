@@ -1,6 +1,5 @@
 
-    builder.butterMouseUp = function(event){
-
+    builder.handlers.butterMouseUp = function(event){
 
         if(document.selection){
             //IE < 9 route;
@@ -55,7 +54,4 @@
 
 
     }
-
-
-
 

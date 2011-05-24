@@ -27,7 +27,7 @@ var deleteDivision=function(){
                     deleteConfirm.centerX();
                     deleteConfirm.centerY();
 
-                    event.stopPropagation();
+                    event.stopPropagation()
             })
     });
 	
