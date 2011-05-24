@@ -1,5 +1,5 @@
 $(document).bind("ready", function(){
-    butterMouseUp = function(event){
+    builder.butterMouseUp = function(event){
 
         alert("")
 
