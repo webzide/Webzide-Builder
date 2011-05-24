@@ -1,7 +1,7 @@
 $(document).bind("ready", function(){
-    builder.handlers.butterMouseUp = function(event){
+    butterMouseUp = function(event){
 
-
+        alert("")
 
         if(document.selection){
             //IE < 9 route;
