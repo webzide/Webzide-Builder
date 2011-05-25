@@ -1,6 +1,13 @@
 class AboutController < ApplicationController
   def index
+
+
+
+
+
     render :layout => "application"
+
+    
   end
 
   def inspiration
@@ -11,7 +18,7 @@ class AboutController < ApplicationController
 
   end
 
-  def contact
+  def advantages
 
   end
 

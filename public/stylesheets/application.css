@@ -75,7 +75,7 @@ background: #E6E6E6;
 display: block;
 font-size: 11pt;
 border-top: 1px solid #000000;
-height: 35%;
+height: 28%;
 margin: auto;
 
 }
@@ -545,13 +545,14 @@ div#spec_div{
 background: #E6E6E6;
 float: left;
 border-top: 6px solid #666666;
-
+width: 130px;
 
 }
 
 .menu_item{
                    font-size: 12pt;
 		   padding: 8px;
+                   padding-left: 25px;
 		   border-bottom: 1px solid black;
                    border-right: 1px solid black;
  }
@@ -559,6 +560,8 @@ border-top: 6px solid #666666;
  .menu_item_on{
                    font-size: 12pt;
 		   padding: 8px;
+                   padding-left: 25px;
+
 		   border-bottom: 1px solid black;
                    background: white;
  }
@@ -669,4 +672,28 @@ border-top: 6px solid #666666;
 #rightVid{
     float: right;
     margin: 15px 10px 0 0;
+}
+
+.sub_menu{
+    background: #666666;
+    color: white;
+    height: 30px;
+
+    font-size: 16pt;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.sub_menu_item a:link, .sub_menu_item a:hover, .sub_menu_item a:visited{
+    color: white;
+}
+
+.about_title{
+
+
+}
+
+.about_title span{
+    text-decoration:overline underline;
+    background: #E6E6E6;
 }
