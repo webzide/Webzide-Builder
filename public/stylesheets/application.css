@@ -170,7 +170,7 @@ background: #E6E6E6;
 
 .paragraph_home{
 
-text-indent: 3em;
+
 font-size: 15px;
 
 }
@@ -696,4 +696,18 @@ width: 130px;
 .about_title span{
     text-decoration:overline underline;
     background: #E6E6E6;
+}
+
+#dennis_photo{
+    float: left;
+    margin-right: 15px;
+}
+
+#dennis_photo img{
+    padding: 6px;
+    border: 1px solid #666666;
+}
+
+#profile_info{
+    font-size: 12pt;
 }

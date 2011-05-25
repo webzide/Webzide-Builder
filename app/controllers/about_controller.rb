@@ -30,5 +30,13 @@ class AboutController < ApplicationController
     
   end
 
+  def founders
+    
+  end
+
+  def benefits
+    
+  end
+
 
 end

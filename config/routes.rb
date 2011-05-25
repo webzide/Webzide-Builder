@@ -86,6 +86,10 @@ Webzide11::Application.routes.draw do
   match '/about/contact', :to=>"about#contact"
   match 'about/videos', :to => "about#videos"
   match 'about/advantages', :to=> "about#advantages"
+  match 'about/founders', :to=> "about#founders"
+  match 'about/benefits', :to=> "about#benefits"
+
+
 
   match '/help', :to => "help#index"
 
