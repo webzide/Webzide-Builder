@@ -117,10 +117,27 @@ var draw_mousedown=function(event){
     $(div).addClass('div');
 
     if(event.data.innerElem == true){
+
+        if(event.data.elemType == 'span'){
+            innerDiv = document.createElement("div");
+            $(innerDiv).addClass("textDIV")
+
+            $(innerDiv).css("overflow", "auto")
+
+        }
+
         var innerElem = document.createElement(event.data.elemType);
 
         if(event.data.elemType == 'span'){
-            innerElem.innerHTML = "Insert Text Here"
+            innerElem.innerHTML = builder.state.insertedText
+            $(innerDiv).append(innerElem)
+
+            $(innerElem).css({
+                "width": "auto"
+            })
+
+
+
         }
 
         if(event.data.elemType == 'img'){
@@ -128,13 +145,13 @@ var draw_mousedown=function(event){
           $(innerElem).css({
 
 
-        })
+            })
             
         }
 
 
 
-        $(div).append(innerElem);
+        $(div).append(innerDiv);
     }
 
     $('.div').bind('mousemove', event.data,function (event) {

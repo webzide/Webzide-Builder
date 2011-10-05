@@ -1,49 +1,41 @@
-      <div id="content">
+	<div id="subpage">
+
+		<div id="subpage-intro" class="container">
+
+			<p id="page-title"><img src="../../images/site/grid_intro.png" alt="about-intro"/>Webzide Members</p>
+
+			<p id="page-description">Here is a list honouring all early adopters. With a badge next to them </p>
+
+		</div>
+
+	</div><!-- End Subpage Introduction -->
 
 
+	<div id="subpage-inner" class="container">
 
-        <section class="round">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= value %>">
-              <%= value %>
-           </div>
-          <% end%>
-        </section>
+	<h1>Webzide's Early Adopters</h1>
+	<p>Webzide is an revolutionary online platform which allows users to dynamically design web pages. We are at the Alpha stage of our application development cycle. What you see here is an early release of our services. We are excited to have you as an "early adopter" and "alpha tester" in our growing services. After signing up, you are given an opportunity to try to our product and give some feedbacks and suggestions </p>
 
-<h3>
-  Here is a list honouring all early adopters. With a badge next to them
 
-</h3>
+	<table id="pricing-table">
+		<tr>
 
-<table class="users_tab">
-  <tr class="users_legend_tr">
-    <td class="username_legend">
-      User Name
-    </td>
-
-    <td class="email_legend">
-      Email
-    </td>
-
-    <td class="users_badge">
-      Badge
-    </td>
-  </tr>
+			<td class="col-plan col-first">User Name</td>
+			<td class="col-plan">Email</td>
+			<td class="col-plan col-last">Badge</td>
+		</tr>
   <% @users.each do |user| %>
-    <tr>
-      <td class="users_td username_legend">
-      <%= user.name %>
-      </td>
+		<tr class="row-white">
 
-      <td class="users_td email_legend">
-      <%= user.email %>
-      </td>
+			<td><%= user.name %></td>
 
-      <td class="users_td users_badge">
-      <%= image_tag("http://media.playpark.net/MapleStory/uploadimages/Trophy.png")  %>
-      </td>
-    </tr>
+			<td><%= user.email %></td>
+			<td><%= image_tag("http://media.playpark.net/MapleStory/uploadimages/Trophy.png")  %></td>
+		</tr>
+
   <% end %>
-</table>
+	</table>
 
-      </div>
+	</div> <!-- End Subpage -->
+
+	<div class="clr divider"></div>

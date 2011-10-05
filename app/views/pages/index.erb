@@ -1,127 +1,83 @@
+	<div id="content-slider">
 
-      <div id="content">
+		<div id="content-slider-wrapper" class="slider-wrapper carbon">
+			<div>
 
-        <div class="welcome-table">
-          <div class="welcome-table-header">
-            Welcome to Your Webzide
-          </div>
+				<h3>Welcome to Your Webzide!</h3>
 
-          <div class="welcome-table-content">
-            Webzide is an revolutionary online platform which allows users to dynamically design web pages.
-            We are at the Alpha stage of our application development cycle. What you see here is an early release of our services.
-            We are excited to have you as an "early adopter" and "alpha tester" in our growing services.
-            After signing up, you are given an opportunity to try to our product and give some feedbacks and suggestions
+				<p>Webzide offers FREE remotely generated websites for users and organizations. Our service is 100% free of charge. The website is generated using an fully integrated and dynamic "What You See is What You Get" web editor. There is no ads, no catch, and no hidden fee.</p>
+ <%= form_for(:session, :url => sessions_path) do |form| %>
+                <input class="login" id="session_name" maxlength="20" name="session[name]" size="15" type="text" value = "Username" />
+                <input class="login" id="session_password" maxlength="30" name="session[password]" size="15" type="password" value = "Password" />
+                <%= submit_tag("Login", :class=> "button medium submit")%>
+                
+     <% end %>
+                <img src="../../images/site/slide_1_picture.png" alt="picture" class="slide-picture"/>
 
-          </div>
-        </div>
+			</div><!-- End First Slide -->
 
-<div class="main">
+		</div><!-- End Content Slider Wrapper -->
 
+			<ul id="slider-navigation" class="slider-wrapper">
+				<li><a href="#">Welcome to Your Webzide</a></li>
+			</ul>
 
+	</div><!-- End Content Slider -->
 
-  <% if signed_in? %>
-  <h3>Dear <%= current_user.name %>, </h3>
-    <p id="p1" class="paragraph_home">
-    Webzide would like to congratulate and thank you for being a true <i>"Early Adopter"</i>.
-    Because Webzide is currently at the Alpha stage and its software platform is still under heavy development.
-    We kindly ask you to excuse us if there is any inconvenience due to downtime or scheduled updates that may significant change the structures of our site.
-    It will happen so that we are constantly making improvements
-    </p>
+	<div class="clr"></div>
 
+	<div id="toolbar">
 
-    <p id="p2" class="paragraph_home">
-      We are working hard every single day to bring forth new features and to enhance our customer service experience.
-      You may feel free to check out our official <a href="webzide.wordpress.com">Blog</a> to read more about the ideas and inspirations behind Webzide.
-      Or you can follow us on <a href="http://twitter.com/#!/webzide">Twitter</a> to obtain the latest news and updates we made.
-    </p>
+		<div id="toolbar-wrapper" class="global-wrapper">
+                  <a href="/register">
+			<div id="offer" class="bar">
+            	<span class="ribbon-free"></span>
+				<h4 style="text-align: center">Create a Free Website</h4>
+                                </a>
+			</div>
+                  
 
-    <p id="p2" class="paragraph_home">
-          We are at the early stage of our product development, your opinions and inputs are highly valued.
-    We would like to speed up the feedback loop by giving you a chance make some necessary suggestions that will possibly improve our software/service.
+                   
+			<div id="domain" class="bar">
+                          <a href="/demo">
+				<h4 style="text-align: center">Webzide Builder Demo</h4>
 
-    </p>
+                          </a>
 
-    <p id="p2" class="paragraph_home">
-      Please feel free to make any technical or service oriented suggestions both on the user interface and back end.
-      During this stage, we have integrated an automatic suggestion system where you can easily make suggestions in forms of posts.
-      You could do so in our <%= link_to "Suggestions", suggest_path %>  page. This is the post convenient way for you to make suggestions. Administrator will review periodically.
+			</div>
+                  
+		</div><!-- End Toolbar Wrapper -->
 
+	</div><!-- End Tool Bar -->
 
-    </p>
+	<div class="clr"></div>
 
-    <p id="p2" class="paragraph_home">
-      If you have any administrative inquiries or technical difficulties using our Web Page Builder, we have supplied you an <a href="http://webzide.freeforums.org/">Support Forum</a> where such concerns will be addressed.
+	<div id="services" class="global-wrapper">
 
-    </p>
+			<div class="service-widget first-service">
+				<h4>Webzide Integrated Text Editor (WITE)</h4>
+				<p>At vero eos et accusamus et iusto odio dignisimo ducimus quiblo blanditiis praesentium</p>
+				<a href="#">Read More &raquo;</a>
+			</div>
 
-  <% else %>
+			<div class="service-widget second-service">
+				<h4>Webzide Subdomain Router</h4>
+				<p>At vero eos et accusamus et iusto odio dignisimo ducimus quiblo blanditiis praesentium</p>
+				<a href="#">Read More &raquo;</a>
+			</div>
 
-  <p id="p1" class="paragraph_home">
-  Webzide offers FREE remotely generated websites for users and organizations. Our service is 100% free of charge. The website is generated using an fully integrated and dynamic "What You See is What You Get" web editor. There is no ads, no catch, and no hidden fee. Members could enjoy full features and functionalities from the start. The team Webzide is working hard everyday to bring in new features and updates.
-  </p>
+			<div class="service-widget third-service">
+				<h4>Webzide Template Formatter</h4>
+				<p>At vero eos et accusamus et iusto odio dignisimo ducimus quiblo blanditiis praesentium</p>
+				<a href="#">Read More &raquo;</a>
+			</div>
 
-  <p id="p2" class="paragraph_home">
-    Our Mission statement is to allow Internet users to create beautiful, elegant, and professional looking Websites with no background in programming or web development. The core benefits proposition of Webzide is to provide a full service of Web designing, web hosting, sub-domain routing, and updating websites in the most convenient, intuitive, and customizable fashion.
-  </p>
+			<div class="service-widget">
+				<h4>Webzide Canvas Generator</h4>
+				<p>At vero eos et accusamus et iusto odio dignisimo ducimus quiblo blanditiis praesentium</p>
+				<a href="#">Read More &raquo;</a>
+			</div>
 
-  <div id="videoDiv">
-    <div class="welcome-table-header">
-      Webzide Builder Demo Videos
-    </div>
+			<div class="clr"></div>
 
-    <div id="videoStrip">
-      <div id="leftVid">
-        <object style="height: 330px; width: 200px">
-          <param name="allowFullScreen" value="true">
-          <param name="allowScriptAccess" value="always">
-          <embed src="http://www.youtube.com/v/DaZohmR-PKc&version=3" type="application/x-shockwave-flash" allowfullscreen="true" autohide="1" allowScriptAccess="always" width="330" height="200">
-        </object>
-      </div>
-
-      <div id="rightVid">
-        <object style="height: 330px; width: 200px">
-          <param name="allowFullScreen" value="true">
-          <param name="allowScriptAccess" value="always">
-          <embed src="http://www.youtube.com/v/gHngxmOpMEw&version=3" type="application/x-shockwave-flash" allowfullscreen="true" autohide="1" allowScriptAccess="always" width="330" height="200">
-        </object>
-      </div>
-
-    </div>
-  </div>
-  
-  <div id="hotbuttons">
-
-    <a href="/register">
-     <div id="signup" class="button">
-      <span class="top-span">
-        Create a free web site
-      </span>
-       <br/>
-      <span class="bottom-span">
-         Standard-compliant, Clean & Simple
-      </span>
-     </div>
-    </a>
-
-    <a href="/demo">
-     <div id="demo" class="button">
-      <span class="top-span">
-        Webzide Builder Demo
-      </span>
-       <br/>
-      <span class="bottom-span">
-         dynamic, intuitive & remote web pages
-      </span>
-     </div>
-    </a>
-
-
-  </div>
-
-
-
-  <% end  %>
-
-</div>
-      </div>
-
+	</div><!-- End services -->

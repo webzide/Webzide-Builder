@@ -1,50 +1,40 @@
-      <div id="content">
+	<div id="subpage">
 
+		<div id="subpage-intro" class="container">
 
+			<p id="page-title"><img src="../../images/site/grid_intro.png" alt="about-intro"/>Webzide Members</p>
 
-        <section class="round">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= value %>">
-              <%= value %>
-           </div>
-          <% end%>
-        </section>
+			<p id="page-description">Here is a list honouring all early adopters. With a badge next to them </p>
 
-<div class="tab">
-    		<table class="tab-table">
-  			   <tr class="tab-top">
-                             <td id="tab-edit" colspan="2"><%= link_to "<button>Edit Profile</button>".html_safe, edit_user_path(current_user) %></td>
-  			   </tr>
-
-  			   <tr>
-  			   	   <td class="profile-legend">User Name:</td>
-  				   <td class="profile-value oddrow"><%= @user.name %></td>
-  			   </tr>
-			   <tr>
-  			   	   <td class="profile-legend">Email:</td>
-  				   <td class="profile-value evenrow"><%= @user.email %></td>
-  			   </tr>
-                           <tr>
-  			   	   <td class="profile-legend">First Name:</td>
-  				   <td class="profile-value oddrow"><%= @profile.first_name %></td>
-  			   </tr>
-			   <tr>
-  			   	   <td class="profile-legend">Last Name:</td>
-  				   <td class="profile-value evenrow"><%= @profile.last_name %></td>
-  			   </tr>
-                           <tr>
-  			   	   <td class="profile-legend">Gender:</td>
-  				   <td class="profile-value oddrow"><%= @profile.gender %></td>
-  			   </tr>
-			   <tr>
-  			   	   <td class="profile-legend">About Yourself:</td>
-  				   <td class="profile-value evenrow"><%= @profile.about %></td>
-  			   </tr>
-                           <tr>
-  			   	   <td class="profile-legend">Interests:</td>
-  				   <td class="profile-value oddrow"><%= @profile.interests %></td>
-  			   </tr>
-  			 </table>
 		</div>
 
-      </div>
+	</div><!-- End Subpage Introduction -->
+
+
+	<div id="subpage-inner" class="container">
+
+	<h1>Webzide's Early Adopters</h1>
+	<p>Webzide is an revolutionary online platform which allows users to dynamically design web pages. We are at the Alpha stage of our application development cycle. What you see here is an early release of our services. We are excited to have you as an "early adopter" and "alpha tester" in our growing services. After signing up, you are given an opportunity to try to our product and give some feedbacks and suggestions </p>
+
+
+	<table id="pricing-table">
+		<tr>
+
+			<td class="col-plan col-first" colspan="2"><%= link_to "Edit Profile".html_safe, edit_user_path(current_user), :class=> 'button medium' %></td>
+
+
+		</tr>
+
+		<tr class="row-white">
+
+			<td></td>
+
+			<td></td>
+	
+		</tr>
+
+	</table>
+
+	</div> <!-- End Subpage -->
+
+	<div class="clr divider"></div>

@@ -29,6 +29,8 @@ class PagesController < ActionController::Base
 
     end
 
+    @suggestions = Suggestion.all
+
     render :layout => "application"
 
     

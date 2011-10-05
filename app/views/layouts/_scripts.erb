@@ -1,0 +1,31 @@
+   <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21841913-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <%= javascript_include_tag 'site/jquery' %>
+<%= javascript_include_tag 'site/main' %>
+    <%= javascript_include_tag 'site/cluster.enova' %>
+    <%= javascript_include_tag 'site/superfish' %>
+    <%= javascript_include_tag 'site/hoverIntent' %>
+    <%= javascript_include_tag 'site/jquery.bgiframe.min' %>
+    <%= javascript_include_tag 'site/cufon-yui' %>
+    <%= javascript_include_tag 'site/Titillium.font' %>
+    <script type="text/javascript">
+      Cufon.replace('#header a,#footer h3', {	textShadow: '#000 2px 1px', hover: true	});
+      Cufon.replace('h6,h5,h4,h3,h2,h1');
+    </script>
+
+
+    <%= javascript_include_tag 'site/jquery.cycle.all.min' %>
+    <%= javascript_include_tag 'site/jquery.easing' %>
+    <%= javascript_include_tag 'site/jquery.innerfade' %>

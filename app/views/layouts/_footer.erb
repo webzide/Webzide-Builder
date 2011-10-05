@@ -1,48 +1,55 @@
-<div id="foot">
+	<div class="clr"></div>
 
-  <div class="footerdiv">
-    <ul>
-      <span class="footer-legend">About Us</span>
-      <li>
-        <%= link_to "Overview", :controller => "about", :action => "index" %>
-      </li>
-      <li>
-        <%= link_to "Features", :controller => "about", :action => "features" %>
-      </li>
-      <li>
-        <%= link_to "Contact", :controller => "about", :action => "contact" %>
-      </li>
-    </ul>
-  </div>
+	<div class="clr"></div>
 
-  <div class="footerdiv">
-    
-    <ul>
-      <span class="footer-legend">Help</span>
-      <li>
-        <a href="http://webzide.freeforums.org">Forums</a>
-      </li>
-      <li>FAQ</li>
-      <li><%= link_to "Suggestions", suggest_path %></li>
-    </ul>
-  </div>
+	<div id="footer">
 
-  <div class="footerdiv">
-    <ul>
-      <span class="footer-legend">Media</span>
-      <li><a href="http://webzide.wordpress.com">Blog</a></li>
-      <li><a href="http://www.facebook.com/pages/Webzide/196479767043512">Facebook</a></li>
-      <li><a href="http://twitter.com/#!/webzide">Twitter</a></li>
-    </ul>
-  </div>
+		<div id="footer-inner" class="container clearfix">
 
-  <div class="footerdiv">
-    <ul>
-      <span class="footer-legend">Legal</span>
-      <li><%= link_to "Legal Policy", :controller => "legal", :action => "policy" %></li>
-      <li><%= link_to "Privacy Statements", :controller => "legal", :action => "privacy" %></li>
-      <li><%= link_to "Terms of Service", :controller => "legal", :action => "tos" %></li>
-    </ul>
-  </div>
-</div>
+			<div class="one_fourth">
+				<h3>Webzide</h3>
+				<p>Webzide is a startup project based in Waterloo, ON. </p>
+				<p><strong>Get In Touch With Us :</strong><br/>admin@webzide.com <font style="font-weight: bold">519-729-3826</font></p>
+			</div>
 
+			<div class="one_fourth">
+				<h3>Help</h3>
+				<ul>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="/suggest">Suggestions.</a></li>
+
+				</ul>
+			</div>
+
+			<div class="one_fourth">
+				<h3>Media</h3>
+				<ul>
+					<li><a href="#">Blog</a></li>
+					<li><a href="http://www.facebook.com/pages/Webzide/196479767043512">Facebook</a></li>
+					<li><a href="http://twitter.com/#!/webzide">Twitter</a></li>
+
+				</ul>
+			</div>
+
+			<div class="one_fourth last">
+				<h3>Legal</h3>
+				<ul>
+					<li><a href="#">Legal Policy</a></li>
+					<li><a href="#">Privacy Statements</a></li>
+					<li><a href="#">Terms of Service</a></li>
+
+
+				</ul>
+			</div>
+
+			<div class="clr"></div>
+
+			<div id="footer-bottom">
+				<p> <span class="right">Copyright &copy; 2011 <a href="#">Webzide.</a> All Rights Reserved.</span></p>
+			</div>
+
+		</div><!-- End Footer Inner -->
+
+	</div><!-- End Footer -->
+<script type="text/javascript">Cufon.now()</script>

@@ -11,7 +11,8 @@ $(document).bind('ready', function(){
 		$('.sel').parent().css('font-weight', 'bold')
 	  }
 	  
-	  
-	  document.execCommand('bold', false, null)
+          if(window.getSelection()!= ''){
+              document.execCommand('bold', false, null)
+          }
    });
 });

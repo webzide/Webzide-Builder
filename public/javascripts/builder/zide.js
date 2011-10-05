@@ -59,6 +59,8 @@ builder.methods.switchTool = function(tools){
 
     $(".div").css("cursor", "default")
 
+    $(document).unbind("mouseup", builder.handlers.butterMouseUp)
+
     builder.state.selectedOn = 0;
     builder.methods.disableButtons();
     builder.state.butterDisabled = 1;
@@ -97,7 +99,7 @@ builder.methods.switchTool = function(tools){
 
 var toasterToolsMatch = {
     "drawDiv": ["propertyBox"],
-    "drawText": ["propertyBox"],
+    "drawText": ["propertyBox", "textarea"],
     "curtainH": ["propertyBox","curtainToast"],
     "curtainV": ["propertyBox","curtainToast"],
     "imageInsert": ["imageLinkDiv"],
@@ -124,7 +126,25 @@ builder.methods.toast = function(tool){
 
 builder.methods.enableButtons = function(){
 
+
+
     $(".butterButton").each(function(){
+
+
+        //kept the state of butter buttons
+        if(builder.state.butterState[$(this).data("type")] == 1){
+            $(this).css({
+
+                "border-top": "2px solid black",
+                "border-left": "2px solid black"
+            })
+
+
+        } else{
+
+
+        }
+
 
         tempImg = $(preEnabled[$(this).attr("id")]).clone();
         
@@ -149,6 +169,11 @@ builder.methods.enableButtons = function(){
 
 builder.methods.disableButtons = function(){
     $(".butterButton").each(function(){
+
+        $(this).css({
+            "border-top": "none",
+            "border-left": "none"
+        })
 
         tempImg = $(preDisabled[$(this).attr("id")]).clone();
 
@@ -190,14 +215,16 @@ builder.state = {
     "firstProp": {},
     "secondProp": {},
     "linkURL": "#",
-    "butterState": {}
+    "butterState": {},
+    "textRelativeSwitch": 0,
+    "insertedText": ""
 }
 
 builder.state.butterState = {
     "bold": 0,
     "italic": 0,
     "underline": 0,
-    "strikethrough": 0,
+    "strikethrough": 0
 }
 
 builder.butter.typo = {

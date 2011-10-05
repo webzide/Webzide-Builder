@@ -1,64 +1,45 @@
-      <div id="content">
+	<div id="subpage">
+
+		<div id="subpage-intro" class="container">
+
+			<p id="page-title"><img src="../../images/site/grid_intro.png" alt="about-intro"/>Webzide Members</p>
+
+			<p id="page-description">Here is a list honouring all early adopters. With a badge next to them </p>
+
+		</div>
+
+	</div><!-- End Subpage Introduction -->
 
 
+	<div id="subpage-inner" class="container">
 
-        <section class="round">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= value %>">
-              <%= value %>
-           </div>
-          <% end%>
-        </section>
-
-<% if signed_in?  %>
-
-  <%= form_for @suggestion do |f| %>
-
-    <h3>Your Suggestion Drop Box</h3>
-
-    <p class="paragraph_home">
-      Feel Free to Make suggestions here. You can view them and add any number of them as you wish.
-      Is also another option where you can email <b>admin@webzide.com</b> directly if priority is a concern.
-    </p>
-
-    <div class="suggest_field">
-      <%= f.text_area :content, :id => "suggestion_field" %>
-      <%= f.submit "Submit Suggestion" %>
-    </div>
-
-    <% end %>
-
-    <br />
-
-  <% if @user.suggestions.empty?  %>
-
-  <% else %>
+	<h1>Webzide's Early Adopters</h1>
+	<p>Webzide is an revolutionary online platform which allows users to dynamically design web pages. We are at the Alpha stage of our application development cycle. What you see here is an early release of our services. We are excited to have you as an "early adopter" and "alpha tester" in our growing services. After signing up, you are given an opportunity to try to our product and give some feedbacks and suggestions </p>
 
 
-      <table class="suggestion_tab">
-        <tr>
-          <td id="suggestion_number">
-            So far, you have made a total of <u><b><%= @user.suggestions.count %></b></u> Suggestions
-          </td>
+	<table id="pricing-table">
+		<tr>
 
-        </tr>
+			<td class="col-plan col-first">Suggestions</td>
 
-        <%= render @suggestions %>
-      </table>
+		</tr>
+
+<% @suggestions.each do |user| %>
+    <tr class="row-white">
+      <td class="users_td username_legend">
+      <%= user.content %>
+      </td>
+    </tr>
   <% end %>
 
 
+	</table>
 
-  <%= will_paginate @suggestions %>
+	</div> <!-- End Subpage -->
 
-  
-
-<% else %>
-    <h3>Making Suggestions to Webzide</h3>
-
-  We have designed a system to allow users to give suggestions.
+	<div class="clr divider"></div>
 
 
-<% end %>
 
-      </div>
+
+

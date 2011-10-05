@@ -1,0 +1,14 @@
+/******************************************************************
+	Header Settings 
+******************************************************************/
+
+#header {
+	background: transparent url(../../images/site/header_style_1.png) repeat-x;
+	height:72px;
+}
+
+#toolbar {
+	background: transparent url(../../images/site/bottom_header_style_1.png) repeat-x;
+	height:71px;
+}
+

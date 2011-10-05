@@ -15,7 +15,7 @@ member = function(arr, item){
     return false;
 }
 
-function tools(id, parent, previous,classes, state, src, css, dim, func){
+function tools(id, parent, previous,classes, state, src, css, dim, func, data){
 	this.id=id;
 	this.parent=parent;
         this.previous = previous;
@@ -26,6 +26,7 @@ function tools(id, parent, previous,classes, state, src, css, dim, func){
 
 	this.dim=dim;
         this.func=func;
+        this.data = data;
 
         if(this.previous!=null){
             previous.children = {}
@@ -48,6 +49,11 @@ function tools(id, parent, previous,classes, state, src, css, dim, func){
                         "width": "20px",
                         "height": "20px"
                     })
+                }
+
+                // Assigning data to element
+                for(d in this.data){
+                    $(this.elem).data(d, this.data[d])
                 }
 
 		for(i=0;i<this.classes.length; i++){
