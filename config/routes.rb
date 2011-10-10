@@ -66,6 +66,8 @@ Webzide11::Application.routes.draw do
   root :to => "pages#index"
   
   match '/media', :to => "pages#media"
+
+  match '/products', :to => "pages#products"
   
   match '/contact', :to => "pages#contact"
   

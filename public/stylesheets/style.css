@@ -120,6 +120,44 @@ ul#navbar {
 	margin-top: -27px;
 }
 
+#sidebar {
+    float: left;
+    list-style:none;
+    width: 150px;
+    margin-top: -66px;
+        
+
+
+    
+}
+
+#sidebar ul{
+}
+
+#sidebar li{
+        height: 20px;
+        padding: 10px;
+    	width:100%;
+        background: url("../../images/site/header_style_1.png") repeat-x;
+        margin: 0;
+        padding-top: 15px;
+}
+
+#sidebar a{
+    	display:block;
+	position:relative;
+	color:#717171;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	padding-left:22px;
+}
+
+#sidebar a:hover{
+	color:#fff;
+}
+
 .sf-menu, .sf-menu * {
 	margin:0;
 	padding:0;
@@ -439,12 +477,19 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
         padding-bottom: 20px;
 	font-family:"Tahoma",Trebuchet MS,Geneva,Kalimati,sans-serif;
 	width:960px;
+
 	height:auto;
 	position: relative;
 }
 
+#services .comming-soon{
+    font-size: small;
+            color: #333333;
+        font-style: italic;
+}
+
 #services a, #main-pricing a {
-	color:#448cd0;
+	color: #FFFFFF;
 	text-decoration: none;
 	font-family:"Tahoma",Trebuchet MS,Geneva,Kalimati,sans-serif;
 	font-size: 12px;
@@ -711,6 +756,11 @@ color: navy;
 	Subpage Settings
 ******************************************************************/
 
+        #subpage-inner{
+            margin: 0 auto;;
+            width: 920px;
+}
+
 #subpage {
 	background: transparent url(../../images/site/subpage_intro.png) center repeat-x;
 	height:168px;
@@ -815,6 +865,8 @@ p#page-description {
 }
 
 /* Subpage General Styles */
+
+
 
 #subpage-inner h1, #subpage-inner h2, #subpage-inner h3, #subpage-inner h4, #subpage-inner h5, #subpage-inner h6 {
 	color:#1d1c1c;
@@ -959,11 +1011,14 @@ div.gallery-picture {
 	Footer Settings
 ******************************************************************/
 
+
+
 .container { 
 	text-align: left; 
-	width: 960px; 
+	width: 960px;
 	margin: 0 auto; 
-	position: relative; 
+	position: relative;
+        text-align: left;
 	height: 100%; 
 }
 

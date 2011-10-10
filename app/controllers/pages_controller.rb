@@ -15,6 +15,10 @@ class PagesController < ActionController::Base
 	def media
 	end
 
+  def products
+    render :layout => "application"
+  end
+
 	def contact
 	end
 

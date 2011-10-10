@@ -10,12 +10,14 @@
                                 end
                            %>
                           </li>
+
                           <li>
-                           <%= link_to_unless_current('Members'.html_safe, users_path) do
-                              '<a class="active">Members</a>'.html_safe
+                           <%= link_to_unless_current('Products'.html_safe, products_path) do
+                              '<a class="active">Products</a>'.html_safe
                                 end
                            %>
                           </li>
+
                           <li>
                            <%= link_to_unless_current('Suggestions'.html_safe, suggest_path) do
                               '<a class="active">Suggestions</a>'.html_safe
@@ -23,8 +25,36 @@
                            %>
                           </li>
                           <li>
-                           <%= link_to_unless_current('About'.html_safe, about_path) do
-                              '<a class="active">About</a>'.html_safe
+                           <%= link_to_unless_current('<a href="#">about</a>
+					<ul>
+                  	  
+							
+								<li><a href="/about">Overview</a></li>
+								<li><a href="/about/features">Features</a></li>
+                                                                
+								<li class="last-link"><a href="#">Inspiration</a></li>
+                                                                <li><a href="about/founders">Founders</a></li>
+							
+						</li>
+					</ul>'.html_safe, about_path) do
+                              '				<a class="active" href="#">about</a>
+					<ul>
+                                                                <li><a href="/about/index">Overview</a></li>
+							
+								<li><a href="#">Only For</a></li>
+								<li><a href="#">Demostration</a></li>
+								<li class="last-link"><a href="#">Purpose</a></li>
+							
+						</li>
+					</ul>
+				'.html_safe
+                                end
+                           %>
+                          </li>
+
+                          <li>
+                           <%= link_to_unless_current('Members'.html_safe, users_path) do
+                              '<a class="active">Members</a>'.html_safe
                                 end
                            %>
                           </li>
@@ -35,16 +65,6 @@
                            %>
                           </li>
 
-					<ul>
-                  	   <li><a href="#">Another</a>
-							<ul>
-								<li><a href="#">Only For</a></li>
-								<li><a href="#">Demostration</a></li>
-								<li class="last-link"><a href="#">Purpose</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
+				
 		</div>
 	</div>
